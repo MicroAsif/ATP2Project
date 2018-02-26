@@ -1,11 +1,39 @@
-﻿@{
+﻿
+@model DoctorConsult.Core.ViewModel.SearchViewModel
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Find your doctor</h1>
+    <table>
+        <tr>
+            <td>@Html.DisplayName("City name?")</td>
+            <td>@Html.DisplayName("Looking for?")</td>
+            <td>@Html.DisplayName("Search catagory?")</td>
+        </tr>
+        <tr>
+            @using (Html.BeginForm())
+            {
+                <td>@Html.DropDownListFor(s => s.CityName, new SelectList(
+                   new List<Object>{
+                       new {value = 0, text = "Admin"},
+                       new {value = 1, text = "Doctor"},
+                       new {value = 2, text = "Patient"}
+                    }, "value", "text", 1))
+                </td>
+                <td>@Html.TextBoxFor(s => s.LookingFor)</td>
+                <td>@Html.TextBoxFor(s => s.SearchCatagory)</td>
+                <td><button class="btn btn-success pull-right">Search</button></td>
+            }
+        </tr>
+        <tr>
+            <td>@Html.ValidationMessage("CityName")</td>
+            <td>@Html.ValidationMessage("LookingFor")</td>
+            <td>@Html.ValidationMessage("SearchCatagory")</td>
+        </tr>
+    </table>
 </div>
 
 <div class="row">
