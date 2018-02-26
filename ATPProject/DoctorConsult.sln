@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Web", "DoctorConsult.Web\DoctorConsult.Web.csproj", "{17169360-1A22-4436-AAE5-8B22B5FBBE1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Core", "DoctorConsult.Core\DoctorConsult.Core.csproj", "{240C6115-DCA4-4C20-B2D9-D6126A6C1059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Data", "DoctorConsult.Data\DoctorConsult.Data.csproj", "{49442F0A-550D-40F5-A553-C94EB24FF2C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{17169360-1A22-4436-AAE5-8B22B5FBBE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17169360-1A22-4436-AAE5-8B22B5FBBE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17169360-1A22-4436-AAE5-8B22B5FBBE1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

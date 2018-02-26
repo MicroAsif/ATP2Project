@@ -1,0 +1,5 @@
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Data\bin\Debug\DoctorConsult.Data.dll
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Data\bin\Debug\DoctorConsult.Data.pdb
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.csprojResolveAssemblyReference.cache
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.dll
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.pdb
