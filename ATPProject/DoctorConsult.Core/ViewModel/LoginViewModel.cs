@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.ViewModel
 {
-    class LoginViewModel
+    public class LoginViewModel
     {
         [Required]
         [EmailAddress]
