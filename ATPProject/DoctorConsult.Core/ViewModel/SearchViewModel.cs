@@ -15,7 +15,7 @@ namespace DoctorConsult.Core.ViewModel
         [Required(ErrorMessage = "Please select an entity")]
         public string LookingFor { get; set; }
 
-        [Required(ErrorMessage = "Please select an catagory or type an catagory")]
+        [Required(ErrorMessage = "Please type an catagory")]
         public string SearchCatagory { get; set; }
     }
 }
