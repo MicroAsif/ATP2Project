@@ -1,8 +1,18 @@
-﻿
-@{
-    ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@model DoctorConsult.Core.ViewModel.LoginViewModel
+
 
 <h2>Login</h2>
+@Html.ValidationSummary()
+<div class="well doc_search_form_container" style="margin-top:80px;">
+    <p class="text-center sp_font_family find_your_doctor">SIGN IN</p>
+    <form method="post" action="http://www.facebook.com">
+        @Html.LabelFor(model => model.Email)</br>
+        @Html.TextBoxFor(model => model.Email)</br>
+        @Html.LabelFor(model => model.Password)</br>
+        @Html.TextBoxFor(model => model.Password)</br>
+        <input type="submit" value="Submit">
+    </form>
+    
+</div>
+
 
