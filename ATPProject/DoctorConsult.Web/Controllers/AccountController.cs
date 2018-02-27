@@ -19,7 +19,7 @@ namespace DoctorConsult.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            return View();
+            return View(model:model);
         }
         public ActionResult Register()
         {
