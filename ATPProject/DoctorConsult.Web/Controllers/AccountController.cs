@@ -9,8 +9,7 @@ namespace DoctorConsult.Web.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
-        // GET: Account
+        
         [HttpGet]
         public ActionResult Login()
         {
