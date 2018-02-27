@@ -20,9 +20,15 @@ namespace DoctorConsult.Web.Controllers
         {
             return View(model:model);
         }
-        public ActionResult Register()
+        [HttpGet]
+        public ActionResult Registration()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Registration(RegistrationViewModel model)
+        {
+            return View(model:model);
         }
     }
 }
