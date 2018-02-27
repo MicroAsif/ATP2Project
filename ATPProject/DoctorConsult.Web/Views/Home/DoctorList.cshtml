@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<DoctorConsult.Core.ViewModel.DoctorViewModel>
 
 @{
-    ViewBag.Title = "DoctorList";
+    ViewBag.Title = "Doctor List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DoctorList</h2>
+<h2>Doctor List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,13 +13,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+            @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName("First name")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Catagory)
+            @Html.DisplayName("Last name")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Specialist)
@@ -27,32 +33,48 @@
         <th>
             @Html.DisplayNameFor(model => model.Location)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayName("Contact number")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Catagory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Specialist)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Index", "Doctor"@*new { /* id=item.PrimaryKey */ }*@)
+            </td>
+        </tr>
+    }
 
 </table>

@@ -202,11 +202,11 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Home\DoctorList.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Doctor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Doctor\" />
     <Folder Include="Views\Patient\" />
   </ItemGroup>
   <ItemGroup>

@@ -34,9 +34,9 @@ namespace DoctorConsult.Web.Controllers
             // Demo value
             doctors = new List<DoctorViewModel>()
             {
-                new DoctorViewModel(){ Catagory="abc", Location= "cdf", Name = "fgh", Specialist = "hij" },
-                new DoctorViewModel(){ Catagory="mk", Location= "cdf", Name = "fgh", Specialist = "hij" },
-                new DoctorViewModel(){ Catagory="er", Location= "cdf", Name = "fgh", Specialist = "hij" }
+                new DoctorViewModel(){ Id = 1, FirstName="John", LastName="Abraham", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
+
+                new DoctorViewModel(){ Id = 2, FirstName="Babeli", LastName="At.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" }
             };
 
             return View(model: doctors);

@@ -8,10 +8,17 @@ namespace DoctorConsult.Core.ViewModel
 {
     public class DoctorViewModel
     {
-        public string Image { get; set; }
-        public string Name { get; set; }
-        public string Catagory { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public DateTime Bithdate { get; set; }
+        public string BloodGroup { get; set; }
+        public string Gender { get; set; }
         public string Specialist { get; set; }
         public string Location { get; set; }
+        public string ContactNumber { get; set; }
+        public string Image { get; set; }
     }
 }
