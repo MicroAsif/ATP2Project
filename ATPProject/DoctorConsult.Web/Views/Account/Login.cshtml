@@ -5,7 +5,7 @@
 @Html.ValidationSummary()
 <div class="well doc_search_form_container" style="margin-top:80px;">
     <p class="text-center sp_font_family find_your_doctor">SIGN IN</p>
-    <form method="post" name="loginForm" action="~/Home/Index">
+    <form method="post" name="loginForm">
         @Html.LabelFor(model => model.Email)<br />
         @Html.TextBoxFor(model => model.Email)<br />
         @Html.LabelFor(model => model.Password)<br />

@@ -9,7 +9,7 @@ namespace DoctorConsult.Web.Controllers
 {
     public class AccountController : Controller
     {
-        
+        //Login
         [HttpGet]
         public ActionResult Login()
         {
@@ -18,10 +18,17 @@ namespace DoctorConsult.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            return View(model:model);
+            if (ModelState.IsValid == true)
+            {
+                return RedirectToAction("Index","Home");
+            }
+            else
+            {
+                return View(model: model);
+            }
         }
 
-
+        //Registration
         [HttpGet]
         public ActionResult Registration()
         {
