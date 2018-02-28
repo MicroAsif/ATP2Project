@@ -203,6 +203,7 @@
     <Content Include="Views\Home\DoctorList.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Doctor\Index.cshtml" />
+    <Content Include="Views\Account\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
