@@ -6,5 +6,23 @@
 
 <h2>Registration</h2>
 
+@Html.ValidationSummary()
+<div class="well doc_search_form_container" style="margin-top:80px;">
+    <p class="text-center sp_font_family find_your_doctor">Reistration Form</p>
+    <form method="post" name="RegistrationForm">
+        @Html.Label("Id: ")</br>
+        @Html.TextBoxFor(model => model.UserId, new { @readonly = "readonly" })</br>
+        @Html.Label("First Name: ")<br />
+        @Html.TextBoxFor(model => model.FirstName)<br />
+        @Html.Label("Last Name: ")<br />
+        @Html.TextBoxFor(model => model.LastName)<br />
+        @Html.Label("Email: ")<br />
+        @Html.TextBoxFor(model => model.Email)<br />
+        @Html.Label("Password: ")<br />
+        @Html.TextBoxFor(model => model.Password)<br /><br />
+        <input type="submit" value="Submit">
+    </form></br>
+    <p>Already have an account? Go to </p> @Html.ActionLink("Login", "Login") <p> page</p>
+</div>
 
 
