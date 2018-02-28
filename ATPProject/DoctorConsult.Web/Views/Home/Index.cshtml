@@ -16,15 +16,26 @@
         <tr>
             @using (Html.BeginForm())
             {
-                <td>@Html.DropDownListFor(s => s.CityName, new SelectList(
-                   new List<Object>{
-                       new {value = 0, text = "Admin"},
-                       new {value = 1, text = "Doctor"},
-                       new {value = 2, text = "Patient"}
-                    }, "value", "text", 1))
+                <td>
+                    @Html.DropDownListFor(s => s.CityName, new SelectList(
+                     new List<Object>{
+               new {value = 0, text = "Dhaka"},
+               new {value = 1, text = "Rajshahi"},
+               new {value = 2, text = "Khulna"},
+               new {value = 3, text = "Barishal"},
+               new {value = 4, text = "Chittagang"},
+               new {value = 5, text = "Sylhet"}
+                      }, "value", "text", 0))
                 </td>
-                <td>@Html.TextBoxFor(s => s.LookingFor)</td>
-                <td>@Html.TextBoxFor(s => s.SearchCatagory)</td>
+                <td>
+                    @Html.DropDownListFor(s => s.LookingFor, new SelectList(
+                     new List<Object>{
+               new {value = 0, text = "Doctor"},
+               new {value = 1, text = "Admin"},
+               new {value = 2, text = "Hospital"}
+                      }, "value", "text", 1))
+                </td>
+                <td>@Html.TextBoxFor(s => s.SearchCatagory, new { placeholder = "Search by Doctor name, Specialty", maxlength = 100, style = "height:10%;" })</td>
                 <td><button class="btn btn-success pull-right">Search</button></td>
             }
         </tr>
