@@ -20,3 +20,8 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Data\obj\De
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.csproj.CoreCompileInputs.cache
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.pdb
+C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Data\bin\Debug\DoctorConsult.Data.dll
+C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Data\bin\Debug\DoctorConsult.Data.pdb
+C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.csproj.CoreCompileInputs.cache
+C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.dll
+C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.pdb

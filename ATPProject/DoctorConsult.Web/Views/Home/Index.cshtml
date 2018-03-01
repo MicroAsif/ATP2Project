@@ -5,66 +5,43 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div>
     <h1>Find your doctor</h1>
     <table>
-        <tr>
-            <td>@Html.DisplayName("City name?")</td>
-            <td>@Html.DisplayName("Looking for?")</td>
-            <td>@Html.DisplayName("Search catagory?")</td>
-        </tr>
+        @*<tr>
+                <td>@Html.DisplayName("City name?")</td>
+                <td>@Html.DisplayName("Looking for?")</td>
+                <td>@Html.DisplayName("Search catagory?")</td>
+            </tr>*@
         <tr>
             @using (Html.BeginForm())
             {
                 <td>
                     @Html.DropDownListFor(s => s.CityName, new SelectList(
-                     new List<Object>{
-               new {value = 0, text = "Dhaka"},
-               new {value = 1, text = "Rajshahi"},
-               new {value = 2, text = "Khulna"},
-               new {value = 3, text = "Barishal"},
-               new {value = 4, text = "Chittagang"},
-               new {value = 5, text = "Sylhet"}
-                      }, "value", "text", 0))
+                          new List<Object>{
+                           new {value = 0, text = "Dhaka",},
+                           new {value = 1, text = "Banani"},
+                           new {value = 2, text = "Kuril"},
+                           new {value = 3, text = "Mirpur"},
+                           new {value = 4, text = "Agargoan"},
+                           new {value = 5, text = "Khilkhet"}
+                          }, "value", "text", 0), new { style = "height: 30px" })
                 </td>
                 <td>
                     @Html.DropDownListFor(s => s.LookingFor, new SelectList(
-                     new List<Object>{
-               new {value = 0, text = "Doctor"},
-               new {value = 1, text = "Admin"},
-               new {value = 2, text = "Hospital"}
-                      }, "value", "text", 1))
+                          new List<Object>{
+                           new {value = 0, text = "Doctor"},
+                           new {value = 1, text = "Admin"}
+                          }, "value", "text", 0), new { style = "height: 30px" })
                 </td>
-                <td>@Html.TextBoxFor(s => s.SearchCatagory, new { placeholder = "Search by Doctor name, Specialty", maxlength = 100, style = "height:10%;" })</td>
-                <td><button class="btn btn-success pull-right">Search</button></td>
+                <td>@Html.TextBoxFor(s => s.SearchCatagory, new { @class = "form-control mr-sm-2", placeholder = "Search by Doctor name, Specialty", maxlength = 100, style = "height:10%;" })</td>
+                <td><button class="btn btn-outline-success my-2 my-sm-0" style="background: darkcyan; color: white">Search</button></td>
             }
         </tr>
         <tr>
             <td>@Html.ValidationMessage("CityName")</td>
             <td>@Html.ValidationMessage("LookingFor")</td>
-            <td>@Html.ValidationMessage("SearchCatagory")</td>
+            <td>@Html.ValidationMessage("SearchCatagory", new { style = "color: red;" })</td>
         </tr>
     </table>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
 </div>
