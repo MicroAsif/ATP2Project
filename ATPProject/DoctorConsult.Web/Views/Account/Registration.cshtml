@@ -31,35 +31,42 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-wrap">
-                    <h1>Please Fill Up The Form</h1>
+
                     @using (Html.BeginForm(FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            <label for="First Name" class="sr-only">First Name: </label>
-                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "First Name" })
-                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="Last Name" class="sr-only">Last Name: </label>
-                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Last Name" })
-                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="Email" class="sr-only">Email: </label>
-                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="Password" class="sr-only">Email: </label>
-                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        </div>
-                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
-                    }
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <label for="First Name" class="sr-only">Name: </label>
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="Email" class="sr-only">Email: </label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label for="Radio" class="sr-only">Register As: </label>
+                @Html.RadioButtonFor(m => m.Type, "Patient", false) @Html.Label("Patient")
+                @Html.RadioButtonFor(m => m.Type, "Doctor", false)  @Html.Label("Doctor")
+            </div>
+            <div class="form-group">
+                <label for="Password" class="sr-only">Password: </label>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="Password" class="sr-only">Confirm Password: </label>
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
+}
 
                 </div>
-                <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Login</a>
+                @Html.ActionLink("Already have an account ?", "Login", "Account", new { @class = "forget" })
             </div> <!-- /.col-xs-12 -->
         </div> <!-- /.row -->
     </div>
