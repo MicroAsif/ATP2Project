@@ -46,6 +46,7 @@
     <Compile Include="ViewModel\ForgetPasswordViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegistrationViewModel.cs" />
+    <Compile Include="ViewModel\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModel\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

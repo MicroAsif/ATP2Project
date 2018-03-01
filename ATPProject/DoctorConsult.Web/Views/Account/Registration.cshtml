@@ -7,23 +7,23 @@
 <h2>Registration</h2>
 
 @*@Html.ValidationSummary()
-<div class="well doc_search_form_container" style="margin-top:80px;">
-    <p class="text-center sp_font_family find_your_doctor">Reistration Form</p>
-    <form method="post" name="RegistrationForm">
-        @Html.Label("Id: ")</br>
-        @Html.TextBoxFor(model => model.UserId, new { @readonly = "readonly" })</br>
-        @Html.Label("First Name: ")<br />
-        @Html.TextBoxFor(model => model.FirstName)<br />
-        @Html.Label("Last Name: ")<br />
-        @Html.TextBoxFor(model => model.LastName)<br />
-        @Html.Label("Email: ")<br />
-        @Html.TextBoxFor(model => model.Email)<br />
-        @Html.Label("Password: ")<br />
-        @Html.TextBoxFor(model => model.Password)<br /><br />
-        <input type="submit" value="Submit">
-    </form></br>
-    <p>Already have an account? Go to </p> @Html.ActionLink("Login", "Login") <p> page</p>
-</div>*@
+    <div class="well doc_search_form_container" style="margin-top:80px;">
+        <p class="text-center sp_font_family find_your_doctor">Reistration Form</p>
+        <form method="post" name="RegistrationForm">
+            @Html.Label("Id: ")</br>
+            @Html.TextBoxFor(model => model.UserId, new { @readonly = "readonly" })</br>
+            @Html.Label("First Name: ")<br />
+            @Html.TextBoxFor(model => model.FirstName)<br />
+            @Html.Label("Last Name: ")<br />
+            @Html.TextBoxFor(model => model.LastName)<br />
+            @Html.Label("Email: ")<br />
+            @Html.TextBoxFor(model => model.Email)<br />
+            @Html.Label("Password: ")<br />
+            @Html.TextBoxFor(model => model.Password)<br /><br />
+            <input type="submit" value="Submit">
+        </form></br>
+        <p>Already have an account? Go to </p> @Html.ActionLink("Login", "Login") <p> page</p>
+    </div>*@
 
 
 <div>
@@ -33,30 +33,30 @@
                 <div class="form-wrap">
                     <h1>Please Fill Up The Form</h1>
                     @using (Html.BeginForm(FormMethod.Post))
-    {
-                @Html.AntiForgeryToken()
-                <div class="form-group">
-                    <label for="First Name" class="sr-only">First Name: </label>
-                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "First Name" })
-                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="Last Name" class="sr-only">Last Name: </label>
-                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Last Name" })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="Email" class="sr-only">Email: </label>
-                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="Password" class="sr-only">Email: </label>
-                    @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
-                <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
-}
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="First Name" class="sr-only">First Name: </label>
+                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", placeholder = "First Name" })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Last Name" class="sr-only">Last Name: </label>
+                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Email" class="sr-only">Email: </label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="sr-only">Email: </label>
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
+                    }
 
                 </div>
                 <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Login</a>

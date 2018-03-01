@@ -57,7 +57,33 @@ namespace DoctorConsult.Web.Controllers
         [HttpPost]
         public ActionResult ForgetPassword(ForgetPasswordViewModel model)
         {
-            return View(model:model);
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("ResetPassword", "Account");
+            }
+            else
+            {
+                return View(model: model);
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                return View(model: model);
+            }
         }
     }
 }
