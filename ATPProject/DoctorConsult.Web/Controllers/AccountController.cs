@@ -46,5 +46,18 @@ namespace DoctorConsult.Web.Controllers
                 return View(model: model);
             }
         }
+
+        //Forget Password
+
+        [HttpGet]
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgetPassword(ForgetPasswordViewModel model)
+        {
+            return View(model:model);
+        }
     }
 }
