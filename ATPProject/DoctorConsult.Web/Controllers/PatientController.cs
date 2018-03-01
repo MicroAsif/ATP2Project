@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoctorConsult.Core.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,10 +19,22 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
-
-        public ActionResult ChangePass()
+        [HttpGet]
+        public ActionResult ChangePassword()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(PatientChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Profile", "Patient");
+            }
+            else
+            {
+                return View(model: model);
+            }
         }
 
 
