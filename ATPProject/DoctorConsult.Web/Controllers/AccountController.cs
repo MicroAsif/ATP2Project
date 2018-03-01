@@ -20,7 +20,7 @@ namespace DoctorConsult.Web.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index","Patient");
             }
             else
             {

@@ -1,0 +1,46 @@
+﻿<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+
+       
+        @if (User.IsInRole("Admin"))
+            {
+            <ul class="sidebar-menu">
+                <li class="header">Main Menu</li>
+                <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+                
+                <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        }
+
+        @if (User.IsInRole("Doctor"))
+            {
+                <ul class="sidebar-menu">
+                    <li class="header">Main Menu</li>
+                    <li><a href="@Url.Action("Index", "Patient")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+                    <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                </ul>
+        }
+
+        @if (User.IsInRole("Patient"))
+            {
+                <ul class="sidebar-menu">
+                    <li class="header">Main Menu</li>
+                    <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+                
+                    <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                </ul>
+        }
+        
+        
+       @* patient dashbaord*@
+        <ul class="sidebar-menu">
+            <li class="header">Main Menu</li>
+            <li><a href="@Url.Action("Index", "Patient")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+                
+            <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+        </ul>
+    </section>
+</aside>
+

@@ -224,3 +224,8 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Deb
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CoreCompileInputs.cache
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Core.dll
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.dll
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Core.pdb
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.pdb
+C:\dev\ATP2Lab\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csprojResolveAssemblyReference.cache

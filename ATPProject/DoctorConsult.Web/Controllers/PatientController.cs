@@ -8,7 +8,7 @@ namespace DoctorConsult.Web.Controllers
 {
     public class PatientController : Controller
     {
-        // GET: Patient
+        // patient dashboard
         public ActionResult Index()
         {
             return View();
