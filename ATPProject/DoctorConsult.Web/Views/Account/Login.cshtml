@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="form-wrap">
-                    <h1>Enter Dashboard</h1>
+              
                     @using (Html.BeginForm("Login", "Account", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
@@ -29,13 +29,13 @@
                     <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
             }
                     <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot password?</a>
-                    @Html.ActionLink("Create an account?", "Register", "Home", new { @class = "forget" })
+                    @Html.ActionLink("Create an account?", "Registration", "Home", new { @class = "forget" })
                     <hr />
                 </div>
             </div> <!-- /.col-xs-12 -->
         </div> <!-- /.row -->
     </div>
-    <p>Please </p> @Html.ActionLink("Sign up", "Login") <p> if not registered yet</p>
+    
 </div>
 
 

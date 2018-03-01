@@ -37,9 +37,9 @@ namespace DoctorConsult.Web.Controllers
         [HttpPost]
         public ActionResult Registration(RegistrationViewModel model)
         {
-            if (ModelState.IsValid == true)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login","Account");
             }
             else
             {
