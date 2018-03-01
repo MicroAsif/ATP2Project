@@ -1141,7 +1141,7 @@
     <Content Include="Views\Shared\_Navigation.cshtml" />
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Patient\Profile.cshtml" />
-    <Content Include="Views\Patient\ChangePass.cshtml" />
+    <Content Include="Views\Patient\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
