@@ -7,9 +7,6 @@
 
 <h2>Doctor List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 @*<table class="table">
     <tr>
         <th>
@@ -91,16 +88,17 @@
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
                                     <img alt="profile-photo" src="http://placehold.it/380x500" class="img-responsive">
-                                    <ul class="text-left">
+                                    @*<ul class="text-left">
                                         <a href="#"><li><i class="fa fa-facebook"></i> Facebook</li></a>
                                         <a href="#"><li><i class="fa fa-twitter"></i> Twitter</li></a>
                                         <a href="#"><li><i class="fa fa-linkedin"></i> LinkedIn</li></a>
-                                    </ul>
+                                    </ul>*@
                                 </div>
+
                                 <h1>@item.FirstName @item.LastName</h1>
                                 <p>@item.Email</p>
                                 <p>@item.Specialist</p>
-                                <p>@item.Location</p>
+                                @*<p>@item.Location</p>*@
                                 @Html.ActionLink("Details", "Index", "Doctor"@*new { /* id=item.PrimaryKey */ }*@)
                             </div>
                         }
