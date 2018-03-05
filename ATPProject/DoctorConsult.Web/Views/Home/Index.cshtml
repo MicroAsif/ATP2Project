@@ -5,7 +5,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<div>
+<div class="jumbotron" style="background-image: url('/Images/portal.jpg');">
     <h1>Find your doctor</h1>
     <table>
         @*<tr>
@@ -18,30 +18,64 @@
             {
                 <td>
                     @Html.DropDownListFor(s => s.CityName, new SelectList(
-                          new List<Object>{
-                           new {value = 0, text = "Dhaka",},
-                           new {value = 1, text = "Banani"},
-                           new {value = 2, text = "Kuril"},
-                           new {value = 3, text = "Mirpur"},
-                           new {value = 4, text = "Agargoan"},
-                           new {value = 5, text = "Khilkhet"}
-                          }, "value", "text", 0), new { style = "height: 30px" })
+                                                             new List<Object>{
+                                                      new {value = 0, text = "Dhaka",},
+                                                      new {value = 1, text = "Banani"},
+                                                      new {value = 2, text = "Kuril"},
+                                                      new {value = 3, text = "Mirpur"},
+                                                      new {value = 4, text = "Agargoan"},
+                                                      new {value = 5, text = "Khilkhet"}
+                                                             }, "value", "text", 0), new { style = "height: 30px" })
+                    <br />
                 </td>
-                <td>
-                    @Html.DropDownListFor(s => s.LookingFor, new SelectList(
-                          new List<Object>{
-                           new {value = 0, text = "Doctor"},
-                           new {value = 1, text = "Admin"}
-                          }, "value", "text", 0), new { style = "height: 30px" })
-                </td>
-                <td>@Html.TextBoxFor(s => s.SearchCatagory, new { @class = "form-control mr-sm-2", placeholder = "Search by Doctor name, Specialty", maxlength = 100, style = "height:10%;" })</td>
-                <td><button class="btn btn-outline-success my-2 my-sm-0" style="background: darkcyan; color: white">Search</button></td>
+                @*<td>
+                        @Html.DropDownListFor(s => s.LookingFor, new SelectList(
+                              new List<Object>{
+                              new {value = 0, text = "Doctor"},
+                              new {value = 1, text = "Admin"}
+                              }, "value", "text", 0), new { style = "height: 30px" })
+                        <br />
+                    </td>*@
+                <td>@Html.TextBoxFor(s => s.SearchCatagory, new { @class = "form-control mr-sm-2", placeholder = "Search by Doctor name, Specialty", maxlength = 100, style = "height: 10%;" })</td>
+                <td>&nbsp;</td>
+                <td><button class="btn btn-outline-success my-2 my-sm-0" style="background: darkcyan; color: white; max-height: 30px;">Search</button></td>
             }
         </tr>
         <tr>
             <td>@Html.ValidationMessage("CityName")</td>
-            <td>@Html.ValidationMessage("LookingFor")</td>
+            @*<td>@Html.ValidationMessage("LookingFor")</td>*@
             <td>@Html.ValidationMessage("SearchCatagory", new { style = "color: red;" })</td>
         </tr>
     </table>
 </div>
+
+
+<div class="col-lg-4 col-sm-4 text-center">
+    <span><img style="height: 150px; width: 150px;" src="https://doctorola.com//frontend_assets/images/final.svg#svgView(viewBox(39,337,139,141))"></span>
+    <div class="how_it_works_inside_text">
+        <p class="how_it_works_inside_text_header text-center">SEARCH</p>
+        <p class="how_it_works_inside_text_content text-center">
+            Find your doctor easily with a minimum of effort. We've kept everything organised for you.
+        </p>
+    </div>
+</div>
+
+<div class="col-lg-4 col-sm-4 text-center">
+    <span><img style="height: 150px; width: 150px;" src="https://doctorola.com//frontend_assets/images/final.svg#svgView(viewBox(255,337,139,141))"></span>
+    <div class="how_it_works_inside_text">
+        <p class="how_it_works_inside_text_header text-center">BOOK</p>
+        <p class="how_it_works_inside_text_content text-center">
+            Ask for an appointment of the doctor quickly with almost a single click. We take care of the rest.
+        </p>
+    </div>
+</div>
+
+<div class="col-lg-4 col-sm-4 text-center">
+    <span><img style="height: 150px; width: 150px;" src="https://doctorola.com//frontend_assets/images/final.svg#svgView(viewBox(460,337,139,141))"></span>
+    <div class="how_it_works_inside_text">
+        <p class="how_it_works_inside_text_header text-center">GET WELL SOON</p>
+        <p class="how_it_works_inside_text_content text-center">Take the service from doctor or meet the blood donor based on your appointment.	Get back to good health and happiness.</p>
+    </div>
+</div>
+
+&nbsp;

@@ -1058,6 +1058,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\pexels-photo-733857.jpeg" />
+    <Content Include="Images\portal.jpg" />
+    <Content Include="Images\Search icon.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -1142,6 +1145,9 @@
     <Content Include="Views\Patient\Index.cshtml" />
     <Content Include="Views\Patient\Profile.cshtml" />
     <Content Include="Views\Patient\ChangePassword.cshtml" />
+    <Content Include="Views\Doctor\PatientList.cshtml" />
+    <Content Include="Views\Doctor\ConsultRequest.cshtml" />
+    <Content Include="Views\Doctor\Prescribe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
