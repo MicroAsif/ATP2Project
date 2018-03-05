@@ -11,7 +11,6 @@ C:\Users\Arwin\source\repos\ATP2Project\ATP2Lab\ATPProject\DoctorConsult.Core\ob
 C:\Users\Arwin\source\repos\ATP2Project\ATP2Lab\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.pdb
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\bin\Debug\DoctorConsult.Core.dll
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\bin\Debug\DoctorConsult.Core.pdb
-C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.dll
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.pdb

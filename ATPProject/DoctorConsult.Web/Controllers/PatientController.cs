@@ -14,10 +14,15 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public ActionResult Profile()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Profile(PatientProfileViewModel model)
+        {
+            return View(model:model);
         }
         [HttpGet]
         public ActionResult ChangePassword()

@@ -1,8 +1,49 @@
-﻿
+﻿@model DoctorConsult.Core.ViewModel.PatientProfileViewModel
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
 <h2>Profile</h2>
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
 
+                    @using (Html.BeginForm(FormMethod.Post))
+    {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label for="Birthday">Birthday</label>
+                    @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control", placeholder = "Birthday" })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Birthday">Blood Group: </label>
+                    @Html.DropDownListFor(model => model.BloodGroup, new SelectList(
+                                               new List<Object>{
+                                                      new {value = 0, text = "A+"},
+                                                      new {value = 1, text = "B+"},
+                                                      new {value = 2, text = "AB+"},
+                                                      new {value = 3, text = "O+"},
+
+                                                      new {value = 5, text = "O-"}
+                                               }, "value", "text", 0), new { style = "height: 30px" })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Radio">Gender: </label>
+                    @Html.RadioButtonFor(m => m.Gender, "Patient", false) @Html.Label("Male")
+                    @Html.RadioButtonFor(m => m.Gender, "Doctor", false)  @Html.Label("Female")
+                </div>
+                <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
+}
+
+                    <hr />
+                </div>
+            </div> <!-- /.col-xs-12 -->
+        </div> <!-- /.row -->
+    </div>
+
+</div>
