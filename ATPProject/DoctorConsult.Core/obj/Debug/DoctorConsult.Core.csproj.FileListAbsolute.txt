@@ -26,3 +26,4 @@ C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Cor
 C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.dll
 C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.pdb
 C:\Users\Arwin\Documents\GitHub\Clone 1\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2_Important\ATP2Project\ATPProject\DoctorConsult.Core\obj\Debug\DoctorConsult.Core.csprojResolveAssemblyReference.cache

@@ -15,8 +15,11 @@ namespace DoctorConsult.Core.ViewModel
         [Required]
         public string Gender { get; set; }
         public string Area { get; set; }
+        [Required]
         public string District { get; set; }
         public string Division { get; set; }
+        [Phone]
+        [Display(Name = "Contact Number:")]
         public string ContactNumber { get; set; }
         public string Photo { get; set; }
     }
