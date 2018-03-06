@@ -24,13 +24,22 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
-
         public ActionResult ConsultRequestList()
         {
             return View("ConsultRequest");
         }
 
         public ActionResult Prescribe()
+        {
+            return View();
+        }
+
+        public ActionResult PrescribtionList()
+        {
+            return View();
+        }
+
+        public ActionResult PrescribtionDetails()
         {
             return View();
         }
