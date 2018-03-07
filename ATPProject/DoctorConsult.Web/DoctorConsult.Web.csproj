@@ -1153,7 +1153,6 @@
     <Content Include="Views\Shared\_doctorNavigation.cshtml" />
     <Content Include="Views\Doctor\Profile.cshtml" />
     <Content Include="Views\Doctor\ChangePassword.cshtml" />
-    <Content Include="Views\Doctor\Dashboard.cshtml" />
     <Content Include="Views\Shared\_changepass.cshtml" />
   </ItemGroup>
   <ItemGroup>

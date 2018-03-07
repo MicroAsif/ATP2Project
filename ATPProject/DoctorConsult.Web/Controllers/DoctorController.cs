@@ -21,7 +21,7 @@ namespace DoctorConsult.Web.Controllers
 
         public  ActionResult Profile()
         {
-            return View();
+            return View(new DoctorProfileViewModel());
         }
 
         public ActionResult PatientList()

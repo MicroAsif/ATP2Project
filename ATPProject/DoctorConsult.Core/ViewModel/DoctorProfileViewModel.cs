@@ -31,6 +31,7 @@ namespace DoctorConsult.Core.ViewModel
         public double NewFee { get; set; }
         [Required]
         public double OldFee { get; set; }
+        public string Address { get; set; }
 
 
     }
