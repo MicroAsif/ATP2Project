@@ -30,87 +30,106 @@
                 <div class="form-wrap">
 
                     @using (Html.BeginForm(FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
+    {
+                @Html.AntiForgeryToken()
 
-                        <div class="form-group">
-                            <fieldset>
-                               
-                                <label for="Image">Image</label>
-                                <input type="file" name="Image" />
-                                <br />
-                                <input type="submit" value="Upload" />
-                            </fieldset>
-                            @if (imagePath != "")
-                            {
-                                <div class="result">
-                                    <img src="@imagePath" alt="image" />
+                <div class="form-group">
+                    <fieldset>
 
-                                </div>
-                            }
-                        </div>
+                        <label for="Image">Image</label>
+                        <input type="file" name="Image" />
+                        <br />
+                        @*<input type="submit" value="Upload" />*@
+                    </fieldset>
+                    @if (imagePath != "")
+    {
+                <div class="result">
+                    <img src="@imagePath" alt="image" />
 
+                </div>
+}
+                </div>
+                <div class="form-group">
+                    <label for="Name">Name</label>
 
-                        <div class="form-group">
-                            <label for="Birthday">Birthday</label>
-                            @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control", placeholder = "Day/Month/Year"})
-                            @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="Birthday">Blood Group: </label><br>
-                            @Html.DropDownListFor(model => model.BloodGroup, new SelectList(
-                                    new List<Object>{
-                                                                  new {value = 0, text = "A+"},
-                                                                  new {value = 1, text = "B+"},
-                                                                  new {value = 2, text = "AB+"},
-                                                                  new {value = 3, text = "O+"},
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
 
-                                                                  new {value = 5, text = "O-"}
-                                    }, "value", "text", 0),  new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="Radio">Gender: </label><br>
-                            <div class="radio-inline">
-                                @Html.RadioButtonFor(m => m.Gender, "Patient", false) @Html.Label("Male")
-                            </div>
-                            <div class="radio-inline">
-                                @Html.RadioButtonFor(m => m.Gender, "Doctor", false)  @Html.Label("Female")
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="dropdown">Division: </label><br>
-                                @Html.DropDownListFor(model => model.Division, new SelectList(
-  new List<Object>{
-                                                  new {value = 0, text = "Dhaka"},
-                                                  new {value = 1, text = "Chittagoan"},
-                                                  new {value = 2, text = "Khulna"},
-                                                  new {value = 3, text = "Rajshahi"}
-  }, "value", "text", 0), new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
-                            </div>
-                            <div class="form-group">
-                                <label for="dropdown">District: </label><br>
-                                @Html.DropDownListFor(model => model.District, new SelectList(
-  new List<Object>{
-                                                  new {value = 0, text = "Dhaka"},
-                                                  new {value = 1, text = "Tangail"},
-                                                  new {value = 2, text = "Jessore"},
-                                                  new {value = 3, text = "Magura"}
-  }, "value", "text", 0), new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
-                            </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
 
-                            <div class="form-group">
-                                <label for="text">Area: </label>
-                                @Html.TextBoxFor(model => model.Area, new { @class = "form-control", placeholder = "Particular location of the district" })
-                                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
-                            </div>
-                            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
-                            }
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
 
-                            <hr />
-                        </div>
+                <div class="form-group">
+                    <label for="Age">Age</label>
+
+                    @Html.TextBoxFor(model => model.age, new { @class = "form-control", placeholder = "Age" })
+                    @Html.ValidationMessageFor(model => model.age,"", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="Birthday">Birthday</label>
+                    @Html.TextBoxFor(model => model.Birthday, new { @class = "form-control", placeholder = "Day/Month/Year" })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Birthday">Blood Group: </label><br>
+                    @Html.DropDownListFor(model => model.BloodGroup, new SelectList(
+new List<Object>{
+                              new {value = 0, text = "A+"},
+                              new {value = 1, text = "B+"},
+                              new {value = 2, text = "AB+"},
+                              new {value = 3, text = "O+"},
+
+                              new {value = 5, text = "O-"}
+}, "value", "text", 0), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Radio">Gender: </label><br>
+                    <div class="radio-inline">
+                        @Html.RadioButtonFor(m => m.Gender, "Patient", false) @Html.Label("Male")
+                    </div>
+                    <div class="radio-inline">
+                        @Html.RadioButtonFor(m => m.Gender, "Doctor", false)  @Html.Label("Female")
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dropdown">Division: </label><br>
+                    @Html.DropDownListFor(model => model.Division, new SelectList(
+new List<Object>{
+              new {value = 0, text = "Dhaka"},
+              new {value = 1, text = "Chittagoan"},
+              new {value = 2, text = "Khulna"},
+              new {value = 3, text = "Rajshahi"}
+}, "value", "text", 0), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="dropdown">District: </label><br>
+                    @Html.DropDownListFor(model => model.District, new SelectList(
+new List<Object>{
+              new {value = 0, text = "Dhaka"},
+              new {value = 1, text = "Tangail"},
+              new {value = 2, text = "Jessore"},
+              new {value = 3, text = "Magura"}
+}, "value", "text", 0), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="text">Area: </label>
+                    @Html.TextBoxFor(model => model.Area, new { @class = "form-control", placeholder = "Particular location of the district" })
+                    @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                </div>
+                <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
+}
+
+                    <hr />
+                </div>
             </div> <!-- /.col-xs-12 -->
         </div> <!-- /.row -->
     </div>

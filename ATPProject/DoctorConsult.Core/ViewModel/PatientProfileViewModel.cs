@@ -9,6 +9,9 @@ namespace DoctorConsult.Core.ViewModel
 {
     public class PatientProfileViewModel
     {
+        public string Name { get; set; }
+        public string age { get; set; }
+        public string Email { get; set; }
         public string Birthday { get; set; }
         [Required]
         public string BloodGroup { get; set; }
