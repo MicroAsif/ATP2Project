@@ -1,8 +1,129 @@
-﻿
+﻿@model DoctorConsult.Core.ViewModel.DoctorViewModel
 @{
-    ViewBag.Title = "Profile";
-    Layout = "~/Views/Shared/_doctorDashboard.cshtml";
+    ViewBag.Title = "User Profile";
+    Layout = "~/Views/Shared/_DashBoard.cshtml";
 }
 
-<h2>Profile</h2>
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-info"></i> Success!</h4>
+        @TempData["Msg"].ToString()
+    </div>
+}
+@if (TempData["FMsg"] != null)
+{
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><i class="icon fa fa-info"></i> Failed!</h4>
+        @TempData["FMsg"].ToString()
+    </div>
+}
+
+
+@using (Html.BeginForm("ViewProfile", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="form-horizontal">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Manage Profile</h3>
+                    </div>
+                    <br />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                  
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                <img src="@Model.Image" alt="img" id="UploadFile" class="img-thumbnail" style="height: 150px" width="150px" /> <br />
+                                <input type="file" name="logoPostedFileBase" accept="image/x-png, image/gif, image/jpeg" id="FileUpload" onchange="PreviewImage()" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            <p class="form-control"><strong>@Model.Email</strong></p>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your name" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter phone number" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(x => x.Gender, new List<SelectListItem>
+                                                {
+                                                    new SelectListItem() {Text = "Male", Value="Male"},
+                                                    new SelectListItem() {Text = "Female", Value="Female"},
+                                                }, "Select Gender", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(model => model.Address, new { @class = "form-control", rows = "4", @placeholder = "Enter your address" })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Update Profile" class="btn btn-primary" />
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <a href=""><i class="fa fa-arrow-circle-o-left" aria-hidden="true" style="margin-left:20px;"></i></a>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+});
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("FileUpload").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("UploadFile").src = oFREvent.target.result;
+        };
+    };
+</script>
 
