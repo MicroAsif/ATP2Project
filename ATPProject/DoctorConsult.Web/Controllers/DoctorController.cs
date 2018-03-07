@@ -20,6 +20,17 @@ namespace DoctorConsult.Web.Controllers
             return View();
         }
 
+
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        public  ActionResult Profile()
+        {
+            return View();
+        }
+
         public ActionResult PatientList()
         {
             return View();

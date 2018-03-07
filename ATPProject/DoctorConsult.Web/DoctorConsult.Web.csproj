@@ -1151,6 +1151,9 @@
     <Content Include="Views\Doctor\PrescribtionList.cshtml" />
     <Content Include="Views\Shared\_doctorDashboard.cshtml" />
     <Content Include="Views\Shared\_doctorNavigation.cshtml" />
+    <Content Include="Views\Doctor\Profile.cshtml" />
+    <Content Include="Views\Doctor\ChangePassword.cshtml" />
+    <Content Include="Views\Doctor\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

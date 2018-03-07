@@ -5,79 +5,124 @@
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
 
-<h2>PatientList</h2>
 
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="form-wrap">
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <div class="box-header">
-                                    
-                                    <div class="box-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-                                            <div class="input-group-btn">
-                                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Patient Name</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Problem</th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Rahman, Sk. Samiur</td>
-                                            <td>03-12-18</td>
-                                            <td><span class="label label-success">Checked</span></td>
-                                            <td>Pete betha.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Asif Ur Rahman</td>
-                                            <td>1-7-2017</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>Golay betha.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Alam, Md. Ashraful</td>
-                                            <td>1-8-2018</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>Kane sune na.</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Rejaul Islam</td>
-                                            <td>1-7-2047</td>
-                                            <td><span class="label label-success">Checked</span></td>
-                                            <td>dsfsd</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <!-- /.box-body -->
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                    </div>
-                    
-                    <!-- /.content -->
-                </div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Patient List</h3>
             </div>
-        </div> <!-- /.col-xs-12 -->
-    </div> <!-- /.row -->
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Patent's Name</th>
+                            <th>Patent's Email</th>
+                            <th>Patient's Location</th>
+                            <th>Blood </th>
+                            <th>Age</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                 
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", ""))" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                           
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", ""))" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                          
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", ""))" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                          
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", ""))" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <!-- /.col -->
 </div>
 
 
