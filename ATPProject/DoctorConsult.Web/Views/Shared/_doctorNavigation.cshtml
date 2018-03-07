@@ -12,13 +12,24 @@
         <ul class="sidebar-menu">
             <li class="header">Main Menu</li>
             <li><a href="@Url.Action("dashboard", "Doctor")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
-            <li><a href="@Url.Action("Profile", "Doctor")"><i class="fa fa-user"></i> <span>View Profile</span></a></li>
-            <li><a href="@Url.Action("ChangePassword", "Doctor")"><i class="fa fa-user"></i> <span>Change Password</span></a></li>
 
-            <li><a href="@Url.Action("PatientList", "Doctor")"><i class="fa fa-dashboard"></i> <span>Patient List</span></a></li>
+
             <li><a href="@Url.Action("ConsultRequestList", "Doctor")"><i class="fa fa-user"></i> <span>Consult Request List</span></a></li>
+            <li><a href="@Url.Action("PatientList", "Doctor")"><i class="fa fa-user"></i> <span>Patient List</span></a></li>
             <li><a href="@Url.Action("PrescribtionList", "Doctor")"><i class="fa fa-user"></i> <span>Prescribtion List</span></a></li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>Profile</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Profile", "Doctor")><i class="fa fa-circle-o"></i> User Profile</a></li>
+                    <li><a href=@Url.Action("ChangePassword", "Doctor")><i class="fa fa-circle-o"></i> Change Password</a></li>
+                </ul>
+            </li>
 
             <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
         </ul>

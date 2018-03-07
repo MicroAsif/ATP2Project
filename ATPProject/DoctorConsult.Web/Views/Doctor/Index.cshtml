@@ -1,164 +1,51 @@
-﻿@model DoctorConsult.Core.ViewModel.DoctorViewModel
-
+﻿
 @{
-    ViewBag.Title = "Profile";
+    ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
 
-<br />
-<br />
-<br />
-<br />
+<section class="content-header">
+    <h1>
+        <strong> Dashboard</strong>
 
-<div class="container">
+        <small>Surmmary of your application</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="@Url.Action("Index")"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+
+<section class="content">
+    <!-- Small boxes (Stat box) -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-12 col-md-2">
-                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
-                        @Html.DisplayFor(model => model.Image)
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>
-                            @Html.DisplayFor(model => model.FirstName)
-                            @Html.DisplayFor(model => model.LastName)
-                        </h4>
-
-                        <br />
-                        <br />
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i> @Html.DisplayFor(model => model.Email)
-                            <br />
-                            <i class="glyphicon glyphicon-globe"></i> <a href="http://www.doctorconsult.com">www.doctorconsult.com</a>
-                            <br />
-                            <i class="glyphicon glyphicon-gift"></i> @Html.DisplayFor(model => model.Bithdate)
-                        </p>
-                        <i class="fa">&#xf22c;</i>
-                        @Html.DisplayFor(model => model.Gender)
-                        <br />
-                        <br />
-                        <p>
-                            <i class="glyphicon glyphicon-btc"></i>
-                            @Html.DisplayFor(model => model.BloodGroup)
-                        </p>
-                        <small>
-                            <cite>
-                                @Html.DisplayFor(model => model.Location) <i class="glyphicon glyphicon-map-marker">
-                                </i>
-                            </cite>
-                        </small>
-                        <hr />
-                        <!-- Split button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-primary">
-                                Speciality
-                            </button>
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span><span class="sr-only">Social</span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Pain Management</a></li>
-                                @*<li><a href="#">Allergy & Immunology +</a></li>
-                                <li><a href="#">Anesthesia</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"> Physiotherapy</a></li>*@
-                            </ul>
-                            <br />
-                            <br />
-                        </div>
-                        <hr />
-                        <div class="col-sm-1 col-xs-4 col-md-12">
-                            <i @Html.Display("fa fa-home")><a href="">Consult</a></i>
-                        </div>
-                    </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>4</h3>
+                    <p>patient</p>
                 </div>
+                <div class="icon">
+                    <i class="ion ion-ios-people"></i>
+                </div>
+                <a href="@Url.Action("patientList", "doctor")" class="small-box-footer">View All patient list <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>5</h3>
+                    <p>Prescription </p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-ios-people"></i>
+                </div>
+                <a href="@Url.Action("PrescribtionList", "doctor")" class="small-box-footer">View All Prescription Student <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
-</div>
 
-@*<h2>Profile</h2>
+</section>
 
-    <div>
-        <h4>Doctor</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayName("Full name")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FirstName)
-                @Html.DisplayFor(model => model.LastName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Bithdate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Bithdate)
-            </dd>
-
-            <dt>
-                @Html.DisplayName("Blood group")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.BloodGroup)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Gender)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Gender)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Specialist)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Specialist)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Location)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Location)
-            </dd>
-
-            <dt>
-                @Html.DisplayName("Contact number")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ContactNumber)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Image)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "DoctorList", "Home")
-    </p>*@
