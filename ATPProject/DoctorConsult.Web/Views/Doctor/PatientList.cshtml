@@ -1,8 +1,85 @@
 ﻿
+
 @{
     ViewBag.Title = "PatientList";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
 <h2>PatientList</h2>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">Responsive Hover Table</h3>
+                                    <div class="box-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                                            <div class="input-group-btn">
+                                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Patient Name</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Problem</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Rahman, Sk. Samiur</td>
+                                            <td>03-12-18</td>
+                                            <td><span class="label label-success">Checked</span></td>
+                                            <td>Pete betha.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Asif Ur Rahman</td>
+                                            <td>1-7-2017</td>
+                                            <td><span class="label label-warning">Pending</span></td>
+                                            <td>Golay betha.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Alam, Md. Ashraful</td>
+                                            <td>1-8-2018</td>
+                                            <td><span class="label label-warning">Pending</span></td>
+                                            <td>Kane sune na.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Rejaul Islam</td>
+                                            <td>1-7-2047</td>
+                                            <td><span class="label label-success">Checked</span></td>
+                                            <td>dsfsd</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                    </div>
+                    
+                    <!-- /.content -->
+                </div>
+            </div>
+        </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+</div>
+
+
+
 
