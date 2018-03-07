@@ -344,3 +344,4 @@ C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Newtonsoft.Json.xml
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csprojResolveAssemblyReference.cache
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
+C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CoreCompileInputs.cache

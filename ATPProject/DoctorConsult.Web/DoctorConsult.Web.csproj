@@ -1149,6 +1149,8 @@
     <Content Include="Views\Doctor\ConsultRequest.cshtml" />
     <Content Include="Views\Doctor\Prescribe.cshtml" />
     <Content Include="Views\Doctor\PrescribtionList.cshtml" />
+    <Content Include="Views\Shared\_doctorDashboard.cshtml" />
+    <Content Include="Views\Shared\_doctorNavigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

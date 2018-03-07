@@ -1,0 +1,27 @@
+﻿<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+
+       
+       
+
+        
+       
+       @* doctor dashbaord*@
+        <ul class="sidebar-menu">
+            <li class="header">Main Menu</li>
+            <li><a href="@Url.Action("dashboard", "Doctor")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+            <li><a href="@Url.Action("Profile", "Doctor")"><i class="fa fa-user"></i> <span>View Profile</span></a></li>
+            <li><a href="@Url.Action("ChangePassword", "Doctor")"><i class="fa fa-user"></i> <span>Change Password</span></a></li>
+
+            <li><a href="@Url.Action("PatientList", "Doctor")"><i class="fa fa-dashboard"></i> <span>Patient List</span></a></li>
+            <li><a href="@Url.Action("ConsultRequestList", "Doctor")"><i class="fa fa-user"></i> <span>Consult Request List</span></a></li>
+            <li><a href="@Url.Action("PrescribtionList", "Doctor")"><i class="fa fa-user"></i> <span>Prescribtion List</span></a></li>
+
+
+            <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+        </ul>
+    </section>
+</aside>
+
