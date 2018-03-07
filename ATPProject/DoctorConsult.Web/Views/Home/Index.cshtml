@@ -5,48 +5,44 @@
     ViewBag.Title = "Home Page";
 }
 
+
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
 <div class="jumbotron" style="background-image: url('/Images/portal.jpg');">
     <h1>Find your doctor</h1>
-    <table>
-        @*<tr>
-                <td>@Html.DisplayName("City name?")</td>
-                <td>@Html.DisplayName("Looking for?")</td>
-                <td>@Html.DisplayName("Search catagory?")</td>
-            </tr>*@
-        <tr>
-            @using (Html.BeginForm())
+
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-inline">
+            <div class="form-group">
+                @Html.DropDownListFor(x => x.CityName, new List<SelectListItem>
             {
-                <td>
-                    @Html.DropDownListFor(s => s.CityName, new SelectList(
-                                                             new List<Object>{
-                                                      new {value = 0, text = "Dhaka",},
-                                                      new {value = 1, text = "Banani"},
-                                                      new {value = 2, text = "Kuril"},
-                                                      new {value = 3, text = "Mirpur"},
-                                                      new {value = 4, text = "Agargoan"},
-                                                      new {value = 5, text = "Khilkhet"}
-                                                             }, "value", "text", 0), new { style = "height: 30px" })
-                    <br />
-                </td>
-                @*<td>
-                        @Html.DropDownListFor(s => s.LookingFor, new SelectList(
-                              new List<Object>{
-                              new {value = 0, text = "Doctor"},
-                              new {value = 1, text = "Admin"}
-                              }, "value", "text", 0), new { style = "height: 30px" })
-                        <br />
-                    </td>*@
-                <td>@Html.TextBoxFor(s => s.SearchCatagory, new { @class = "form-control mr-sm-2", placeholder = "Search by Doctor name, Specialty", maxlength = 100, style = "height: 10%;" })</td>
-                <td>&nbsp;</td>
-                <td><button class="btn btn-outline-success my-2 my-sm-0" style="background: darkcyan; color: white; max-height: 30px;">Search</button></td>
-            }
-        </tr>
-        <tr>
-            <td>@Html.ValidationMessage("CityName")</td>
-            @*<td>@Html.ValidationMessage("LookingFor")</td>*@
-            <td>@Html.ValidationMessage("SearchCatagory", new { style = "color: red;" })</td>
-        </tr>
-    </table>
+                new SelectListItem() {Text = "Dhaka", Value="Dhaka"},
+                new SelectListItem() {Text = "Rangpur", Value="Rangpur"},
+                new SelectListItem() {Text = "Dinajpur", Value="Dinajpur"},
+                new SelectListItem() {Text = "Khulna", Value="Khulna"},
+            }, "Select City", new { @class = "form-control" })
+
+            </div>
+            <div class="form-group">
+                @Html.DropDownListFor(x => x.SearchCatagory, new List<SelectListItem>
+                {
+                    new SelectListItem() {Text = "Dentist", Value="Dentist"},
+                    new SelectListItem() {Text = "Pain specaility", Value="Pain specaility"},
+                    new SelectListItem() {Text = "Cardiology", Value="Cardiology"},
+                }, "Select Speciality", new { @class = "form-control" })
+
+            </div>
+            <input type="submit" class="btn btn-success" value="Search"/>
+        </div>
+        @Html.ValidationMessageFor(model => model.CityName, "", new { @class = "text-danger" }) <br/>
+        @Html.ValidationMessageFor(model => model.SearchCatagory, "", new { @class = "text-danger" })
+    }
+
 </div>
 
 
@@ -78,4 +74,4 @@
     </div>
 </div>
 
-&nbsp;
+    &nbsp;
