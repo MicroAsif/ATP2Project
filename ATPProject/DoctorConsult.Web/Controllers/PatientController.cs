@@ -42,6 +42,17 @@ namespace DoctorConsult.Web.Controllers
             }
         }
 
+        //Consult
+        [HttpGet]
+        public ActionResult PatientsConsult()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult PatientsConsult(PatientsConsult model)
+        {
+            return View(model: model);
+        }
 
 
 

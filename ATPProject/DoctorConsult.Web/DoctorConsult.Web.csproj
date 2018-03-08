@@ -1155,6 +1155,7 @@
     <Content Include="Views\Doctor\ChangePassword.cshtml" />
     <Content Include="Views\Shared\_changepass.cshtml" />
     <Content Include="Views\Home\DoctorProfile.cshtml" />
+    <Content Include="Views\Patient\PatientsConsult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
