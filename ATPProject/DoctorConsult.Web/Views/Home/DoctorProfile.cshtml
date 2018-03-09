@@ -173,9 +173,10 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                        <a href="@Url.Action("","Patient")">Consult</a>
-                    </button>
+                    @*<button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
+                        <a href="@Url.Action("PatientsConsult","Patient")">Consult</a>
+                    </button>*@
+                    <input type="button" value="Consult" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse" onclick="@("window.location.href='" + @Url.Action("PatientsConsult", "Patient") + "'");" />
 
                 </div>
             </div>
