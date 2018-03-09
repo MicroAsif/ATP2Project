@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace DoctorConsult.Core.ViewModel
 {
@@ -16,6 +17,8 @@ namespace DoctorConsult.Core.ViewModel
         [Required]
         [Display(Name = "Problem Details: ")]
         public string ProblemDetails { get; set; }
-        
+        [Display(Name = "Insert File ")]
+        public HttpPostedFileBase filePath { get; set; }
+
     }
 }
