@@ -98,5 +98,18 @@ namespace DoctorConsult.Web.Controllers
         {
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult Campaign(List<CreateCampViewModel> createCampViewModel)
+        {
+            createCampViewModel = new List<CreateCampViewModel>()
+            {
+                new CreateCampViewModel(){CampaignDuration="3 days", CampaignDate=Convert.ToDateTime("21-04-2018"), CampaignLocation="Banani model town", CampaignRent=50000 },
+
+                new CreateCampViewModel(){CampaignDuration="4 days", CampaignDate=Convert.ToDateTime("21-05-2018"), CampaignLocation="Uttara", CampaignRent=900000 }
+            };
+
+            return View(model: createCampViewModel);
+        }
     }
 }

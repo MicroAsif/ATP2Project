@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DoctorConsult.Core.ViewModel.CreateCampViewModel>
+
+@{
+    ViewBag.Title = "Campaign";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Capm List</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayName("Campaign Location")</th>
+        <th>@Html.DisplayName("Campaign Date")</th>
+        <th>@Html.DisplayName("Campaign Duration")</th>
+        <th>@Html.DisplayName("Campaign Rent")</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.CampaignLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CampaignDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CampaignDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CampaignRent)
+            </td>
+        </tr>
+    }
+
+</table>
