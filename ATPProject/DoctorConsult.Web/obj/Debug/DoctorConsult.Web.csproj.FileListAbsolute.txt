@@ -344,7 +344,6 @@ C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Newtonsoft.Json.xml
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csprojResolveAssemblyReference.cache
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
-C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Web\bin\ApplicationInsights.config
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\csc.exe
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
