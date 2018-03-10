@@ -54,6 +54,11 @@ namespace DoctorConsult.Web.Controllers
             return View(model: model);
         }
 
+        public ActionResult ConsultList()
+        {
+            return View("ConsultList");
+        }
+
 
 
     }
