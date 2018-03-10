@@ -1,0 +1,126 @@
+﻿@model IEnumerable<DoctorConsult.Core.ViewModel.PatientProfileViewModel>
+
+@{
+    ViewBag.Title = "PatientList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Patient List</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Patent's Name</th>
+                            <th>Patent's Email</th>
+                            <th>Patient's Location</th>
+                            <th>Blood </th>
+                            <th>Age</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", ""))" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", ""))" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", "")" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>
+                                abc
+                            </td>
+                            <td>aa@gmail.com</td>
+                            <td> Dhaka</td>
+                            <td>A+</td>
+                            <td> 22</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="@Url.Action("", "")" onclick="return confirm('Are you sure you want to delete this payment ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <a href="@Url.Action("", "")" class="btn btn-success btn-sm">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+    <!-- /.col -->
+</div>

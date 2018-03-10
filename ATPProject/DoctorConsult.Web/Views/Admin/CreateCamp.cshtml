@@ -1,0 +1,56 @@
+﻿@model DoctorConsult.Core.ViewModel.CreateCampViewModel
+
+@{
+    ViewBag.Title = "CreateCamp";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create Camp</h2>
+
+@using (Html.BeginForm("Index", "Admin", "")) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    @*<h4>CreateCampViewModel</h4>*@
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4">
+                    <label asp-for="Campaign location">Campaign location</label>
+                    <input type="text" asp-for="CampaignLocation" class="form-control" placeholder="Campaign Location" id="CampaignLocation" />
+                    @Html.ValidationMessageFor(model => model.CampaignLocation, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="Campaign Date">Campaign Date</label>
+                    @Html.Editor("CampaignDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Campaign date", id = "CampaignDate" } })
+                    @Html.ValidationMessageFor(model => model.CampaignDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="Campaign Duration"> Campaign Duration</label>
+                    @Html.EditorFor(model => model.CampaignDuration, new { htmlAttributes = new { @class = "form-control", @placeholder = "Campaign Duration", id = "Status" } })
+                    @Html.ValidationMessageFor(model => model.CampaignDuration, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-10 col-md-offset-1">
+                <br />
+                <div class="col-xs-4">
+                    <label asp-for="Campaign Rent"> Campaign Rent</label>
+                    @Html.EditorFor(model => model.CampaignRent, new { htmlAttributes = new { @class = "form-control", @placeholder = "Campaign Rent", id = "Status" } })
+                    @Html.ValidationMessageFor(model => model.CampaignRent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-10 col-md-offset-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to DashBoard", "Index")
+</div>

@@ -1,0 +1,92 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="eLearning Hub admin page" />
+    <title>@ViewBag.Title - Better Tomorrow Dashboard</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <script src="/Content/AdminLTE/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <link href="~/content/AdminLTE/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="~/content/AdminLTE/Content/plugins/iCheck/all.css">
+    <link rel="stylesheet" href="/Content/AdminLTE/Content/assets/css/AdminLTE.min.css">
+    <link href="~/Content/AdminLTE/Content/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE/Content/assets/css/skins/skin-green.min.css" rel="stylesheet" />
+
+    <link href="~/Content/AdminLTE/Content/plugins/iCheck/minimal/_all.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+
+
+</head>
+
+<body class="hold-transition skin-green sidebar-mini">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="@Url.Action("Index")" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>A</b>LT</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Better</b> Tomorrow</span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @Html.Partial("_AdminNavigation")
+        <div class="content-wrapper">
+
+            <section class="content">
+                @RenderBody()
+            </section>
+        </div>
+
+        <footer class="main-footer">
+
+            <div class="pull-right hidden-xs">
+                Made with <i class="fa fa-heart pulse"></i>
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2017 <a href="http://www.kodauthor.com/">kodauthor</a>.</strong> All rights reserved.
+        </footer>
+        <!-- Control Sidebar -->
+    </div>
+
+
+    <!-- Bootstrap 3.3.6 -->
+
+
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/AdminLTE/Content/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/AdminLTE/Content/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/content/AdminLTE/Content/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/content/AdminLTE/Content/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="/Content/AdminLTE/Content/assets/js/app.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+
+
+</html>
+
+

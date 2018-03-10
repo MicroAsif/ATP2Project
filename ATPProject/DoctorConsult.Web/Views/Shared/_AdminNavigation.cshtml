@@ -1,0 +1,32 @@
+﻿<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        @* doctor dashbaord*@
+        <ul class="sidebar-menu">
+            <li class="header">Main Menu</li>
+            <li><a href="@Url.Action("Index", "Admin")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+
+
+            <li><a href="@Url.Action("DoctorList", "Admin")"><i class="fa fa-user"></i> <span>Doctor List</span></a></li>
+            <li><a href="@Url.Action("PatientList", "Admin")"><i class="fa fa-user"></i> <span>Patient List</span></a></li>
+            <li><a href="@Url.Action("CreateCamp", "Admin")"><i class="fa fa-user"></i> <span>Create Camp</span></a></li>
+            <li><a href="@Url.Action("CampList", "Admin")"><i class="fa fa-user"></i> <span>Camp List</span></a></li>
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-user"></i> <span>Profile</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href=@Url.Action("Profile", "Doctor")><i class="fa fa-circle-o"></i> User Profile</a></li>
+                    <li><a href=@Url.Action("ChangePassword", "Doctor")><i class="fa fa-circle-o"></i> Change Password</a></li>
+                </ul>
+            </li>
+
+            <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+        </ul>
+    </section>
+</aside>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DoctorConsult.Core.ViewModel.CreateCampViewModel>
+
+@{
+    ViewBag.Title = "CampList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>CapmList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateCamp")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayName("Campaign Location")</th>
+        <th>@Html.DisplayName("Campaign Date")</th>
+        <th>@Html.DisplayName("Campaign Duration")</th>
+        <th>@Html.DisplayName("Campaign Rent")</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.CampaignLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.CampaignDate)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.CampaignDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.CampaignRent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
