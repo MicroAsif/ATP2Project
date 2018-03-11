@@ -402,3 +402,4 @@ C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProje
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
+C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CoreCompileInputs.cache
