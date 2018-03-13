@@ -1,0 +1,67 @@
+Patient
+-------
+
+	1. Consult list ta grid view. r details e gele consult history ta dekhabe sundor vabe.
+
+	2. Patient er dashboard e gele
+		patient doctor search korbe,
+		
+		1st e combobox(doctor speciality under speciality types
+		of speciality) and
+		
+		2nd e search doctor(search box thakbe) speciality select korar por
+		jokhn doctor search box e likhte jabe tokhn ajax e jevabe suggestion kore oivabe
+		docotor er list ashbe combox e speciality onujayi. tokhon se chaile oi doc er
+		nam select korbe othoba likhe diye search korbe.
+		additionally bolsilo doctor er rating onujayi good ratings er doctor suggest korbe
+		search hower por.
+		Ratings er part tuku ashbe doctor koto besi patient dekhse oi speciality te.
+	
+	3. doctor er sathe consult er somoy kisu common question thakbe jegula doctor tar profile e
+		add kore rakhbe oigula tokhn patient er kase chole ashbe
+		then patient problem, summary likhbe, kono file/image thakle seigula upload kore
+		dibe.
+
+	4. View Profile e gele profile details ta details er moton thakbe. Pore edit korle box er 	 moton ashbe.
+
+Docotor
+-------
+
+	1. Consult request list ta abaro grid view e dekhabe. Info te gele sob kisui dekhabe. Dekhabe eivabe (kajta kin2 bad ase akhono) - 
+				Patient er past history dan pashe, abar r ki ki doctor er kase dekhaise tar ekta history. And koto din age sei disease gula hoise r segula thik hoise kina tar ekta details thakbe. Then bam pashe prescibe korbe.
+
+	2. Prescibe er somoy prescibe number ta auto increment thakbe,
+	prescibe date ta date-er hobe jeno seta select kora jaay. r cause box ta textarea hobe.
+	Patient er dropdown box e patient gula ajax er moton ashbe.
+	Medicine add er khetre quantity ta automatic - sir bolsilo baki je 2 ta box ase days r daytime ase oigula dekhei chole ashbe.
+	Medical test name er khetreo text area thakbe.
+
+	3. Patient list er khetre abaro grid view ashbe jeno pashe patient er pic a dan pashe information summary thakbe.
+
+	4. Docotor er dashboard e patient er request ashbe as like uber. Then doctor chaile sei patient ke req korbe. Then patient req accept korle sei khetre doctor take consult dibe.
+
+	5. View Profile e gele profile details ta details er moton thakbe. Pore edit korle box er 	 moton ashbe.
+
+	6. Jodi kn campaign thake taile seitar notification ashbe jeta accept korle campaign e add hobe. Then chaile abar capaign reject korte parbe.
+
+	7. Campaign er details dekhte parbe.
+
+	8. Kisu set of question ready korbe patient er jonne jeno seta answer kore then patient docotor ke request korte pare.
+
+Admin
+-----
+
+	1. Admin er dashboard e campaign er history ashbe jekhane capaign details e pasher column e kotogula doctor count hoise oi campaign e seita dekhabe. Then details e click korle oi campaign er full details thakbe. Then delete korte chaile delete o korte parbe.
+
+	2. Doctor list er khetre abaro grid view thakbe. Details e gele deatils thakbe. Edit korbe delete korbe. Then back hobe. Table format hobe na.
+
+	3. Campaign list er khetre ei part tuku to dashboard e asei sita bam pasher layout eo ase eita ki korbo jani na. idea diyen.
+
+	4. Admin er View Profile e gele profile details ta details er moton thakbe. Pore edit korle box er 	 moton ashbe.
+
+Homepage
+--------
+
+	1. Campaign er list e details thakbe jekhane click korle campaign er details + joto doctor assign hoise sei doctor list dekhabe.
+
+	//R kisu mone porse na jodi pore update janiye dibo.
