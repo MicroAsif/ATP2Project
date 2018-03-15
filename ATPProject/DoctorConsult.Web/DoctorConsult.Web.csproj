@@ -1111,6 +1111,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\99007fd6-328f-4201-b40a-d3eefad4c027_1.jpg" />
     <Content Include="Images\pexels-photo-733857.jpeg" />
     <Content Include="Images\portal.jpg" />
     <Content Include="Images\Search icon.jpg" />
@@ -1222,9 +1223,12 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\PatientList.cshtml" />
     <Content Include="Views\Home\Campaign.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Admin\Profile.cshtml" />
     <None Include="Views\Home\CampaignDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />
+    <Content Include="Views\Shared\_AdminDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
