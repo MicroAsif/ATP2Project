@@ -13,24 +13,28 @@
         <th>@Html.DisplayName("Campaign Date")</th>
         <th>@Html.DisplayName("Campaign Duration")</th>
         <th>@Html.DisplayName("Campaign Rent")</th>
+        <th>@Html.DisplayName("View")</th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(model => item.CampaignLocation)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CampaignDate)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CampaignDuration)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.CampaignRent)
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.CampaignLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.CampaignDate)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.CampaignDuration)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.CampaignRent)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Home")
+        </td>
+    </tr>
     }
 
 </table>
