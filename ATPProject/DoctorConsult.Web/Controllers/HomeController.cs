@@ -111,5 +111,12 @@ namespace DoctorConsult.Web.Controllers
 
             return View(createCampViewModel);
         }
+
+
+        [HttpGet]
+        public ActionResult CampaignDetails()
+        {
+            return View();
+        }
     }
 }

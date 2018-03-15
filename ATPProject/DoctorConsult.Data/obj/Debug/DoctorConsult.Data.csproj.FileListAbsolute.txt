@@ -38,3 +38,8 @@ C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProje
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.dll
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\atplast\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.pdb
+C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2JLast\ATP2Project\ATPProject\DoctorConsult.Data\bin\Debug\DoctorConsult.Data.dll
+C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2JLast\ATP2Project\ATPProject\DoctorConsult.Data\bin\Debug\DoctorConsult.Data.pdb
+C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2JLast\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2JLast\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.dll
+C:\Users\ASUS\Documents\Visual Studio 2017\Projects\Atp2JLast\ATP2Project\ATPProject\DoctorConsult.Data\obj\Debug\DoctorConsult.Data.pdb

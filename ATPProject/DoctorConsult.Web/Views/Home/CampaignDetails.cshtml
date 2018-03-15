@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "CampaignDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Campaign Details</h3><hr>
+
+<h3>Honarable Doctors list:</h3>
+
+<section class="team">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-0">
+                @* 1 *@
+                <div class="col-lg-12">
+                    @*<h6 class="description">Doctor List</h6>*@
+                    <div class="row pt-md">
+
+                        @{
+                        string link = "http://nabeel.co.in/files/bootsnipp/team/" + 1 + ".jpg";
+                        string link1 = "http://nabeel.co.in/files/bootsnipp/team/" + 2 + ".jpg";
+                        string link2 = "http://nabeel.co.in/files/bootsnipp/team/" + 3 + ".jpg";
+                        }
+
+
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-10 profile">
+                            <div class="img-box">
+                                <img alt="profile-photo" src=@link class="img-responsive">
+
+                            </div>
+
+                            <h5><strong>Dr. AA Khan</strong></h5>
+                            <p>khan@gmail.com</p>
+                            <p>Child Specialist</p>
+
+
+                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            <br />
+                        </div>
+
+
+
+
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-10 profile">
+                            <div class="img-box">
+                                <img alt="profile-photo" src=@link1 class="img-responsive">
+
+                            </div>
+
+                            <h5><strong>Dr. BB Khan</strong></h5>
+                            <p>khanBB@gmail.com</p>
+                            <p>Dentist</p>
+
+
+                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            <br />
+                        </div>
+
+
+
+
+
+
+                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-10 profile">
+                            <div class="img-box">
+                                <img alt="profile-photo" src=@link2 class="img-responsive">
+
+                            </div>
+
+                            <h5><strong>Dr. Imran Mollik</strong></h5>
+                            <p>imranGobet@crpbd.com</p>
+                            <p>physiotherapist</p>
+
+
+                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            <br />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <h3>Duration: </h3><p>December 3 to Decenber 9</p>
+        <h3>Location: </h3><p>Harun Mollah Fiend, Mirpur 12</p>
+        <h3>Organizer: </h3><p>Ministry Of Health</p>
+        <h3>Fee: </h3><p>Free</p>
+    </div>
+    
+</section>
