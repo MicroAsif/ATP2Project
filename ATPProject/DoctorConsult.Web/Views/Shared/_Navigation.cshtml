@@ -35,15 +35,16 @@
         
         
        @* patient dashbaord*@
-        <ul class="sidebar-menu">
-            <li class="header">Main Menu</li>
-            <li><a href="@Url.Action("Index", "Patient")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
-            <li><a href="@Url.Action("ConsultList", "Patient")"><i class="fa fa-dashboard"></i> <span>Consult List</span></a></li>
-            <li><a href="@Url.Action("Profile", "Patient")"><i class="fa fa-user"></i> <span>View Profile</span></a></li>
-            <li><a href="@Url.Action("ChangePassword", "Patient")"><i class="fa fa-user"></i> <span>Change Password</span></a></li>
-                
-            <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
-        </ul>
+                <ul class="sidebar-menu">
+                    <li class="header">Main Menu</li>
+                    <li><a href="@Url.Action("Index", "Patient")"><i class="fa fa-dashboard"></i> <span>DashBoard</span></a></li>
+                    <li><a href="@Url.Action("ConsultList", "Patient")"><i class="fa fa-dashboard"></i> <span>Consult List</span></a></li>
+                    <li><a href="@Url.Action("Profile", "Patient")"><i class="fa fa-user"></i> <span>View Profile</span></a></li>
+                    <li><a href="@Url.Action("EditProfile", "Patient")"><i class="fa fa-user"></i> <span>Edit Profile</span></a></li>
+                    <li><a href="@Url.Action("ChangePassword", "Patient")"><i class="fa fa-user"></i> <span>Change Password</span></a></li>
+
+                    <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                </ul>
     </section>
 </aside>
 
