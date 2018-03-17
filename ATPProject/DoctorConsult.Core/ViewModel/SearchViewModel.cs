@@ -17,5 +17,6 @@ namespace DoctorConsult.Core.ViewModel
 
         [Required(ErrorMessage = "Please type an catagory")]
         public string SearchCatagory { get; set; }
+        public string DoctorNameInput { get; set; }
     }
 }

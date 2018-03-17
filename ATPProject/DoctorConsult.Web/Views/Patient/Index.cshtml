@@ -1,8 +1,51 @@
-﻿
+﻿@model DoctorConsult.Core.ViewModel.SearchViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h2>Index</h2>
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+
+                    <h1>Find your doctor</h1>
+
+
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-group-lg">
+
+                            <div class="form-group">
+                                @Html.DropDownListFor(x => x.SearchCatagory, new List<SelectListItem>
+{
+                                    new SelectListItem() {Text = "Dentist", Value="Dentist"},
+                                    new SelectListItem() {Text = "Pain specaility", Value="Pain specaility"},
+                                    new SelectListItem() {Text = "Cardiology", Value="Cardiology"},
+}, "Select Speciality", new { @class = "form-control" })
+
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.DoctorNameInput, new { @class = "form-control", placeholder = "write your doctor's name"})
+                            </div>
+                            <input type="submit" class="btn btn-success" value="Search" />
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.SearchCatagory, "", new { @class = "text-danger" })
+                    }
+
+
+                </div>
+
+            </div>
+        </div> <!-- /.col-xs-12 -->
+    </div> <!-- /.row -->
+</div>
+
+
 
