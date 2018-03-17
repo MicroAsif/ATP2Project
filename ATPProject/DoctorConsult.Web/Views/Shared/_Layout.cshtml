@@ -31,12 +31,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Campaign", "Campaign", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li> 
+                </ul>
+                <div class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
                     <li>@Html.ActionLink("Registration", "Registration", "Account")</li>
-                    <li>@Html.ActionLink("Campaign", "Campaign", "Home")</li>
-                </ul>
+                </div>
+
             </div>
         </div>
     </div>
