@@ -104,9 +104,9 @@ namespace DoctorConsult.Web.Controllers
         {
             List<CreateCampViewModel> createCampViewModel = new List<CreateCampViewModel>()
             {
-                new CreateCampViewModel(){CampaignDuration="3 days", CampaignDate=Convert.ToDateTime("21-04-2018"), CampaignLocation="Banani model town", CampaignRent=50000 },
+                new CreateCampViewModel(){CampaignDuration="3 days", CampaignDate=Convert.ToDateTime("04-04-2018"), CampaignLocation="Banani model town", CampaignRent=50000 },
 
-                new CreateCampViewModel(){CampaignDuration="4 days", CampaignDate=Convert.ToDateTime("21-05-2018"), CampaignLocation="Uttara", CampaignRent=900000 }
+                new CreateCampViewModel(){CampaignDuration="4 days", CampaignDate=Convert.ToDateTime("01-01-2018"), CampaignLocation="Uttara", CampaignRent=900000 }
             };
 
             return View(createCampViewModel);

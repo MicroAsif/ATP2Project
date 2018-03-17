@@ -19,23 +19,27 @@
 
                     @using (Html.BeginForm())
                     {
-                        <div class="form-group-lg">
+                    <div class="form-group-lg">
 
-                            <div class="form-group">
-                                @Html.DropDownListFor(x => x.SearchCatagory, new List<SelectListItem>
+                        <div class="form-group">
+                            @Html.DropDownListFor(x => x.SearchCatagory, new List<SelectListItem>
 {
-                                    new SelectListItem() {Text = "Dentist", Value="Dentist"},
-                                    new SelectListItem() {Text = "Pain specaility", Value="Pain specaility"},
-                                    new SelectListItem() {Text = "Cardiology", Value="Cardiology"},
+                            new SelectListItem() {Text = "Dentist", Value="Dentist"},
+                            new SelectListItem() {Text = "Pain specaility", Value="Pain specaility"},
+                            new SelectListItem() {Text = "Cardiology", Value="Cardiology"},
 }, "Select Speciality", new { @class = "form-control" })
 
-                            </div>
-                            <div class="form-group">
-                                @Html.TextBoxFor(m => m.DoctorNameInput, new { @class = "form-control", placeholder = "write your doctor's name"})
-                            </div>
-                            <input type="submit" class="btn btn-success" value="Search" />
-
                         </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.DoctorNameInput, new { @class = "form-control", placeholder = "write your doctor's name(Optional)" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.CityName, new { @class = "form-control", placeholder = "write your doctor's location(Optional)" })
+                        </div>
+
+                        <input type="submit" class="btn btn-success" value="Search" />
+
+                    </div>
                         @Html.ValidationMessageFor(model => model.SearchCatagory, "", new { @class = "text-danger" })
                     }
 
