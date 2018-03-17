@@ -1230,6 +1230,7 @@
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />
     <Content Include="Views\Shared\_AdminDashboard.cshtml" />
     <Content Include="Views\Patient\EditProfile.cshtml" />
+    <Content Include="Views\Patient\SearchResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

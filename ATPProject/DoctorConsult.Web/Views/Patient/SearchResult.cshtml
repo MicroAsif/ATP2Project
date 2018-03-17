@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DoctorConsult.Core.ViewModel.DoctorViewModel>
+
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Search Result</h2>
+
+
+
+<section class="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-0">
+                @* 1 *@
+                <div class="col-lg-12">
+                    @*<h6 class="description">Doctor List</h6>*@
+                    <div class="row pt-md">
+                        @{
+                            int i = 0;
+                        }
+
+                        @foreach (var item in Model)
+                        {
+                            i++;
+
+                            string link = "http://nabeel.co.in/files/bootsnipp/team/" + @i + ".jpg";
+
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                <div class="img-box">
+                                    <img alt="profile-photo" src=@link class="img-responsive">
+                                    
+                                </div>
+
+                                <h3>@item.FirstName @item.LastName</h3>
+                                <p>@item.Email</p>
+                                <p>@item.Specialist</p>
+                                @*<p>@item.Location</p>*@
+
+                                @Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })
+                                <br />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -10,9 +10,23 @@ namespace DoctorConsult.Web.Controllers
     public class PatientController : Controller
     {
         // patient dashboard
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        [ActionName("Index")]
+        public ActionResult IndexPost()
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("SearchResult", "Patient");
+            }
+            else
+            {
+                return View();
+            }
         }
         [HttpGet]
         public ActionResult Profile()
@@ -65,6 +79,24 @@ namespace DoctorConsult.Web.Controllers
         public ActionResult ConsultList()
         {
             return View("ConsultList");
+        }
+        [HttpGet]
+        public ActionResult SearchResult(List<DoctorViewModel> doctors)
+        {
+            doctors = new List<DoctorViewModel>()
+            {
+                new DoctorViewModel(){ Id = 1, FirstName="Annabelle", LastName="Ava", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
+
+                new DoctorViewModel(){ Id = 2, FirstName="Babeli", LastName="At.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
+
+                new DoctorViewModel(){ Id = 1, FirstName="Ashley", LastName="Ash", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
+
+                new DoctorViewModel(){ Id = 2, FirstName="Mike", LastName="Kude.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
+
+               
+            };
+
+            return View(model: doctors);
         }
 
 
