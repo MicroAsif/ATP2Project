@@ -85,16 +85,19 @@ namespace DoctorConsult.Web.Controllers
         {
             doctorProfileViewModel = new DoctorProfileViewModel()
             {
-                Id =1,
-                FullName ="Ricky Martin",
-                Email ="ricky@doctorconsult.com",
-                Address ="North town",
-                Age =24, BloogGroup="AB+",
-                Gender ="Male", Image="http://www.facebook.com",
-                Location ="Kuril Kuratoli",
-                NewFee =800, OldFee=500,
-                Phone ="01521434331",
-                Specialist ="Cardiology"
+                Id = 1,
+                FullName = "Ricky Martin",
+                Email = "ricky@doctorconsult.com",
+                Address = "North town",
+                Age = 24,
+                BloogGroup = "AB+",
+                Gender = "Male",
+                Image = "http://www.facebook.com",
+                Location = "Kuril Kuratoli",
+                NewFee = 800,
+                OldFee = 500,
+                Phone = "01521434331",
+                Specialist = "Cardiology"
             };
 
             return View(model: doctorProfileViewModel);
