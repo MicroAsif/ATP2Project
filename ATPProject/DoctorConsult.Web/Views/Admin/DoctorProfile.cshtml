@@ -1,0 +1,85 @@
+﻿@model DoctorConsult.Core.ViewModel.DoctorProfileViewModel
+
+@{
+    ViewBag.Title = "DoctorProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2><i class="glyphicon glyphicon-user"></i> Doctor Profile</h2>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Html.DisplayFor(model => model.FullName)</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://www.nabeel.co.in/files/bootsnipp/team/5.jpg" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <th>@Html.DisplayName("Speciality")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Specialist)</td>
+                            <td>@Html.DisplayFor(model => model.Specialist)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Bio")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Blood group")</td>
+                            <td>@Html.DisplayFor(model => model.BloogGroup)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Gender)</td>
+                            <td>@Html.DisplayFor(model => model.Gender)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Age)</td>
+                            <td>@Html.DisplayFor(model => model.Age) @Html.DisplayName(" years")</td>
+
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Contact information")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Email)</td>
+                            <td><a href="mailto">@Html.DisplayFor(model => model.Email)</a></td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Phone number")</td>
+                            <td>@Html.DisplayFor(model => model.Phone)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Address)</td>
+                            <td>@Html.DisplayFor(model => model.Address)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Fees")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Old Fee")</td>
+                            <td>@Html.DisplayFor(model => model.OldFee) @Html.DisplayName("BDT")</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("New Fee")</td>
+                            <td>@Html.DisplayFor(model => model.NewFee) @Html.DisplayName("BDT")</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a href="/Admin/DoctorList" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-list"></i>@Html.DisplayName(" Back to doctor list")</a>
+        <span class="pull-right">
+            <a href="/Admin/DoctorList" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+        </span>
+    </div>
+</div>

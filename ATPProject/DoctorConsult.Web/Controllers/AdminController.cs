@@ -21,9 +21,17 @@ namespace DoctorConsult.Web.Controllers
             // Demo value
             doctors = new List<DoctorProfileViewModel>()
             {
-                new DoctorProfileViewModel(){Id=1, FullName="John", Email="john@doctorconsult.com", Address="North town", Age=24, BloogGroup="B+", Gender="Male", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Pain Management" },
+                new DoctorProfileViewModel(){Id=1, FullName="Inna", Email="Inna@doctorconsult.com", Address="North town", Age=24, BloogGroup="AB+", Gender="Female", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Pain Management" },
 
-                new DoctorProfileViewModel(){Id=1, FullName="John", Email="john@doctorconsult.com", Address="North town", Age=24, BloogGroup="B+", Gender="Male", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Pain Management" }
+                new DoctorProfileViewModel(){Id=1, FullName="Jennifer Lawrence", Email="jennider@doctorconsult.com", Address="North town", Age=20, BloogGroup="O-", Gender="Female", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Cardiology" },
+
+                new DoctorProfileViewModel(){Id=1, FullName="Selina Gomez", Email="selina@doctorconsult.com", Address="North town", Age=24, BloogGroup="O+", Gender="Female", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Pain Management" },
+
+                new DoctorProfileViewModel(){Id=1, FullName="Daddy Yankee", Email="daddy@doctorconsult.com", Address="North town", Age=20, BloogGroup="B+", Gender="Female", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Cardiology" },
+
+                new DoctorProfileViewModel(){Id=1, FullName="Ricky Martin", Email="ricky@doctorconsult.com", Address="North town", Age=24, BloogGroup="AB+", Gender="Female", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Pain Management" },
+
+                new DoctorProfileViewModel(){Id=1, FullName="Shakira", Email="shakira@doctorconsult.com", Address="North town", Age=20, BloogGroup="O-", Gender="Female", Image="http://www.facebook.com", Location="Kuril Kuratoli", NewFee=800, OldFee=500, Phone="01521434331", Specialist="Cardiology" }
             };
 
             return View(model: doctors);
@@ -70,6 +78,33 @@ namespace DoctorConsult.Web.Controllers
         public ActionResult ChangePassword()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult DoctorProfile(DoctorProfileViewModel doctorProfileViewModel)
+        {
+            doctorProfileViewModel = new DoctorProfileViewModel()
+            {
+                Id =1,
+                FullName ="Ricky Martin",
+                Email ="ricky@doctorconsult.com",
+                Address ="North town",
+                Age =24, BloogGroup="AB+",
+                Gender ="Male", Image="http://www.facebook.com",
+                Location ="Kuril Kuratoli",
+                NewFee =800, OldFee=500,
+                Phone ="01521434331",
+                Specialist ="Cardiology"
+            };
+
+            return View(model: doctorProfileViewModel);
+        }
+
+        [HttpPost]
+        [ActionName("DoctorProfile")]
+        public ActionResult DoDoctorProfile(DoctorProfileViewModel doctorProfileViewModel)
+        {
+            return View("DoctorProfile");
         }
     }
 }
