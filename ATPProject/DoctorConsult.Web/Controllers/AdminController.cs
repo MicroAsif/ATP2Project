@@ -68,6 +68,13 @@ namespace DoctorConsult.Web.Controllers
             return View(model: createCampViewModel);
         }
 
+        [HttpPost]
+        [ActionName("CapmList")]
+        public ActionResult DoCampList()
+        {
+            return View("CampList");
+        }
+
         [HttpGet]
         public new ActionResult Profile()
         {
@@ -108,6 +115,12 @@ namespace DoctorConsult.Web.Controllers
         public ActionResult DoDoctorProfile(DoctorProfileViewModel doctorProfileViewModel)
         {
             return View("DoctorProfile");
+        }
+
+        [HttpGet]
+        public ActionResult DetailsCamp()
+        {
+            return View();
         }
     }
 }
