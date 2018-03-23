@@ -87,6 +87,12 @@ namespace DoctorConsult.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel changePasswordViewModel)
+        {
+            return View(model: changePasswordViewModel);
+        }
+
         [HttpGet]
         public ActionResult DoctorProfile(DoctorProfileViewModel doctorProfileViewModel)
         {

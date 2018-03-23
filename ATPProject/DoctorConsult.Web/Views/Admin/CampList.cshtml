@@ -34,8 +34,12 @@
         </td>
         <td>
             @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-            @Html.ActionLink("Details", "DetailsCamp", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "CampList", new { /* id=item.PrimaryKey */ })
+            <i class="glyphicon glyphicon-info-sign">
+                @Html.ActionLink("Details", "DetailsCamp", new { /* id=item.PrimaryKey */ })
+            </i>
+            <i class="glyphicon glyphicon-remove">
+                @Html.ActionLink("Delete", "CampList", new { /* id=item.PrimaryKey */ })
+            </i>
         </td>
     </tr>
 }
