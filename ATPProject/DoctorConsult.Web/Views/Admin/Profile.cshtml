@@ -22,7 +22,7 @@
 }
 
 
-@using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AdminProfileDetails", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <br />
@@ -65,7 +65,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         @Html.LabelFor(model => model.NewFee, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
                             @Html.EditorFor(model => model.NewFee, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your name" } })
@@ -79,7 +79,7 @@
                             @Html.EditorFor(model => model.OldFee, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your name" } })
                             @Html.ValidationMessageFor(model => model.OldFee, "", new { @class = "text-danger" })
                         </div>
-                    </div>
+                    </div>*@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Specialist, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
@@ -139,8 +139,8 @@
                     </div>
                     <hr />
                     <div>
-                        <a href=""><i class="fa fa-arrow-circle-o-left" aria-hidden="true" style="margin-left:20px;"></i></a>
-                        @Html.ActionLink("Back to List", "Index")
+                        <a href=""><i class="fa fa-user" aria-hidden="true" style="margin-left:20px;"></i></a>
+                        @Html.ActionLink("Back to profile", "AdminProfileDetails")
                     </div>
                     <br />
                 </div>

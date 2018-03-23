@@ -76,9 +76,72 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public new ActionResult Profile()
+        public new ActionResult Profile(AdminProfileViewModel adminProfileViewModel)
         {
-            return View(model: new AdminProfileViewModel());
+            adminProfileViewModel = new AdminProfileViewModel()
+            {
+                Id = 1,
+                FullName = "Dani Daniels",
+                Email = "dani@doctorconsult.com",
+                Address = "West town, Canada",
+                Age = 24,
+                BloogGroup = "O+",
+                Gender = "Female",
+                Image = "http://www.facebook.com",
+                Location = "Kuril Kuratoli",
+                NewFee = 800,
+                OldFee = 500,
+                Phone = "01521434331",
+                Specialist = "none"
+            };
+            return View(model: adminProfileViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult AdminProfileDetails(AdminProfileViewModel adminProfileViewModel)
+        {
+            adminProfileViewModel = new AdminProfileViewModel()
+            {
+                Id = 1,
+                FullName = "Dani Daniels",
+                Email = "dani@doctorconsult.com",
+                Address = "West town",
+                Age = 24,
+                BloogGroup = "O+",
+                Gender = "Female",
+                Image = "http://www.facebook.com",
+                Location = "Kuril Kuratoli",
+                NewFee = 800,
+                OldFee = 500,
+                Phone = "01521434331",
+                Specialist = "none"
+            };
+
+            return View(model: adminProfileViewModel);
+        }
+
+        [HttpPost]
+        [ActionName("AdminProfileDetails")]
+        public ActionResult DoAdminProfileDetails(AdminProfileViewModel adminProfileViewModel)
+        {
+            adminProfileViewModel = new AdminProfileViewModel()
+            {
+                Id = 1,
+                FullName = "Dani Daniels",
+                Email = "dani@doctorconsult.com",
+                Address = "West town",
+                Age = 24,
+                BloogGroup = "O+",
+                Gender = "Female",
+                Image = "http://www.facebook.com",
+                Location = "Kuril Kuratoli",
+                NewFee = 800,
+                OldFee = 500,
+                Phone = "01521434331",
+                Specialist = "none"
+            };
+
+            return View(model: adminProfileViewModel);
         }
 
         [HttpGet]

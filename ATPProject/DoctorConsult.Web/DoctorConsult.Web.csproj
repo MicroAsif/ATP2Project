@@ -1227,6 +1227,7 @@
     <Content Include="Views\Admin\Profile.cshtml" />
     <Content Include="Views\Admin\DoctorProfile.cshtml" />
     <Content Include="Views\Admin\DetailsCamp.cshtml" />
+    <Content Include="Views\Admin\AdminProfileDetails.cshtml" />
     <None Include="Views\Home\CampaignDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />
