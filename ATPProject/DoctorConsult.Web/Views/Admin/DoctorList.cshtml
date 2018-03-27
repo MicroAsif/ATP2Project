@@ -5,8 +5,6 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Doctor List</h2>
-
 @*<table class="table">
         <tr>
             <th>
@@ -103,7 +101,7 @@
             <div class="col-md-10 col-md-offset-0">
                 @* 1 *@
                 <div class="col-lg-12">
-                    @*<h6 class="description">Doctor List</h6>*@
+                    <h2>Honarable Doctor List</h2>
                     <div class="row pt-md">
                         @{
                             int i = 0;
@@ -130,7 +128,7 @@
                                 <p>@item.Specialist</p>
                                 @*<p>@item.Location</p>*@
 
-                                @Html.ActionLink("Details", "DoctorProfile", "Admin", "", new { @class = "btn btn-primary btn-sm btn-block" })
+                                @Html.ActionLink("View Details", "DoctorProfile", "Admin", "", new { @class = "btn btn-primary btn-sm btn-block" })
                                 <br />
                             </div>
                         }

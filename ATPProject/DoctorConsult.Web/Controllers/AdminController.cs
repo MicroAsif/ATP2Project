@@ -191,5 +191,17 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateUser(RegistrationViewModel registrationViewModel)
+        {
+            return View();
+        }
     }
 }

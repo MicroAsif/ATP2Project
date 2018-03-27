@@ -1228,6 +1228,7 @@
     <Content Include="Views\Admin\DoctorProfile.cshtml" />
     <Content Include="Views\Admin\DetailsCamp.cshtml" />
     <Content Include="Views\Admin\AdminProfileDetails.cshtml" />
+    <Content Include="Views\Admin\CreateUser.cshtml" />
     <None Include="Views\Home\CampaignDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />

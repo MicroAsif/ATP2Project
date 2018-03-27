@@ -10,6 +10,7 @@ namespace DoctorConsult.Core.ViewModel
     public class CreateCampViewModel
     {
         public int id { get; set; }
+
         [Required(ErrorMessage = "Campaign location cannot be empty")]
         public string CampaignLocation;
 

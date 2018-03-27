@@ -1,0 +1,55 @@
+﻿@model DoctorConsult.Core.ViewModel.RegistrationViewModel
+
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "~/Views/Shared/_AdminDashboard.cshtml";
+}
+
+<h2>Create User</h2>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+
+                    @using (Html.BeginForm(FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="First Name" class="sr-only">Name: </label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email" class="sr-only">Email: </label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Radio" class="sr-only">Register As: </label>
+                            @Html.RadioButtonFor(m => m.Type, "Patient", false) @Html.Label("Patient")
+                            @Html.RadioButtonFor(m => m.Type, "Doctor", false)  @Html.Label("Doctor")
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="sr-only">Password: </label>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Password" class="sr-only">Confirm Password: </label>
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" id="btn-login" class="btn  btn-default" value="Submit">
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

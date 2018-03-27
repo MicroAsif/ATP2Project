@@ -5,43 +5,49 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Capm List</h2>
+<div class="box">
+    <h2>Capm List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "CreateCamp")
-</p>
-<table class="table">
-    <tr>
-        <th>@Html.DisplayName("Campaign Location")</th>
-        <th>@Html.DisplayName("Campaign Date")</th>
-        <th>@Html.DisplayName("Campaign Duration")</th>
-        <th>@Html.DisplayName("Campaign Rent")</th>
-    </tr>
+    <p>
+        <i class="glyphicon glyphicon-cog">
+            @Html.ActionLink("Create New", "CreateCamp")
+        </i>
+    </p>
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayName("Campaign Location")</th>
+            <th>@Html.DisplayName("Campaign Date")</th>
+            <th>@Html.DisplayName("Campaign Duration")</th>
+            <th>@Html.DisplayName("Campaign Rent")</th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(model => item.CampaignLocation)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.CampaignDate)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.CampaignDuration)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.CampaignRent)
-        </td>
-        <td>
-            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-            <i class="glyphicon glyphicon-info-sign">
-                @Html.ActionLink("Details", "DetailsCamp", new { /* id=item.PrimaryKey */ })
-            </i>
-            <i class="glyphicon glyphicon-remove">
-                @Html.ActionLink("Delete", "CampList", new { /* id=item.PrimaryKey */ })
-            </i>
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.CampaignLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CampaignDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CampaignDuration)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CampaignRent)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+                    <i class="glyphicon glyphicon-info-sign">
+                        @Html.ActionLink("Details", "DetailsCamp", new { /* id=item.PrimaryKey */ })
+                    </i>
+                    <i class="glyphicon glyphicon-remove">
+                        @Html.ActionLink("Delete", "CampList", new { /* id=item.PrimaryKey */ })
+                    </i>
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>
