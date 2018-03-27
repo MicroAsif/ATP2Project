@@ -17,8 +17,11 @@ namespace DoctorConsult.Core.ViewModel
         [Required]
         [Display(Name = "Problem Details: ")]
         public string ProblemDetails { get; set; }
-        [Display(Name = "Insert File ")]
+        [Display(Name = "Please Upload Reports(If Required) ")]
         public HttpPostedFileBase filePath { get; set; }
-
+        [Display(Name = "Please Upload Previous Doctor's Prescription If Consulted Before (If Possible) ")]
+        public HttpPostedFileBase PreviousProblemFile { get; set; }
+        [Display(Name = "Please Upload Previous Reports (Optional) ")]
+        public HttpPostedFileBase PreviousProblemReportFile { get; set; }
     }
 }
