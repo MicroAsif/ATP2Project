@@ -107,14 +107,7 @@
                 </div>
             </div>
 
-            <div class="col-md-10 col-md-offset-1">
-                <br />
-                <div class="col-md-4">
-                    <label asp-for="">Patient</label>
-                    @Html.DropDownList("PatientId", new SelectList(string.Empty, "Value", "Text"), "select Patient", new { @class = "form-control", id = "Patient" })
-                    @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
-                </div>
-            </div>
+         
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4 ">
@@ -187,15 +180,15 @@
                     <h4 class="modal-header">Medicine information</h4>
                     <div class="modal-body">
                         <div class="container">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <label class="control-label">Medicine Name</label>
                                 @Html.Editor("Medicine Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medicine Name", id = "name" } })
                             </div>
-                            <div class="col-md-6">
+                            @*<div class="col-md-6">
                                 <label class="control-label">Quantity</label>
                                 @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control", id = "Description" } })
 
-                            </div>
+                            </div>*@
                             <div class="col-md-6">
                                 <label class="control-label">Days</label>
                                 @Html.Editor("Days", new { htmlAttributes = new { @class = "form-control", id = "Price" } })
