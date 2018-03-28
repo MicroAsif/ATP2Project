@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="form-group">
-                    <h4><b>Create Campaign</b></h4>
+                    <h4><i class="glyphicon glyphicon-pencil"></i> Create Campaign</h4>
                     <label asp-for="Campaign location">Campaign location</label>
                     <input type="text" asp-for="CampaignLocation" class="form-control" placeholder="Campaign Location" id="CampaignLocation" />
                     @Html.ValidationMessageFor(model => model.CampaignLocation, "", new { @class = "text-danger" })

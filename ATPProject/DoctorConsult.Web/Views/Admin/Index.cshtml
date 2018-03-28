@@ -1,8 +1,45 @@
-﻿
+﻿@model DoctorConsult.Core.ViewModel.AdminSpecialistCityViewModel
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="box">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-wrap">
+                    <h3><i class="glyphicon glyphicon-pencil"></i></h3>
+                    @using (Html.BeginForm(FormMethod.Post))
+                    {
+                    <div class="form-group">
+                        <i class="glyphicon glyphicon-send"></i>
+                        @Html.Label("Add a city name: ")
+                        @Html.TextBoxFor(model => model.CityName, new { @class = "form-control", placeholder = "Type a city name" })
+                        @Html.ValidationMessageFor(model => model.CityName, "", new { @class = "text-danger" })
+                    </div>
 
+                        <input type="submit" name="submit" value="Enter a city" class="btn btn-primary" />
+                    }
+
+                    <hr />
+
+                    @using (Html.BeginForm(FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <i class="glyphicon glyphicon-plus-sign"></i>
+                            @Html.Label("Add more speciality: ")
+                            @Html.TextBoxFor(model => model.Specialist, new { @class = "form-control", placeholder = "Type a speciality" })
+                            @Html.ValidationMessageFor(model => model.Specialist, "", new { @class = "text-danger" })
+                        </div>
+
+                        <input type="submit" name="submit" value="Enter specialist" class="btn btn-primary" />
+                    }
+
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

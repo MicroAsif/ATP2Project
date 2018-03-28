@@ -15,6 +15,12 @@ namespace DoctorConsult.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(AdminSpecialistCityViewModel adminSpecialistCityViewModel)
+        {
+            return View("Index");
+        }
+
         [HttpGet]
         public ActionResult DoctorList(List<DoctorProfileViewModel> doctors)
         {
