@@ -6,3 +6,275 @@
 
 
 
+@model DoctorConsult.Core.ViewModel.PrescriptionViewModel
+@{
+    ViewBag.Title = "Prescribe";
+    Layout = "~/Views/Shared/_doctorDashboard.cshtml";
+}
+
+
+<form>
+
+    @*<div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-4">
+                        <label asp-for="PrescribtionNo">Prescribtion No</label>
+                        <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" id="PrescribtionNo" />
+                        @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-xs-4">
+                        <label asp-for="PrescribtionDate">Prescribtion Date</label>
+                        @Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })
+                        @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-xs-4">
+                        <label asp-for="Cause"> Cause</label>
+                        @Html.EditorFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status" } })
+                        @Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <br />
+                    <div class="col-md-4">
+                        <label asp-for="">Patient</label>
+                        @Html.DropDownList("PatientId", new SelectList(string.Empty, "Value", "Text"), "select Patient", new { @class = "form-control", id = "Patient" })
+                        @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-4 ">
+                        <br />
+                        <input type="button" value="Add Medicine" data-toggle="modal" data-target="#loginModal" class="button primary" />
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <br />
+                    <br />
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>Medicine Name</td>
+                                <td>Price </td>
+                                <td>Quantity</td>
+                                <td>Amount</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody id="Items"></tbody>
+                    </table>
+                </div>
+
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="col-md-4 ">
+                        <br />
+                        <input type="button" value="Add Medical Test" data-toggle="modal" data-target="#loginModal" class="button primary" />
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <br />
+                    <br />
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td>Medicine Test</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody id="Items"></tbody>
+                    </table>
+                </div>
+
+        </div>*@
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Prescription Details </h3>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-5">
+                    <h4>Patient Name : <strong>Asif Rahman </strong> </h4>
+                </div>
+                <div class="col-md-5">
+                    <p> Cause : <strong> Fever and back pain </strong></p>
+                </div>
+                
+                <br /> <br /> <br />
+            </div>
+           
+
+
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4">
+                    <label asp-for="PrescribtionNo">Prescribtion No</label>
+                    <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" readonly value="225663"  id="PrescribtionNo" />
+                    @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="PrescribtionDate">Prescribtion Date</label>
+                    @Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker",  @placeholder = "Prescribtion date", id = "PrescribtionDate" } })
+                    @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
+                </div>
+                
+            </div>
+
+          
+          
+
+
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4 ">
+                    <br />
+                    <input type="button" value="Add Medicine" data-toggle="modal" data-target="#medicineModal" class="btn btn-primary" />
+                </div>
+            </div>
+
+            <div class="col-md-10 col-md-offset-1">
+                <br />
+                <br />
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                           
+                            <th>Days</th>
+                            <th>Daily Times</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Items">
+                        <tr>
+                            <td>Napa </td>
+                         
+                            <td>10</td>
+                            <td>0-1-1</td>
+                            <td><a href=""><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4 ">
+                    <br />
+                    <input type="button" value="Add Medical Test" data-toggle="modal" data-target="#medicalTestModal" class="btn btn-primary" />
+                </div>
+            </div>
+
+            <div class="col-md-10 col-md-offset-1">
+                <br />
+                <br />
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Medicine Test Name</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Items">
+                        <tr>
+                            <td>Blood Test</td>
+                            <td><a href=""><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-4 ">
+                    <br />
+                    <input type="submit" value="Update Prescription" class="btn btn-success" id="btnSubmit" />
+                </div>
+            </div>
+
+
+        </div>
+
+        <br />
+    </div>
+
+</form>
+
+
+<!-- medicine modal form-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="modal fade bs-example-modal-sm" id="medicineModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <h4 class="modal-header">Medicine information</h4>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="col-md-12">
+                                <label class="control-label">Medicine Name</label>
+                                @Html.Editor("Medicine Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medicine Name", id = "name" } })
+                            </div>
+                            @*<div class="col-md-6">
+                                    <label class="control-label">Quantity</label>
+                                    @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control", id = "Description" } })
+
+                                </div>*@
+                            <div class="col-md-6">
+                                <label class="control-label">Days</label>
+                                @Html.Editor("Days", new { htmlAttributes = new { @class = "form-control", id = "Price" } })
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="control-label">Daytime</label>
+                                @Html.Editor("Daytime", new { htmlAttributes = new { @class = "form-control", id = "Price" } })
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a id="btnAdd" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span> Add
+                        </a>
+                        <a id="BtnClose" class="btn btn-danger" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-off"></span> Close
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- medicine modal form-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="modal fade bs-example-modal-sm" id="medicalTestModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <h4 class="modal-header">medicalTest information</h4>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="col-md-6">
+                                <label class="control-label">Medical Test Name</label>
+                                @Html.Editor("Medicine Test Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medical Test Name", id = "name" } })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <a id="btnAdd" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span> Add
+                        </a>
+                        <a id="BtnClose" class="btn btn-danger" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-off"></span> Close
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
