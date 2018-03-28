@@ -203,5 +203,51 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult PatientProfile(PatientProfileViewModel patientProfileViewModel)
+        {
+            patientProfileViewModel = new PatientProfileViewModel()
+            {
+                Name = "Sami",
+                Email = "sami@aiub.edu",
+                Birthday = "01-01-1994",
+                age = "24",
+                ContactNumber = "01521434331",
+                BloodGroup = "A-ve",
+                Area = "Dhaka",
+                District = "Dhaka",
+                Division = "Dhaka",
+                Gender = "Male",
+                Photo = "no url provied"
+            };
+            return View(model: patientProfileViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult EditPatientProfile(PatientProfileViewModel patientProfileViewModel)
+        {
+            patientProfileViewModel = new PatientProfileViewModel()
+            {
+                Name = "Sami",
+                Email = "sami@aiub.edu",
+                Birthday = "01-01-1994",
+                age = "24",
+                ContactNumber = "01521434331",
+                BloodGroup = "A-ve",
+                Area = "Dhaka",
+                District = "Dhaka",
+                Division = "Dhaka",
+                Gender = "Male",
+                Photo = "no url provied"
+            };
+            return View(model: patientProfileViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult EditPatientProfile()
+        {
+            return View("PatientList");
+        }
     }
 }

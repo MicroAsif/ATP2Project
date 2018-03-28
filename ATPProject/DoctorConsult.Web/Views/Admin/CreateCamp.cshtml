@@ -5,20 +5,17 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create Camp</h2>
-
-@using (Html.BeginForm("CampList", "Admin")) 
+@using (Html.BeginForm("CampList", "Admin"))
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    @*<h4>CreateCampViewModel</h4>*@
-    <hr />
+
+<div class="box">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="form-group">
+                    <h4><b>Create Campaign</b></h4>
                     <label asp-for="Campaign location">Campaign location</label>
                     <input type="text" asp-for="CampaignLocation" class="form-control" placeholder="Campaign Location" id="CampaignLocation" />
                     @Html.ValidationMessageFor(model => model.CampaignLocation, "", new { @class = "text-danger" })
@@ -49,9 +46,8 @@
             </div>
         </div>
     </div>
+    <div>
+        @Html.ActionLink("Back to DashBoard", "Index")
+    </div>
 </div>
 }
-
-<div>
-    @Html.ActionLink("Back to DashBoard", "Index")
-</div>
