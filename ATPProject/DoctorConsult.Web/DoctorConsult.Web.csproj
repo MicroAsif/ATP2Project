@@ -1232,6 +1232,7 @@
     <Content Include="Views\Doctor\PatientsProblemPageForDoctor.cshtml" />
     <Content Include="Views\Admin\PatientProfile.cshtml" />
     <Content Include="Views\Admin\EditPatientProfile.cshtml" />
+    <Content Include="Views\Doctor\PrescribtionDetails.cshtml" />
     <None Include="Views\Home\CampaignDetails.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_AdminNavigation.cshtml" />

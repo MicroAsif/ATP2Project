@@ -52,6 +52,6 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
-
+        
     }
 }
