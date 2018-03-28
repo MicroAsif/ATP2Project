@@ -1,0 +1,60 @@
+﻿@model DoctorConsult.Core.ViewModel.PatientsProblemPageForDoctor
+
+@{
+    ViewBag.Title = "PatientsProblemPageForDoctor";
+    Layout = "~/Views/Shared/_doctorDashboard.cshtml";
+}
+
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+
+                    @using (Html.BeginForm(FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProblemSummary)
+                            @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
+                            @Html.TextAreaFor(model => model.ProblemSummary, new { @class = "form-control", @readonly = "readonly", placeholder = "Write Short Discription Of Your Problem", @style = "resize: none;" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PreviousProblemFile)<br>
+                            <button type="button" class="btn btn-primary" style="margin-right: 5px;">
+                                <i class="fa fa-download"></i> Download
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PreviousProblemReportFile)<br>
+                            <button type="button" class="btn btn-primary" style="margin-right: 5px;">
+                                <i class="fa fa-download"></i> Download
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProblemDetails)
+                            @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
+                            @Html.TextAreaFor(model => model.ProblemDetails, new { @class = "form-control", @readonly = "readonly", placeholder = "Write Details Of Your Problem", @style = "resize: none;overflow-y: scroll;" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.filePath)<br>
+                            <button type="button" class="btn btn-primary" style="margin-right: 5px;">
+                                <i class="fa fa-download"></i> Download
+                            </button>
+                        </div>
+                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Prescribe">
+
+                    }
+
+                    <hr />
+                </div>
+            </div> <!-- /.col-xs-12 -->
+
+        </div> <!-- /.row -->
+    </div>
+
+</div>
+

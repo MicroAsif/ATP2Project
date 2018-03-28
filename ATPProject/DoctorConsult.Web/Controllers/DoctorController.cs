@@ -47,6 +47,11 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult PatientsProblemPageForDoctor()
+        {
+            return View();
+        }
 
     }
 }

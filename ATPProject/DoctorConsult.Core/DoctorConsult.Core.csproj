@@ -53,6 +53,7 @@
     <Compile Include="ViewModel\ConsultList.cs" />
     <Compile Include="ViewModel\CreateCampViewModel.cs" />
     <Compile Include="ViewModel\PatientsConsult.cs" />
+    <Compile Include="ViewModel\PatientsProblemPageForDoctor.cs" />
     <Compile Include="ViewModel\PrescriptionViewModel.cs" />
     <Compile Include="ViewModel\DoctorProfileViewModel.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
