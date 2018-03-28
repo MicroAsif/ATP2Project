@@ -45,7 +45,7 @@
                                 <i class="fa fa-download"></i> Download
                             </button>
                         </div>
-                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Prescribe">
+                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Prescribe" onclick="@("window.location.href='" + @Url.Action("Prescribe", "Doctor") + "'")";>
 
                     }
 
