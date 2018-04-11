@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("CampList", "Admin"))
+@using (Html.BeginForm("DoCampList", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
