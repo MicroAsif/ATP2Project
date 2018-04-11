@@ -4,75 +4,99 @@
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title">Prescription List</h3>
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default" id="panel1">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-target="#collapseOne"
+                   href="#collapseOne">
+                    @Html.DisplayName("Prescribtion List")
+                </a>
+            </h4>
+
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <section class="team">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row pt-md">
+                                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                        <div class="img-box">
+                                            <img alt="profile-photo" height="50%" width="50%" src="https://d2yal1mtmg1ts6.cloudfront.net/-D2P3nmMOr3U/AAAAAAAAAAI/AAAAAAAAAho/DKiJFvYR_fA/photo.jpg" class="img-responsive">
+                                        </div>
+
+                                        <h3>Alam, Md. Ashraful</h3>
+                                        <p><i class="glyphicon glyphicon-envelope"></i> ashraful@aiub.edu</p>
+                                        <p><i class="glyphicon glyphicon-tint"></i> Blood group: O (-ve)</p>
+                                        <a class="btn btn-success" href="@Url.Action("PrescribtionDetails")"><i class="glyphicon glyphicon-leaf"></i> details</a>
+                                        <br />
+                                    </div>
+                                    <div class="row pt-md">
+                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                            <div class="img-box">
+                                                <img alt="profile-photo" height="50%" width="50%" src="data:image/jpeg;base64,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" class="img-responsive">
+                                            </div>
+
+                                            <h3>Asifur Rahman</h3>
+                                            <p><i class="glyphicon glyphicon-envelope"></i> asif@aiub.edu</p>
+                                            <p><i class="glyphicon glyphicon-tint"></i> Blood group: A (-ve)</p>
+
+                                            <a class="btn btn-success" href="@Url.Action("PrescribtionDetails")"><i class="glyphicon glyphicon-leaf"></i> details</a>
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="row pt-md">
+                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                            <div class="img-box">
+
+                                                <img alt="profile-photo" height="50%" width="50%" src="https://pbs.twimg.com/profile_images/886157497999937536/4rl9ejGm.jpg" />
+                                            </div>
+
+                                            <h3>Rahman, SK. Samiur</h3>
+                                            <p><i class="glyphicon glyphicon-envelope"></i> samiur@aiub.edu</p>
+                                            <p><i class="glyphicon glyphicon-tint"></i> Blood group: B (+ve)</p>
+
+                                            <a class="btn btn-success" href="@Url.Action("PrescribtionDetails")"><i class="glyphicon glyphicon-leaf"></i> details</a>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Prescription Id</th>
-                            <th>Patent's Name</th>
-                            <th>Patent's Email</th>
-                            <th>Patient's Location</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>002251</td>
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>
-                                <a href="@Url.Action("PrescribtionDetails")"> details</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>002252</td>
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>
-                                <a href="@Url.Action("PrescribtionDetails")"> details</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0022515</td>
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>
-                                <a href="@Url.Action("PrescribtionDetails")"> details</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>0022515</td>
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>
-                                <a href="@Url.Action("PrescribtionDetails")"> details</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                    
-                </table>
-            </div>
-            <!-- /.box-body -->
         </div>
     </div>
-    <!-- /.col -->
+
+    <div class="panel panel-default" id="panel2">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-target="#collapseTwo"
+                   href="#collapseTwo" class="collapsed">
+                    Collapsible Group Item #2
+                </a>
+            </h4>
+
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+        </div>
+    </div>
+    <div class="panel panel-default" id="panel3">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-target="#collapseThree"
+                   href="#collapseThree" class="collapsed">
+                    Collapsible Group Item #3
+                </a>
+            </h4>
+
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+        </div>
+    </div>
 </div>
