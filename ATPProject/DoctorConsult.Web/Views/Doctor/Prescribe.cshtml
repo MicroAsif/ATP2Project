@@ -96,6 +96,11 @@
                     @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
                 </div>
                 <div class="col-md-4">
+                    <label asp-for="ReferDiagnostic">Refer Diagnostic</label>
+                    <input type="text" asp-for="ReferDiagnostic" class="form-control" placeholder="Diagnostic name" id="ReferDiagnostic" />
+                    @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="col-md-4">
                     <label asp-for="PrescribtionNo">Prescribtion No</label>
                     <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" id="PrescribtionNo" />
                     @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
@@ -106,9 +111,19 @@
                     @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-xs-4">
-                    <label asp-for="Cause">Cause</label>
+                    <label asp-for="Cause">Cause given by</label>
                     @Html.TextAreaFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status", @rows = 10, @cols = 400 } })
                     @Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="Comment">Dr. comment</label>
+                    @Html.TextArea("Comment", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write conment", id = "Status", @rows = 10, @cols = 400 } })
+                    @*@Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="col-xs-4">
+                    <label asp-for="GeneralInformation">Patient general information</label>
+                    @Html.Editor("GeneralInformation", new { htmlAttributes = new { @class = "form-control", @placeholder = "Like: Allergy, Diabetics", id = "Status", @rows = 10, @cols = 400 } })
+                    @*@Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })*@
                 </div>
             </div>
 
