@@ -144,7 +144,7 @@
 
                         </div>
 
-
+                        <input type="submit" class="btn btn-success" value="Search" /><br><br>
 
 
 
@@ -164,26 +164,27 @@
 
                             string link = "http://nabeel.co.in/files/bootsnipp/team/" + @i + ".jpg";
 
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                                <div class="img-box">
-                                    <img alt="profile-photo" src=@link class="img-responsive">
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                            <div class="img-box">
+                                <img alt="profile-photo" src=@link class="img-responsive">
 
-                                </div>
-
-                                <h3>@item.Name</h3>
-                                <p><strong>Age: </strong>@item.age</p>
-                                <p><strong><i class="glyphicon glyphicon-tint"></i> Blood Group: </strong>@item.BloodGroup</p>
-                                <p><strong><i class="fa fa-intersex"></i> Gender: </strong>@item.Gender</p>
-
-                                <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
-                                    <span class="glyphicon glyphicon-pencil"></span>
-                                </a>
-
-                                <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </a>
-                                <br />
                             </div>
+
+                            <h3>@item.Name</h3>
+                            <p><strong>Age: </strong>@item.age</p>
+                            <p><strong><i class="glyphicon glyphicon-tint"></i> Blood Group: </strong>@item.BloodGroup</p>
+                            <p><strong><i class="fa fa-intersex"></i> Gender: </strong>@item.Gender</p>
+
+                            <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+
+                            <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                            <br />
+                           
+                        </div>
                         }
                     </div>
                 </div>
