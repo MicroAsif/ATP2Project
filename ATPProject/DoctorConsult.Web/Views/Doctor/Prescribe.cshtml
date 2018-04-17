@@ -91,6 +91,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-1">
                 <div class="col-md-4">
+                    <label asp-for="ReferToAnotherDr">Refer another Dr.</label>
+                    <input type="text" asp-for="ReferToAnotherDr" class="form-control" placeholder="Type another dr. name" id="ReferToAnotherDr" />
+                    @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="col-md-4">
                     <label asp-for="PrescribtionNo">Prescribtion No</label>
                     <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" id="PrescribtionNo" />
                     @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
@@ -101,8 +106,8 @@
                     @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-xs-4">
-                    <label asp-for="Cause"> Cause</label>
-                    @Html.EditorFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status" } })
+                    <label asp-for="Cause">Cause</label>
+                    @Html.TextAreaFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status", @rows = 10, @cols = 400 } })
                     @Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -236,6 +241,64 @@
                             <div class="col-md-6">
                                 <label class="control-label">Daytime</label>
                                 @Html.Editor("Daytime", new { htmlAttributes = new { @class = "form-control", id = "Price" } })
+
+                                @{
+                                    List<SelectListItem> listItems = new List<SelectListItem>();
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "0-0-1",
+                                        Value = "1",
+                                        Selected = true
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "0-1-0",
+                                        Value = "2"
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "1-0-0",
+                                        Value = "3"
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "1-1-0",
+                                        Value = "4"
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "1-0-1",
+                                        Value = "5"
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "0-1-1",
+                                        Value = "6"
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "1-1-0",
+                                        Value = "7"
+                                    });
+
+                                    listItems.Add(new SelectListItem
+                                    {
+                                        Text = "1-1-1",
+                                        Value = "8"
+                                    });
+
+                                }
+
+                                @Html.DropDownList("DayTime", listItems)
+
+
+
                             </div>
 
                         </div>

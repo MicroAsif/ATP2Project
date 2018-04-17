@@ -123,6 +123,16 @@
             <div class="col-md-10 col-md-offset-0">
                 @* 1 *@
                 <div class="col-lg-12">
+                    <label class="btn btn-reddit">
+                        Total Number of patients: @{
+                            int count = 0;
+                            foreach(var item in Model)
+                            {
+                                count++;
+                            }
+                            @count
+                        }
+                    </label>
                     @using (Html.BeginForm())
                     {
                     <div class="form-group-lg">
@@ -154,6 +164,7 @@
                     }
                     @*<h6 class="description">Doctor List</h6>*@
                     <div class="row pt-md">
+                        
                         @{
                             int i = 0;
                         }
