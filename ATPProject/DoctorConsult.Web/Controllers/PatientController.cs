@@ -100,6 +100,14 @@ namespace DoctorConsult.Web.Controllers
         }
 
 
+        //Invoice
+        [HttpGet]
+        public ActionResult Invoice()
+        {
+            return View();
+        }
+
+
 
     }
 }
