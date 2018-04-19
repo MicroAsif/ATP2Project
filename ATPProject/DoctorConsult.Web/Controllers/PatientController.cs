@@ -107,7 +107,37 @@ namespace DoctorConsult.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult PatientsList(List<PatientProfileViewModel> patients)
+        {
+            patients = new List<PatientProfileViewModel>() {
+            new PatientProfileViewModel() { Name="Samiur Rahman", age="21", BloodGroup="b+", Gender="Male" },
+            new PatientProfileViewModel() { Name = "Asif Rahman", age = "21", BloodGroup = "b+", Gender = "Male" },
+            new PatientProfileViewModel() { Name = "Jamy Ahmed", age = "21", BloodGroup = "b+", Gender = "Male" }
+            };
 
+            return View("PatientsList", model: patients);
+        }
 
+        [HttpGet]
+        public ActionResult PatientProfile(PatientProfileViewModel patientProfileViewModel)
+        {
+            patientProfileViewModel = new PatientProfileViewModel()
+            {
+                Name = "Sami",
+                Email = "sami@aiub.edu",
+                Birthday = "01-01-1994",
+                age = "24",
+                ContactNumber = "01521434331",
+                BloodGroup = "A-ve",
+                Area = "Dhaka",
+                District = "Dhaka",
+                Division = "Dhaka",
+                Gender = "Male",
+                Photo = "no url provied"
+            };
+
+            return View("PatientProfile", model: patientProfileViewModel);
+        }
     }
 }

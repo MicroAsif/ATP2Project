@@ -1,0 +1,85 @@
+﻿@model DoctorConsult.Core.ViewModel.PatientProfileViewModel
+
+@{
+    ViewBag.Title = "PatientProfile";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <input type="text" placeholder="type a dr. name" class="form-control" />
+    <br />
+    <input type="submit" name="submit" value="Refer Dr." class="btn btn-primary" />
+}
+
+<h2>
+    <i class="glyphicon glyphicon-user"></i> Patient Profile Details
+</h2>
+
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Html.DisplayFor(model => model.Name)</h3>
+
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://www.nabeel.co.in/files/bootsnipp/team/5.jpg" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <th>@Html.DisplayName("Bio")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Full name")</td>
+                            <td>@Html.DisplayFor(model => model.Name)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Blood group")</td>
+                            <td>@Html.DisplayFor(model => model.BloodGroup)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Gender)</td>
+                            <td>@Html.DisplayFor(model => model.Gender)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.age)</td>
+                            <td>@Html.DisplayFor(model => model.age) @Html.DisplayName(" years")</td>
+
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Contact information")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Email)</td>
+                            <td><a href="mailto">@Html.DisplayFor(model => model.Email)</a></td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Phone number")</td>
+                            <td>@Html.DisplayFor(model => model.ContactNumber)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Address information")</td>
+                            <td>
+                                @Html.DisplayName("Area: ")
+                                @Html.DisplayNameFor(model => model.Area)
+                                <br />
+                                @Html.DisplayName("District: ")
+                                @Html.DisplayFor(model => model.District)
+                                <br />
+                                @Html.DisplayName("Division: ")
+                                @Html.DisplayFor(model => model.Division)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a href="/Patient/PatientProfile" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-list"></i>@Html.DisplayName(" Back to list")</a>
+    </div>
+</div>
