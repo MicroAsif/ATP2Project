@@ -11,6 +11,15 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">Consult List</h3>
+                <div class="form-group">
+                    <br />
+                    @Html.DropDownList("SortedBy", new List<SelectListItem>
+                        {
+                            new SelectListItem() {Text = "Date (Ascending order)", Value="Date"},
+                            new SelectListItem() {Text = "Date (Descending order)", Value="Pain specaility"},
+                        }, "Sort by", new { @class = "form-control" })
+
+                </div>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

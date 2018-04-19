@@ -80,6 +80,7 @@ namespace DoctorConsult.Web.Controllers
         {
             return View("ConsultList");
         }
+
         [HttpGet]
         public ActionResult SearchResult(List<DoctorViewModel> doctors)
         {

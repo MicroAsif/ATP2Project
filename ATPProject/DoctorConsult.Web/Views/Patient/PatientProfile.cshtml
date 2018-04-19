@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-@using (Html.BeginForm(FormMethod.Post))
+@using (Html.BeginForm("PatientProfile", "Patient", FormMethod.Get))
 {
+    <label>Refere Dr. name: </label>
     <input type="text" placeholder="type a dr. name" class="form-control" />
     <br />
     <input type="submit" name="submit" value="Refer Dr." class="btn btn-primary" />
