@@ -15,8 +15,11 @@
                     <br />
                     @Html.DropDownList("SortedBy", new List<SelectListItem>
                         {
-                            new SelectListItem() {Text = "Date (Ascending order)", Value="Date"},
-                            new SelectListItem() {Text = "Date (Descending order)", Value="Pain specaility"},
+                            new SelectListItem() {Text = "Date (Ascending order)", Value="date"},
+                            new SelectListItem() {Text = "Date (Descending order)", Value="painSpecaility"},
+                            new SelectListItem() {Text = "Accepted", Value="accepted"},
+                            new SelectListItem() {Text = "Rejected", Value="rejected"},
+                            new SelectListItem() {Text = "Pending", Value="pending"},
                         }, "Sort by", new { @class = "form-control" })
 
                 </div>
