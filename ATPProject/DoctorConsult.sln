@@ -5,9 +5,19 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Web", "DoctorConsult.Web\DoctorConsult.Web.csproj", "{17169360-1A22-4436-AAE5-8B22B5FBBE1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Core", "DoctorConsult.Core\DoctorConsult.Core.csproj", "{240C6115-DCA4-4C20-B2D9-D6126A6C1059}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Infrustracture", "DoctorConsult.Data\DoctorConsult.Infrustracture.csproj", "{49442F0A-550D-40F5-A553-C94EB24FF2C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Data", "DoctorConsult.Data\DoctorConsult.Data.csproj", "{49442F0A-550D-40F5-A553-C94EB24FF2C2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Core.Entity", "DoctorConsult.Core.Entity\DoctorConsult.Core.Entity.csproj", "{240C6115-DCA4-4C20-B2D9-D6126A6C1059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorConsult.Core", "DoctorConsult.Core", "{A849360B-A91C-47FE-9564-4BD93FC1C225}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Core.Service.Interfaces", "DoctorConsult.Core.Service.Interfaces\DoctorConsult.Core.Service.Interfaces.csproj", "{28529DFB-1212-4F32-AF18-681120D11EEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorConsult.Infrustracture", "DoctorConsult.Infrustracture", "{05B6CD82-B73E-43DA-9944-46A50D1A6193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorConsult.Infrustracture.Service", "DoctorConsult.Infrustracture.Service\DoctorConsult.Infrustracture.Service.csproj", "{4D133AE2-B122-40A0-818D-5C18107D3F3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorConsult.UI", "DoctorConsult.UI", "{1E30BFC4-1B19-4858-BD60-11F28C1509B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +29,31 @@ Global
 		{17169360-1A22-4436-AAE5-8B22B5FBBE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17169360-1A22-4436-AAE5-8B22B5FBBE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17169360-1A22-4436-AAE5-8B22B5FBBE1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Release|Any CPU.Build.0 = Release|Any CPU
 		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49442F0A-550D-40F5-A553-C94EB24FF2C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28529DFB-1212-4F32-AF18-681120D11EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28529DFB-1212-4F32-AF18-681120D11EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28529DFB-1212-4F32-AF18-681120D11EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28529DFB-1212-4F32-AF18-681120D11EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D133AE2-B122-40A0-818D-5C18107D3F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D133AE2-B122-40A0-818D-5C18107D3F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D133AE2-B122-40A0-818D-5C18107D3F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D133AE2-B122-40A0-818D-5C18107D3F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{17169360-1A22-4436-AAE5-8B22B5FBBE1E} = {1E30BFC4-1B19-4858-BD60-11F28C1509B7}
+		{49442F0A-550D-40F5-A553-C94EB24FF2C2} = {05B6CD82-B73E-43DA-9944-46A50D1A6193}
+		{240C6115-DCA4-4C20-B2D9-D6126A6C1059} = {A849360B-A91C-47FE-9564-4BD93FC1C225}
+		{28529DFB-1212-4F32-AF18-681120D11EEA} = {A849360B-A91C-47FE-9564-4BD93FC1C225}
+		{4D133AE2-B122-40A0-818D-5C18107D3F3D} = {05B6CD82-B73E-43DA-9944-46A50D1A6193}
 	EndGlobalSection
 EndGlobal

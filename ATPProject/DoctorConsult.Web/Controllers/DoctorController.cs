@@ -1,4 +1,4 @@
-﻿using DoctorConsult.Core.ViewModel;
+﻿using DoctorConsult.Core.Entity.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
