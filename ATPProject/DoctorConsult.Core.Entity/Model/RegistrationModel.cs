@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.Entity.Model
 {
-    class RegistrationModel:BaseModel
+    public class RegistrationModel:BaseModel
     {
         [Required]
         public string Name { get; set; }

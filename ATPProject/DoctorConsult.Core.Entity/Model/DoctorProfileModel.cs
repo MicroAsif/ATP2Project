@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.Entity.Model
 {
-    class DoctorProfileModel: BaseModel
+    public class DoctorProfileModel: BaseModel
     {
         
         [Required]

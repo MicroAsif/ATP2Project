@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.Entity.Model
 {
-    class AdminSpecialistCityModel: BaseModel
+    public class AdminSpecialistCityModel: BaseModel
     {        
         public string Specialist { get; set; }
         public string CityName { get; set; }

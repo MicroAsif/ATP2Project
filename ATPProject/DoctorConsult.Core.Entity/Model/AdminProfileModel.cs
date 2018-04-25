@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.Entity.Model.Base
 {
-    class AdminProfileModel : BaseModel
+    public class AdminProfileModel : BaseModel
     {
         [Required]
         public string FullName { get; set; }
