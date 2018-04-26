@@ -1,4 +1,5 @@
-﻿using DoctorConsult.Core.Entity.ViewModel;
+﻿using DoctorConsult.Core.Entity.Model;
+using DoctorConsult.Core.Entity.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -139,6 +140,25 @@ namespace DoctorConsult.Web.Controllers
             };
 
             return View("PatientProfile", model: patientProfileViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult DoctorListByPatient(List<DoctorProfileModel> doctors)
+        {
+            doctors = new List<DoctorProfileModel>()
+            {
+                new DoctorProfileModel(){ FullName = "Annable", Email="annable@aiub.edu", Image = "", Specialist="Pain management", NewFee = 800, OldFee = 500 },
+                new DoctorProfileModel(){ FullName = "Selena", Email="selena@aiub.edu", Image = "", Specialist="Medicine", NewFee = 100, OldFee = 600 }
+
+            };
+
+            return View(model: doctors);
+        }
+
+        [HttpGet]
+        public ActionResult DoctorProfile(string id)
+        {
+            return View(model: new DoctorProfileModel() { FullName = "Annable", Email = "annable@aiub.edu", Image = "", Specialist = "Pain management", NewFee = 800, OldFee = 500 });
         }
     }
 }

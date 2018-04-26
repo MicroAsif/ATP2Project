@@ -1313,6 +1313,8 @@
     <Content Include="Views\Patient\PatientProfile.cshtml" />
     <Content Include="Views\Patient\PatientsList.cshtml" />
     <Content Include="Views\Medicine\Index.cshtml" />
+    <Content Include="Views\Patient\DoctorListByPatient.cshtml" />
+    <Content Include="Views\Patient\DoctorProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

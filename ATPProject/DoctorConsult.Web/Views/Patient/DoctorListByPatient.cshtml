@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.DoctorProfileModel>
+
+@{
+    ViewBag.Title = "Patient | Doctor list";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="box">
+    <section class="team">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-0">
+                    @* 1 *@
+                    <div class="col-lg-12">
+                        <h2>Honarable Doctor List</h2>
+                        <div class="row pt-md">
+                            @{
+                                int i = 0;
+                            }
+
+                            @foreach (var item in Model)
+                            {
+                                i++;
+
+                                string link = "http://nabeel.co.in/files/bootsnipp/team/" + @i + ".jpg";
+
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                    <div class="img-box">
+                                        <img alt="profile-photo" src=@link class="img-responsive">
+                                        @*<ul class="text-left">
+                                                <a href="#"><li><i class="fa fa-facebook"></i> Facebook</li></a>
+                                                <a href="#"><li><i class="fa fa-twitter"></i> Twitter</li></a>
+                                                <a href="#"><li><i class="fa fa-linkedin"></i> LinkedIn</li></a>
+                                            </ul>*@
+                                    </div>
+
+                                    <h3>@item.FullName</h3>
+                                    <p>@item.Email</p>
+                                    <p>@item.Specialist</p>
+                                    @*<p>@item.Location</p>*@
+
+                                    @Html.ActionLink("View Details", "DoctorProfile", "Patient", "", new { @class = "btn btn-primary btn-sm btn-block", id = Model.FirstOrDefault().Id })
+                                    <br />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
