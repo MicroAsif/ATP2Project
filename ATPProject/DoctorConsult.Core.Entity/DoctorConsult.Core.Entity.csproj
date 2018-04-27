@@ -43,10 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AdminProfileModel.cs" />
-    <Compile Include="Model\AdminSpecialistCityModel.cs" />
     <Compile Include="Model\Base\BaseModel.cs" />
-    <Compile Include="Model\CreateCampModel.cs" />
+    <Compile Include="Model\CampaignModel.cs" />
     <Compile Include="Model\DoctorProfileModel.cs" />
+    <Compile Include="Model\LocationModel.cs" />
     <Compile Include="Model\MedicalTestModel.cs" />
     <Compile Include="Model\MedicineModel.cs" />
     <Compile Include="Model\PatientProfileModel.cs" />
@@ -54,6 +54,7 @@
     <Compile Include="Model\PatientsProblemPageForDoctorModel.cs" />
     <Compile Include="Model\PrescriptionModel.cs" />
     <Compile Include="Model\RegistrationModel.cs" />
+    <Compile Include="Model\SpecialityModel.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />

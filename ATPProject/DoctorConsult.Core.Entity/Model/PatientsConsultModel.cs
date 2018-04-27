@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace DoctorConsult.Core.Entity.ViewModel
+namespace DoctorConsult.Core.Entity.Model
 {
     public class PatientsConsultModel: BaseModel
     {

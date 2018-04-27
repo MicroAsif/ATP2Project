@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DoctorConsult.Core.Entity.Model.Base;
+using System.ComponentModel.DataAnnotations;
 using System.Web;
 
 namespace DoctorConsult.Core.Entity.Model
 {
-    public class PatientsProblemPageForDoctorModel
+    public class PatientsProblemPageForDoctorModel : BaseModel
     {
         [Required]
         public string ProblemSummary { get; set; }

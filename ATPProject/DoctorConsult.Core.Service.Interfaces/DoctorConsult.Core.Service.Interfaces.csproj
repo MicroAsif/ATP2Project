@@ -41,7 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\IBaseService.cs" />
+    <Compile Include="IAdminProfileService.cs" />
+    <Compile Include="ICampaignModelService.cs" />
+    <Compile Include="IDoctorProfileService.cs" />
+    <Compile Include="ILocationService.cs" />
+    <Compile Include="IMedicalTestService.cs" />
     <Compile Include="IMedicineService.cs" />
+    <Compile Include="IPatientProfileService.cs" />
+    <Compile Include="IPatientsConsultService.cs" />
+    <Compile Include="IPatientsProblemPageForDoctorService.cs" />
+    <Compile Include="IPrescriptionService.cs" />
+    <Compile Include="IResgistrationService.cs" />
+    <Compile Include="ISpecialityService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

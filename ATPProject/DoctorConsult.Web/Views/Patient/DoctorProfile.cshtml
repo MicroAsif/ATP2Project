@@ -5,134 +5,78 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h2>Doctor Profile</h2>
+<h2><i class="glyphicon glyphicon-user"></i> Doctor Profile</h2>
 
-<div>
-    <h4>DoctorProfileModel</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </dt>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">@Html.DisplayFor(model => model.FullName)</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://www.nabeel.co.in/files/bootsnipp/team/5.jpg" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <th>@Html.DisplayName("Speciality")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Specialist)</td>
+                            <td>@Html.DisplayFor(model => model.Specialist)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Bio")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Blood group")</td>
+                            <td>@Html.DisplayFor(model => model.BloogGroup)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Gender)</td>
+                            <td>@Html.DisplayFor(model => model.Gender)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Age)</td>
+                            <td>@Html.DisplayFor(model => model.Age) @Html.DisplayName(" years")</td>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedDate)
-        </dd>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Contact information")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Email)</td>
+                            <td><a href="mailto">@Html.DisplayFor(model => model.Email)</a></td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Phone number")</td>
+                            <td>@Html.DisplayFor(model => model.Phone)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Address)</td>
+                            <td>@Html.DisplayFor(model => model.Address)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayName("Fees")</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("Old Fee")</td>
+                            <td>@Html.DisplayFor(model => model.OldFee) @Html.DisplayName("BDT")</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayName("New Fee")</td>
+                            <td>@Html.DisplayFor(model => model.NewFee) @Html.DisplayName("BDT")</td>
+                        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDelete)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsDelete)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BloogGroup)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BloogGroup)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Specialist)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Specialist)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NewFee)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NewFee)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OldFee)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OldFee)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-    </dl>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <a href="@Url.Action("DoctorListByPatient","Patient")" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-list"></i>@Html.DisplayName(" Back to doctor list")</a>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Back to List", "DoctorListByPatient")
-</p>
