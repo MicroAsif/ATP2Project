@@ -24,5 +24,8 @@ namespace DoctorConsult.Core.Entity.Model
         public string ConfirmPassword { get; set; }
         [Required]
         public string Type { get; set; }
+
+        public int? PatientId { get; set; }
+        public int? DoctorId { get; set; }
     }
 }

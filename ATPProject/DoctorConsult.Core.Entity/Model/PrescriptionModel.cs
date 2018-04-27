@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using DoctorConsult.Core.Entity.Model;
 using DoctorConsult.Core.Entity.Model.Base;
 
-namespace DoctorConsult.Core.Entity.ViewModel
+namespace DoctorConsult.Core.Entity.Model
 {
     public class PrescriptionModel: BaseModel
     {

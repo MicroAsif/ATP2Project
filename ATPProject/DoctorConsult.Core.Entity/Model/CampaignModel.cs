@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.Entity.Model
 {
-    public class CreateCampModel: BaseModel
+    public class CampaignModel: BaseModel
     {
+       
 
         [Required(ErrorMessage = "Campaign location cannot be empty")]
         public string CampaignLocation;

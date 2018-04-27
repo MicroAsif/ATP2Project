@@ -11,7 +11,7 @@ namespace DoctorConsult.Core.Entity.Model
     public class PatientProfileModel : BaseModel
     {
         public string Name { get; set; }
-        public string age { get; set; }
+        public string Age { get; set; }
         public string Email { get; set; }
         public string Birthday { get; set; }
         [Required]

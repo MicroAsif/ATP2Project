@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace DoctorConsult.Core.Entity.ViewModel
+namespace DoctorConsult.Core.Entity.Model
 {
     public class PatientsProblemPageForDoctorModel
     {
@@ -9,7 +9,7 @@ namespace DoctorConsult.Core.Entity.ViewModel
         public string ProblemSummary { get; set; }
         [Required]
         public string ProblemDetails { get; set; }
-        public HttpPostedFileBase filePath { get; set; }
+        public HttpPostedFileBase FilePath { get; set; }
         public HttpPostedFileBase PreviousProblemReportFile { get; set; }
     }
 }
