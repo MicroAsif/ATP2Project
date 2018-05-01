@@ -10,7 +10,7 @@ namespace DoctorConsult.Core.Entity.Model
         public string ProblemSummary { get; set; }
         [Required]
         public string ProblemDetails { get; set; }
-        public HttpPostedFileBase FilePath { get; set; }
-        public HttpPostedFileBase PreviousProblemReportFile { get; set; }
+        public string FilePath { get; set; }
+        public string PreviousProblemReportFile { get; set; }
     }
 }

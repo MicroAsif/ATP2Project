@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Core.Service.Interfaces
 {
-    public interface ICampaignModelService : IBaseService<CampaignModel>
+    public interface ICampaignService : IBaseService<CampaignModel>
     {
     }
 }

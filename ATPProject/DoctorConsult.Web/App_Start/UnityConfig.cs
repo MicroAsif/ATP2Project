@@ -1,4 +1,5 @@
 using System;
+using DoctorConsult.Core.Entity.Model;
 using DoctorConsult.Core.Service.Interfaces;
 using DoctorConsult.Infrustracture.Service;
 using Unity;
@@ -48,6 +49,18 @@ namespace DoctorConsult.Web
             container.RegisterType<IMedicineService, MedicineService>();
             container.RegisterType<ILocationService, LocationService>();
             container.RegisterType<ISpecialityService, SpecialityService>();
+
+            container.RegisterType<IAdminProfileService,AdminService>();
+            container.RegisterType<ICampaignService, CampaignService>();
+            container.RegisterType<IDoctorProfileService, DoctorService>();
+
+            container.RegisterType<IMedicineForPrescriptionService, MedicineForPrescriptionService>();
+            container.RegisterType<IMedicineService, MedicineService>();
+            container.RegisterType<IMedicalTestService, MedicalTestService>();
+
+            container.RegisterType<IPatientsProblemPageForDoctorService, PatientsConsultService>();
+            container.RegisterType<IPatientProfileService, PatientService>();
+            container.RegisterType<IPrescriptionService, PrescriptionService>();
         }
     }
 }
