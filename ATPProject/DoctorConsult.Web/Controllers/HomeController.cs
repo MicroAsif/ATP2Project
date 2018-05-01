@@ -33,7 +33,7 @@ namespace DoctorConsult.Web.Controllers
         {
             if (searchViewModel.CityId!= null)
             {
-                return View("DoctorList", searchViewModel);
+                return RedirectToAction("DoctorList", searchViewModel);
             }
             else
             {
