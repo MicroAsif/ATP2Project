@@ -14,8 +14,6 @@ C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\VBCSCompiler.exe.conf
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Web.dll.config
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Web.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Web.pdb
-C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.dll
-C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.pdb
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csprojResolveAssemblyReference.cache
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
@@ -44,7 +42,6 @@ C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Unity.Mvc.xml
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Unity.RegistrationByConvention.pdb
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Unity.ServiceLocation.pdb
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.xml
-C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\ApplicationInsights.config
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\csc.exe
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -95,3 +92,5 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Deb
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CopyComplete
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
+C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.dll
+C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.pdb

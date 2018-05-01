@@ -4,26 +4,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoctorConsult.Core.Service.Interfaces;
 
 namespace DoctorConsult.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILocationService _locationService;
+        private readonly ISpecialityService _specialityService;
+
+        public HomeController(ILocationService locationService, ISpecialityService specialityService)
+        {
+            _locationService = locationService;
+            _specialityService = specialityService;
+        }
+
+
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.location = _locationService.LocationForDropdown();
+            ViewBag.speciality = _specialityService.SpecialityForDropdown();
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(SearchViewModel searchViewModel)
         {
-            if (ModelState.IsValid)
+            if (searchViewModel.CityId!= null)
             {
-                return RedirectToAction("DoctorList", searchViewModel);
+                return View("DoctorList", searchViewModel);
             }
             else
             {
+                 ViewBag.location = _locationService.LocationForDropdown();
+            ViewBag.speciality = _specialityService.SpecialityForDropdown();
                 return View("Index");
             }
         }

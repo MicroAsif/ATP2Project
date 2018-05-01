@@ -19,22 +19,18 @@
     {
         <div class="form-inline">
             <div class="form-group">
-                @Html.DropDownListFor(x => x.CityName, new List<SelectListItem>
-            {
-                new SelectListItem() {Text = "Dhaka", Value="Dhaka"},
-                new SelectListItem() {Text = "Rangpur", Value="Rangpur"},
-                new SelectListItem() {Text = "Dinajpur", Value="Dinajpur"},
-                new SelectListItem() {Text = "Khulna", Value="Khulna"},
-            }, "Select City", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CityId,
+                                        new SelectList((IEnumerable<SelectListItem>)ViewBag.location, "Value", "Text"), "Select City",
+                                        htmlAttributes: new { @class = "form-control" })
 
             </div>
             <div class="form-group">
-                @Html.DropDownListFor(x => x.SearchCatagory, new List<SelectListItem>
-                {
-                    new SelectListItem() {Text = "Dentist", Value="Dentist"},
-                    new SelectListItem() {Text = "Pain specaility", Value="Pain specaility"},
-                    new SelectListItem() {Text = "Cardiology", Value="Cardiology"},
-                }, "Select Speciality", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.SpecialityId,
+                                        new SelectList((IEnumerable<SelectListItem>)ViewBag.speciality, "Value", "Text"), "Select Speciality",
+                                        htmlAttributes: new { @class = "form-control" })
+
+
+
 
             </div>
             <input type="submit" class="btn btn-success" value="Search"/>

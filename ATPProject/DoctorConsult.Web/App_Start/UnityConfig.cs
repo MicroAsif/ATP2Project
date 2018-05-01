@@ -46,6 +46,8 @@ namespace DoctorConsult.Web
 
 
             container.RegisterType<IMedicineService, MedicineService>();
+            container.RegisterType<ILocationService, LocationService>();
+            container.RegisterType<ISpecialityService, SpecialityService>();
         }
     }
 }

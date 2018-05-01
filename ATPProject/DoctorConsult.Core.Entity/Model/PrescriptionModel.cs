@@ -14,7 +14,7 @@ namespace DoctorConsult.Core.Entity.Model
         public string Cause { get; set; }
         [Required]
         public int PatientId { get; set; }
-        public ICollection<MedicineModel> Medicines { get; set; }
+        public ICollection<MedicineForPrescription> Medicines { get; set; }
         public ICollection<MedicalTestModel> MedicalTests { get; set; }
         public string Advice { get; set; }
         

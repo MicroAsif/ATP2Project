@@ -8,11 +8,6 @@ namespace DoctorConsult.Core.Entity.Model
         [Required]
         public string Name { get; set; }
         public string Manufacture { get; set; }
-        [Required]
-        public int Quantity { get; set; }
-        [Required]
-        public int Days{ get; set; }
-        [Required]
-        public string DailyTimes { get; set; }
+       
     }
 }
