@@ -1,121 +1,9 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.ViewModel.PatientProfileViewModel>
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PatientProfileModel>
 
 @{
-    ViewBag.Title = "PatientList";
+    ViewBag.Title = "Patient List";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
-
-
-
-@*<div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">Patient List</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Patent's Name</th>
-                                <th>Patent's Email</th>
-                                <th>Patient's Location</th>
-                                <th>Blood </th>
-                                <th>Age</th>
-                                <th>action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-
-                                <td>
-                                    abc
-                                </td>
-                                <td>aa@gmail.com</td>
-                                <td> Dhaka</td>
-                                <td>A+</td>
-                                <td> 22</td>
-                                <td>
-                                    <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>
-
-                                    <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <td>
-                                    abc
-                                </td>
-                                <td>aa@gmail.com</td>
-                                <td> Dhaka</td>
-                                <td>A+</td>
-                                <td> 22</td>
-                                <td>
-                                    <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>
-
-                                    <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <td>
-                                    abc
-                                </td>
-                                <td>aa@gmail.com</td>
-                                <td> Dhaka</td>
-                                <td>A+</td>
-                                <td> 22</td>
-                                <td>
-                                    <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>
-
-                                    <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <td>
-                                    abc
-                                </td>
-                                <td>aa@gmail.com</td>
-                                <td> Dhaka</td>
-                                <td>A+</td>
-                                <td> 22</td>
-                                <td>
-                                    <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>
-
-                                    <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-                <!-- /.box-body -->
-            </div>
-        </div>
-        <!-- /.col -->
-    </div>*@
-
-
-
 
 <section class="team">
     <div class="container">
@@ -126,7 +14,7 @@
                     <label class="btn btn-reddit">
                         Total Number of patients: @{
                             int count = 0;
-                            foreach(var item in Model)
+                            foreach (var item in Model)
                             {
                                 count++;
                             }
@@ -135,36 +23,35 @@
                     </label>
                     @using (Html.BeginForm())
                     {
-                    <div class="form-group-lg">
+                        <div class="form-group-lg">
 
-                        <div class="form-group">
-                            <label for="Search">Search Patient</label>
-                            <input class="form-control" id="#" placeholder="Search" type="search">
+                            <div class="form-group">
+                                <label for="Search">Search Patient</label>
+                                <input class="form-control" id="#" placeholder="Search" type="search">
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>Group By</label>
+                                <select class="form-control">
+                                    <option>Name</option>
+                                    <option>Location</option>
+                                    <option>Age</option>
+                                </select>
+
+
+                            </div>
+
+                            <input type="submit" class="btn btn-success" value="Search" /><br><br>
+
+
+
+
                         </div>
-
-                        <div class="form-group">
-
-                            <label>Group By</label>
-                            <select class="form-control">
-                                <option>Name</option>
-                                <option>Location</option>
-                                <option>Age</option>
-                            </select>
-
-
-                        </div>
-
-                        <input type="submit" class="btn btn-success" value="Search" /><br><br>
-
-
-
-
-                    </div>
 
                     }
-                    @*<h6 class="description">Doctor List</h6>*@
                     <div class="row pt-md">
-                        
+
                         @{
                             int i = 0;
                         }
@@ -175,27 +62,27 @@
 
                             string link = "http://nabeel.co.in/files/bootsnipp/team/" + @i + ".jpg";
 
-                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                            <div class="img-box">
-                                <img alt="profile-photo" src=@link class="img-responsive">
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                <div class="img-box">
+                                    <img alt="profile-photo" src=@link class="img-responsive">
+
+                                </div>
+
+                                <h3>@item.Name</h3>
+                                @*<p><strong>Age: </strong>@item.age</p>*@
+                                <p><strong><i class="glyphicon glyphicon-tint"></i> Blood Group: </strong>@item.BloodGroup</p>
+                                <p><strong><i class="fa fa-intersex"></i> Gender: </strong>@item.Gender</p>
+
+                                <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+
+                                <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                                <br />
 
                             </div>
-
-                            <h3>@item.Name</h3>
-                            <p><strong>Age: </strong>@item.age</p>
-                            <p><strong><i class="glyphicon glyphicon-tint"></i> Blood Group: </strong>@item.BloodGroup</p>
-                            <p><strong><i class="fa fa-intersex"></i> Gender: </strong>@item.Gender</p>
-
-                            <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a>
-
-                            <a href="#" onclick="return confirm('Are you sure you want to delete this patient ?');" class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </a>
-                            <br />
-                           
-                        </div>
                         }
                     </div>
                 </div>
@@ -203,7 +90,3 @@
         </div>
     </div>
 </section>
-
-
-
-

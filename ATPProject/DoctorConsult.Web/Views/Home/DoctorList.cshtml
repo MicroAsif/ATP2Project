@@ -7,82 +7,11 @@
 
 <h2>Doctor List</h2>
 
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayName("First name")
-        </th>
-        <th>
-            @Html.DisplayName("Last name")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specialist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayName("Contact number")
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialist)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Index", "Doctor"@*new { /* id=item.PrimaryKey */ })*@
-@*</td>
-            </tr>
-        }
-
-    </table>*@
-
 <section class="team">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-0">
-                @* 1 *@
                 <div class="col-lg-12">
-                    @*<h6 class="description">Doctor List</h6>*@
                     <div class="row pt-md">
                         @{
                             int i = 0;
@@ -97,19 +26,15 @@
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                             <div class="img-box">
                                 <img alt="profile-photo" src=@link class="img-responsive">
-                                @*<ul class="text-left">
-                <a href="#"><li><i class="fa fa-facebook"></i> Facebook</li></a>
-                <a href="#"><li><i class="fa fa-twitter"></i> Twitter</li></a>
-                <a href="#"><li><i class="fa fa-linkedin"></i> LinkedIn</li></a>
-            </ul>*@
                             </div>
 
                             <h3>@item.FullName</h3>
                             <p>@item.Email</p>
                             <p>@item.Specialist</p>
+                            <p>@item.Id</p>
                             @*<p>@item.Location</p>*@
 
-                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            @Html.ActionLink("Details", "DoctorProfile", "Home", new { @class = "btn btn-primary btn-sm btn-block", id = item.Id })
                             <br />
                         </div>
                         }
@@ -119,11 +44,3 @@
         </div>
     </div>
 </section>
-<footer>
-    @*<div class="container">
-            <div class="col-md-10 col-md-offset-1 text-center">
-
-                <h6>Coded with <i class="fa fa-heart red"></i> by <a href="http://www.nabeel.co.in" target="_blank">Doctor Consult</a></h6>
-            </div>
-        </div>*@
-</footer>

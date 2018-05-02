@@ -1,4 +1,5 @@
 ﻿using DoctorConsult.Core.Entity.ViewModel;
+using DoctorConsult.Core.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace DoctorConsult.Web.Controllers
 {
     public class DoctorController : Controller
     {
+        private readonly IPatientProfileService _patientProfileService;
+
+        public DoctorController(IPatientProfileService patientProfileService)
+        {
+            _patientProfileService = patientProfileService;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -24,14 +32,15 @@ namespace DoctorConsult.Web.Controllers
             return View(new DoctorProfileViewModel());
         }
 
-        public ActionResult PatientList(List<PatientProfileViewModel> patients)
+        public ActionResult PatientList(/*List<PatientProfileViewModel> patients*/)
         {
-            patients = new List<PatientProfileViewModel> {
-            new PatientProfileViewModel() { Name="Samiur Rahman", age="21", BloodGroup="b+", Gender="Male" },
-            new PatientProfileViewModel() { Name = "Asif Rahman", age = "21", BloodGroup = "b+", Gender = "Male" },
-            new PatientProfileViewModel() { Name = "Jamy Ahmed", age = "21", BloodGroup = "b+", Gender = "Male" }
-            };
-            return View(model: patients);
+            //patients = new List<PatientProfileViewModel> {
+            //new PatientProfileViewModel() { Name="Samiur Rahman", age="21", BloodGroup="b+", Gender="Male" },
+            //new PatientProfileViewModel() { Name = "Asif Rahman", age = "21", BloodGroup = "b+", Gender = "Male" },
+            //new PatientProfileViewModel() { Name = "Jamy Ahmed", age = "21", BloodGroup = "b+", Gender = "Male" }
+            //};
+            //return View(model: patients);
+            return View(model: _patientProfileService.All());
         }
         public ActionResult ConsultRequestList()
         {
