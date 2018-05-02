@@ -61,7 +61,6 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Doc
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\CommonServiceLocator.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Core.Entity.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Core.Service.Interfaces.dll
-C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Infrustracture.Service.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Unity.Abstractions.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Unity.Configuration.dll
@@ -75,8 +74,6 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Web
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Core.Entity.pdb
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Core.Service.Interfaces.pdb
-C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.pdb
-C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Data.dll.config
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Infrustracture.Service.pdb
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Infrustracture.Service.dll.config
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\CommonServiceLocator.pdb
@@ -94,3 +91,9 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Deb
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.pdb
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.dll
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.pdb
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.dll.config
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.SqlServer.xml
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
