@@ -19,7 +19,7 @@ namespace DoctorConsult.Infrustracture.Service.Base
         }
 
 
-        public IEnumerable<T> All()
+        public IQueryable<T> All()
         {
             return _innerDbSet.Where(x => !x.IsDelete);
         }

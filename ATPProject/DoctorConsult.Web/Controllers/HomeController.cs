@@ -58,25 +58,10 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult DoctorProfile(DoctorProfileViewModel doctorProfileViewModel)
+        public ActionResult DoctorProfile(int doctorId)
         {
-            doctorProfileViewModel = new DoctorProfileViewModel()
-            {
-                Id = 1,
-                FullName = "Daniel Dany",
-                Email = "daniel@doctorconsult.com",
-                BloogGroup = "A+",
-                Gender = "Male",
-                Specialist = "Pain management",
-                Location = "Kuril, Kuratoli",
-                Phone = "01750680929",
-                Image = "http://nabeel.co.in/files/bootsnipp/team/4.jpg",
-                Age = 24,
-                NewFee = 1000,
-                OldFee = 700,
-                Address = "Pocket gate"
-            };
-            return View(model: doctorProfileViewModel);
+            var doctor = _doctorService.Find(doctorId);
+            return View(doctor);
         }
 
         public ActionResult About()

@@ -5,16 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace DoctorConsult.Web.Controllers
 {
     public class DoctorController : Controller
     {
         private readonly IPatientProfileService _patientProfileService;
+        private readonly IPrescriptionService _prescriptionService;
 
-        public DoctorController(IPatientProfileService patientProfileService)
+        public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService)
         {
             _patientProfileService = patientProfileService;
+            _prescriptionService = prescriptionService;
         }
 
         [HttpGet]
@@ -32,16 +35,12 @@ namespace DoctorConsult.Web.Controllers
             return View(new DoctorProfileViewModel());
         }
 
-        public ActionResult PatientList(/*List<PatientProfileViewModel> patients*/)
+        [HttpGet]
+        public ActionResult PatientList()
         {
-            //patients = new List<PatientProfileViewModel> {
-            //new PatientProfileViewModel() { Name="Samiur Rahman", age="21", BloodGroup="b+", Gender="Male" },
-            //new PatientProfileViewModel() { Name = "Asif Rahman", age = "21", BloodGroup = "b+", Gender = "Male" },
-            //new PatientProfileViewModel() { Name = "Jamy Ahmed", age = "21", BloodGroup = "b+", Gender = "Male" }
-            //};
-            //return View(model: patients);
             return View(model: _patientProfileService.All());
         }
+
         public ActionResult ConsultRequestList()
         {
             return View("ConsultRequest");
@@ -49,12 +48,15 @@ namespace DoctorConsult.Web.Controllers
 
         public ActionResult Prescribe()
         {
+
             return View();
         }
 
+        [HttpGet]
         public ActionResult PrescribtionList()
         {
-            return View();
+            var prescriptions = _prescriptionService.GetPresctions();
+            return View(prescriptions);
         }
 
         public ActionResult PrescribtionDetails()
