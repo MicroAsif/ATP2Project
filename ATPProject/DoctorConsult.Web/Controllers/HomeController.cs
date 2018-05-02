@@ -12,11 +12,13 @@ namespace DoctorConsult.Web.Controllers
     {
         private readonly ILocationService _locationService;
         private readonly ISpecialityService _specialityService;
+        private readonly IDoctorProfileService _doctorService;
 
-        public HomeController(ILocationService locationService, ISpecialityService specialityService)
+        public HomeController(ILocationService locationService, ISpecialityService specialityService, IDoctorProfileService doctorService)
         {
             _locationService = locationService;
             _specialityService = specialityService;
+            _doctorService = doctorService;
         }
 
 
@@ -28,49 +30,31 @@ namespace DoctorConsult.Web.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public ActionResult Index(SearchViewModel searchViewModel)
+        //{
+        //    if (searchViewModel.CityName != null && searchViewModel.SpecialityName != null)
+        //    {
+        //        var doctors = _doctorService.SearchDoctors(searchViewModel.CityName, searchViewModel.SpecialityName);
+        //        return RedirectToAction("DoctorList", doctors);
+        //    }
+        //    else
+        //    {
+        //         ViewBag.location = _locationService.LocationForDropdown();
+        //    ViewBag.speciality = _specialityService.SpecialityForDropdown();
+        //        return View("Index");
+        //    }
+        //}
+
         [HttpPost]
-        public ActionResult Index(SearchViewModel searchViewModel)
+        public ActionResult DoctorList(SearchViewModel searchViewModel)
         {
-            if (searchViewModel.CityId!= null)
+            if (searchViewModel.CityName != null && searchViewModel.SpecialityName != null)
             {
-                return RedirectToAction("DoctorList", searchViewModel);
+                var doctors = _doctorService.SearchDoctors(searchViewModel.CityName, searchViewModel.SpecialityName);
+                return View("DoctorList", doctors);
             }
-            else
-            {
-                 ViewBag.location = _locationService.LocationForDropdown();
-            ViewBag.speciality = _specialityService.SpecialityForDropdown();
-                return View("Index");
-            }
-        }
-
-        [HttpGet]
-        public ActionResult DoctorList(List<DoctorViewModel> doctors)
-        {
-            // Demo value
-            doctors = new List<DoctorViewModel>()
-            {
-                new DoctorViewModel(){ Id = 1, FirstName="Annabelle", LastName="Ava", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Babeli", LastName="At.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 1, FirstName="Ashley", LastName="Ash", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Mike", LastName="Kude.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 1, FirstName="John", LastName="Abraham", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Angella", LastName="Angel", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 1, FirstName="Suvash", LastName="Chandra", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Alice", LastName="Allan", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 1, FirstName="Amy", LastName="Anderson", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Carmel", LastName="Cass", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" }
-            };
-
-            return View(model: doctors);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

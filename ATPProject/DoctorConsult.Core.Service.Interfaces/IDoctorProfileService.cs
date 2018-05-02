@@ -10,5 +10,6 @@ namespace DoctorConsult.Core.Service.Interfaces
 {
     public interface IDoctorProfileService : IBaseService<DoctorProfileModel>
     {
+        IEnumerable<DoctorProfileModel> SearchDoctors(string location, string speciality);
     }
 }

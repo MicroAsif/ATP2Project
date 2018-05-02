@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.ViewModel.DoctorViewModel>
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.DoctorProfileModel>
 
 @{
     ViewBag.Title = "Doctor List";
@@ -104,7 +104,7 @@
             </ul>*@
                             </div>
 
-                            <h3>@item.FirstName @item.LastName</h3>
+                            <h3>@item.FullName</h3>
                             <p>@item.Email</p>
                             <p>@item.Specialist</p>
                             @*<p>@item.Location</p>*@

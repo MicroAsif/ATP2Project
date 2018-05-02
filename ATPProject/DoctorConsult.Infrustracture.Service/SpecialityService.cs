@@ -17,7 +17,7 @@ namespace DoctorConsult.Infrustracture.Service
             return All().ToList().Select(x => new SelectListItem()
             {
                 Text = x.Name,
-                Value = x.Id.ToString()
+                Value = x.Name
             });
         }
     }

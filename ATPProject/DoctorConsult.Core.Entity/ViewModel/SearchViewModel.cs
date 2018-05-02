@@ -15,7 +15,7 @@ namespace DoctorConsult.Core.Entity.ViewModel
 
         public string DoctorNameInput { get; set; }
 
-        public int CityId { get; set; }
-        public int SpecialityId { get; set; }
+      
+        public string SpecialityName { get; set; }
     }
 }

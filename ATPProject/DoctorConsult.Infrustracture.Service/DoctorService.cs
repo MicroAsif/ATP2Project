@@ -12,6 +12,10 @@ namespace DoctorConsult.Infrustracture.Service
 {
     public class DoctorService : BaseService<DoctorProfileModel>, IDoctorProfileService
     {
-        
+        public IEnumerable<DoctorProfileModel> SearchDoctors(string location, string speciality)
+        {
+            return  All().Where(x=>x.Location.ToLower() == location.ToLower() 
+                                && x.Specialist.ToLower() == speciality.ToLower());
+        }
     }
 }

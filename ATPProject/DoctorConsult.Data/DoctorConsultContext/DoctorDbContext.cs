@@ -14,7 +14,6 @@ namespace DoctorConsult.Data.DoctorConsultContext
         {
             
         }
-
         public DbSet<MedicineModel> Medicines { get; set; }
         public DbSet<LocationModel> Locations { get; set; }
         public DbSet<SpecialityModel> Speciality { get; set; }
@@ -27,7 +26,6 @@ namespace DoctorConsult.Data.DoctorConsultContext
         public DbSet<PatientsConsultModel> Consults { get; set; }
         public DbSet<PatientsProblemPageForDoctorModel> PatientsConsults { get; set; }
         public DbSet<PrescriptionModel> Prescriptions { get; set; }
-
 
     }
 }

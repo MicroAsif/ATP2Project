@@ -15,17 +15,17 @@
     <h1>Find your doctor</h1>
 
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("DoctorList", "Home"))
     {
         <div class="form-inline">
             <div class="form-group">
-                @Html.DropDownListFor(model => model.CityId,
+                @Html.DropDownListFor(model => model.CityName,
                                         new SelectList((IEnumerable<SelectListItem>)ViewBag.location, "Value", "Text"), "Select City",
                                         htmlAttributes: new { @class = "form-control" })
 
             </div>
             <div class="form-group">
-                @Html.DropDownListFor(model => model.SpecialityId,
+                @Html.DropDownListFor(model => model.SpecialityName,
                                         new SelectList((IEnumerable<SelectListItem>)ViewBag.speciality, "Value", "Text"), "Select Speciality",
                                         htmlAttributes: new { @class = "form-control" })
 
