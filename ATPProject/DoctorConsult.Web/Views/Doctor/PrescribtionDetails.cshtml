@@ -1,96 +1,11 @@
-﻿
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PrescriptionModel>
+
 @{
-    ViewBag.Title = "PrescribtionDetails";
+    ViewBag.Title = "Prescribtion Details";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
-
-
-
-@model DoctorConsult.Core.Entity.ViewModel.PrescriptionViewModel
-@{
-    ViewBag.Title = "Prescribe";
-    Layout = "~/Views/Shared/_doctorDashboard.cshtml";
-}
-
 
 <form>
-
-    @*<div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                    <div class="col-md-4">
-                        <label asp-for="PrescribtionNo">Prescribtion No</label>
-                        <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" id="PrescribtionNo" />
-                        @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col-xs-4">
-                        <label asp-for="PrescribtionDate">Prescribtion Date</label>
-                        @Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })
-                        @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col-xs-4">
-                        <label asp-for="Cause"> Cause</label>
-                        @Html.EditorFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status" } })
-                        @Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <br />
-                    <div class="col-md-4">
-                        <label asp-for="">Patient</label>
-                        @Html.DropDownList("PatientId", new SelectList(string.Empty, "Value", "Text"), "select Patient", new { @class = "form-control", id = "Patient" })
-                        @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="col-md-4 ">
-                        <br />
-                        <input type="button" value="Add Medicine" data-toggle="modal" data-target="#loginModal" class="button primary" />
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <br />
-                    <br />
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <td>Medicine Name</td>
-                                <td>Price </td>
-                                <td>Quantity</td>
-                                <td>Amount</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody id="Items"></tbody>
-                    </table>
-                </div>
-
-
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="col-md-4 ">
-                        <br />
-                        <input type="button" value="Add Medical Test" data-toggle="modal" data-target="#loginModal" class="button primary" />
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <br />
-                    <br />
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <td>Medicine Test</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody id="Items"></tbody>
-                    </table>
-                </div>
-
-        </div>*@
-
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Prescription Details </h3>
@@ -99,34 +14,46 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-5">
-                    <h4>Patient Name : <strong>Asif Rahman </strong> </h4>
+                    <h4>Patient Name : <strong>@Model.SingleOrDefault().Patient.Name </strong> </h4>
                 </div>
                 <div class="col-md-5">
-                    <p> Cause : <strong> Fever and back pain </strong></p>
+                    <p> Cause : <strong>
+                        @{ 
+                            if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    @item.Cause
+                                }
+                            }
+                        }
+                        </strong>
+                    </p>
                 </div>
-
-                <br /> <br /> <br />
+                <br />
+                <br />
+                <br />
             </div>
-
-
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4">
-                    <label asp-for="PrescribtionNo">Prescribtion No</label>
-                    <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" readonly value="225663" id="PrescribtionNo" />
-                    @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
+                    <label asp-for="PrescribtionNo">Prescribtion No : </label>
+                    <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" readonly value="@Model.SingleOrDefault().Id" id="PrescribtionNo" />
+                    @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
                 </div>
                 <div class="col-xs-4">
-                    <label asp-for="PrescribtionDate">Prescribtion Date</label>
-                    @Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })
-                    @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
+                    <label asp-for="PrescribtionDate">Prescribed Date : </label>
+                    <br />
+                    @Model.SingleOrDefault().CreatedDate.ToShortDateString()
                 </div>
-
+                <div class="col-xs-4">
+                    <label asp-for="PrescribtionDate">Next Visit Date</label>
+                    <br />
+                    @Html.TextBox("StartDate", Model.SingleOrDefault().PrescribtionDate, new { @class = "datepicker", @type = "date" })
+                    @*@Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })*@
+                    @*@Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })*@
+                </div>
             </div>
-
-
-
-
 
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4 ">
@@ -142,7 +69,6 @@
                     <thead>
                         <tr>
                             <th>Medicine Name</th>
-
                             <th>Days</th>
                             <th>Daily Times</th>
                             <th>action</th>
@@ -150,8 +76,7 @@
                     </thead>
                     <tbody id="Items">
                         <tr>
-                            <td>Napa </td>
-
+                            <td>Napa </td>                         
                             <td>10</td>
                             <td>0-1-1</td>
                             <td><a href=""><i class="fa fa-trash"></i></a></td>
@@ -159,8 +84,7 @@
                     </tbody>
                 </table>
             </div>
-
-
+            
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4 ">
                     <br />
@@ -180,8 +104,17 @@
                     </thead>
                     <tbody id="Items">
                         <tr>
-                            <td>Blood Test</td>
-                            <td><a href=""><i class="fa fa-trash"></i></a></td>
+                            @{
+                                if (Model.SingleOrDefault().MedicalTests != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <td>@item.MedicalTests.SingleOrDefault().TestName</td>
+                                        <td><a href="@Url.Action()"><i class="fa fa-trash"></i></a></td>
+                                    }
+                                }
+                            }
+                            
                         </tr>
                     </tbody>
                 </table>
@@ -193,15 +126,10 @@
                     <input type="submit" value="Update Prescription" data-toggle="modal" data-target="#updateModal" class="btn btn-success" id="btnSubmit" />
                 </div>
             </div>
-
-
         </div>
-
         <br />
     </div>
-
 </form>
-
 
 <!-- medicine modal form-->
 <div class="row">
@@ -248,7 +176,6 @@
     </div>
 </div>
 
-
 <!-- medicine modal form-->
 <div class="row">
     <div class="col-md-6">
@@ -278,8 +205,6 @@
         </div>
     </div>
 </div>
-
-
 
 <!-- update modal form-->
 <div class="row">

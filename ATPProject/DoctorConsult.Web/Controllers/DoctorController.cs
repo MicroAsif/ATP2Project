@@ -23,14 +23,17 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.NumberOfPatients = _patientProfileService.All().Count();
+            ViewBag.NumberOfPrescribtions = _prescriptionService.All().Count();
             return View();
         }
+
         public ActionResult ChangePassword()
         {
             return View();
         }
 
-        public  ActionResult Profile()
+        public new ActionResult Profile()
         {
             return View(new DoctorProfileViewModel());
         }
@@ -48,7 +51,6 @@ namespace DoctorConsult.Web.Controllers
 
         public ActionResult Prescribe()
         {
-
             return View();
         }
 
@@ -59,15 +61,16 @@ namespace DoctorConsult.Web.Controllers
             return View(prescriptions);
         }
 
-        public ActionResult PrescribtionDetails()
+        [HttpGet]
+        public ActionResult PrescribtionDetails(int patientId)
         {
-            return View();
+            return View(model: _prescriptionService.GetPrescribtionByPatientId(patientId));
         }
+
         [HttpGet]
         public ActionResult PatientsProblemPageForDoctor()
         {
             return View();
         }
-        
     }
 }

@@ -11,9 +11,9 @@ namespace DoctorConsult.Core.Service.Interfaces
 {
     public class PrescriptionService : BaseService<PrescriptionModel>, IPrescriptionService
     {
-        public IEnumerable<PrescriptionModel> GetPrescribtionByPatientId(int patiendId)
+        public IEnumerable<PrescriptionModel> GetPrescribtionByPatientId(int patientId)
         {
-            return All().Include(x => x.Patient).Where(x=>x.PatientId == patiendId).ToList();
+            return All().Include(x => x.Patient).Where(x => x.PatientId == patientId).ToList();
         }
 
         public IEnumerable<PrescriptionModel>  GetPresctions()

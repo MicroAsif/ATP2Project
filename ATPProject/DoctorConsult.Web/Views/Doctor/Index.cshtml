@@ -23,7 +23,14 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>4</h3>
+                    <h3>
+                        @{ 
+                            if(ViewBag !=null)
+                            {
+                                @ViewBag.NumberOfPatients
+                            }
+                        }
+                    </h3>
                     <p>patient</p>
                 </div>
                 <div class="icon">
@@ -36,7 +43,14 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>5</h3>
+                    <h3>
+                        @{ 
+                            if(ViewBag !=null)
+                            {
+                                @ViewBag.NumberOfPrescribtions
+                            }
+                        }
+                    </h3>
                     <p>Prescription </p>
                 </div>
                 <div class="icon">
@@ -49,7 +63,14 @@
             <!-- small box -->
             <div class="small-box bg-blue-active">
                 <div class="inner">
-                    <h3>1025</h3>
+                    <h3>
+                        @{ 
+                            if(ViewBag !=null)
+                            {
+                                @ViewBag.NumberOfPrescribtions
+                            }
+                        }
+                    </h3>
                     <p>Accepted list of Patients </p>
                 </div>
                 <div class="icon">

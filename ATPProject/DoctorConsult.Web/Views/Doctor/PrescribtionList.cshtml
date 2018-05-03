@@ -30,7 +30,7 @@
                                     <h3>@item.Patient.Name</h3>
                                     <p><i class="glyphicon glyphicon-envelope"></i> @item.Patient.Email</p>
                                     <p><i class="glyphicon glyphicon-tint"></i> Blood group: @item.Patient.BloodGroup</p>
-                                    <a class="btn btn-xs btn-default btn-success active" href="@Url.Action("PrescribtionDetails")"><i class="glyphicon glyphicon-leaf"></i> Click to see full info.</a>
+                                    <a class="btn btn-xs btn-default btn-success active" href="@Url.Action("PrescribtionDetails", new { patientId = item.Patient.Id })"><i class="glyphicon glyphicon-leaf"></i> Click to see full info.</a>
                                     <br />
                                 </div>
                             </div>

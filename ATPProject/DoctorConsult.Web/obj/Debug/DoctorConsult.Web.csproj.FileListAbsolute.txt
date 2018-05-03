@@ -99,3 +99,4 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Ent
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.SqlServer.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.SqlServer.xml
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
