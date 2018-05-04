@@ -1,5 +1,6 @@
 ﻿using DoctorConsult.Core.Entity.Model;
 using DoctorConsult.Core.Entity.ViewModel;
+using DoctorConsult.Core.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,20 @@ namespace DoctorConsult.Web.Controllers
 {
     public class PatientController : Controller
     {
+
+        private readonly ISpecialityService _specialityService;
+
+
+        public PatientController(ISpecialityService specialityService)
+        {
+            _specialityService = specialityService;
+        }
+
         // patient dashboard
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.speciality = _specialityService.SpecialityForDropdown();
             return View();
         }
         [HttpPost]

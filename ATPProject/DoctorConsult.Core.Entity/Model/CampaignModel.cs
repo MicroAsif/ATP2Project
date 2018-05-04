@@ -13,14 +13,15 @@ namespace DoctorConsult.Core.Entity.Model
        
 
         [Required(ErrorMessage = "Campaign location cannot be empty")]
-        public string CampaignLocation;
+        public string CampaignLocation { set; get; }
 
         [Required(ErrorMessage = "Campaign Duration cannot be empty")]
-        public string CampaignDuration;
+        public string CampaignDuration { set; get; }
+
 
         [Required(ErrorMessage = "Campaign Date cannot be empty")]
-        public DateTime CampaignDate;
+        public DateTime CampaignDate { set; get; }
 
-        public double CampaignRent;
+        public double CampaignRent { set; get; }
     }
 }

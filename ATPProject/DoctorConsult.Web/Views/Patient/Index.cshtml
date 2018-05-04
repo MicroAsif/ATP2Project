@@ -19,12 +19,9 @@
             <div class="form-group-lg">
 
                 <div class="form-group">
-                    @Html.DropDownListFor(x => x.SearchCatagory, new List<SelectListItem>
-{
-    new SelectListItem() {Text = "Dentist", Value="Dentist"},
-    new SelectListItem() {Text = "Pain specaility", Value="Pain specaility"},
-    new SelectListItem() {Text = "Cardiology", Value="Cardiology"},
- }, "Select Speciality", new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.SpecialityName,
+                             new SelectList((IEnumerable<SelectListItem>)ViewBag.speciality, "Value", "Text"), "Select Speciality",
+                             htmlAttributes: new { @class = "form-control" })
 
                 </div>
                 <div class="form-group">
