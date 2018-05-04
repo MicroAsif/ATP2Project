@@ -1,11 +1,9 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.ViewModel.PatientProfileViewModel>
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PatientProfileModel>
 
 @{
-    ViewBag.Title = "PatientList";
+    ViewBag.Title = "Patient List";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
-
-
 
 <div class="row">
     <div class="col-xs-12">
@@ -20,87 +18,48 @@
                         <input type="submit" class="btn btn-success" value="Search" />
                     </div>
                 </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Patent's Name</th>
-                            <th>Patent's Email</th>
-                            <th>Patient's Location</th>
-                            <th>Blood </th>
-                            <th>Age</th>
-                            <th>action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Patent's Name</th>
+                                <th>Patent's Email</th>
+                                <th>Patient's Location</th>
+                                <th>Blood </th>
+                                <th>Age</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
 
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>A+</td>
-                            <td> 22</td>
-                            <td>
+                        <tbody>
+                            @{ 
+                                if(Model!=null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Area</td>
+                                            <td>@item.BloodGroup</td>
+                                            <td>@item.Birthday</td>
+                                            <td>
+                                                <a href="@Url.Action("PatientProfile","Patient", new { patientId = item.Id})" class="btn btn-success btn-sm">
+                                                    <span class="glyphicon glyphicon-user"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
 
-                                <a href="@Url.Action("PatientProfile","Patient")" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>A+</td>
-                            <td> 22</td>
-                            <td>
-                                <a href="@Url.Action("PatientProfile","Patient")" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>A+</td>
-                            <td> 22</td>
-                            <td>
-                                <a href="@Url.Action("PatientProfile","Patient")" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                abc
-                            </td>
-                            <td>aa@gmail.com</td>
-                            <td> Dhaka</td>
-                            <td>A+</td>
-                            <td> 22</td>
-                            <td>
-                                <a href="@Url.Action("PatientProfile","Patient")" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-
-                </table>
+                    </table>
+                </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
         </div>
+        <!-- /.col -->
     </div>
-    <!-- /.col -->
 </div>

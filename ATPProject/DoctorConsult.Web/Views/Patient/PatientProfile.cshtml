@@ -1,7 +1,7 @@
-﻿@model DoctorConsult.Core.Entity.ViewModel.PatientProfileViewModel
+﻿@model DoctorConsult.Core.Entity.Model.PatientProfileModel
 
 @{
-    ViewBag.Title = "PatientProfile";
+    ViewBag.Title = "Patient Profile";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
@@ -17,7 +17,6 @@
     <i class="glyphicon glyphicon-user"></i> Patient Profile Details
 </h2>
 
-
 <div class="panel panel-info">
     <div class="panel-heading">
         <h3 class="panel-title">@Html.DisplayFor(model => model.Name)</h3>
@@ -25,7 +24,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://www.nabeel.co.in/files/bootsnipp/team/5.jpg" class="img-circle img-responsive"> </div>
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="@Model.Photo" class="img-circle img-responsive"> </div>
             <div class=" col-md-9 col-lg-9 ">
                 <table class="table table-user-information">
                     <tbody>
@@ -46,9 +45,8 @@
                             <td>@Html.DisplayFor(model => model.Gender)</td>
                         </tr>
                         <tr>
-                            <td>@Html.DisplayNameFor(model => model.age)</td>
-                            <td>@Html.DisplayFor(model => model.age) @Html.DisplayName(" years")</td>
-
+                            <td>@Html.DisplayName("Age")</td>
+                            <td>@Html.DisplayFor(model => model.Birthday) @Html.DisplayName(" years")</td>
                         </tr>
                         <tr>
                             <th>@Html.DisplayName("Contact information")</th>

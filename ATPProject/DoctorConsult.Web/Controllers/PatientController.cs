@@ -12,11 +12,13 @@ namespace DoctorConsult.Web.Controllers
     public class PatientController : Controller
     {
         private readonly ISpecialityService _specialityService;
+        private readonly IPatientProfileService _patientProfileService;
         private readonly IDoctorProfileService _doctorProfileService;
 
-        public PatientController(ISpecialityService specialityService, IDoctorProfileService doctorProfileService)
+        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, IDoctorProfileService doctorProfileService)
         {
             _specialityService = specialityService;
+            _patientProfileService = patientProfileService;
             _doctorProfileService = doctorProfileService;
         }
 
@@ -106,36 +108,15 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult PatientsList(List<PatientProfileViewModel> patients)
+        public ActionResult PatientsList(List<PatientProfileModel> patients)
         {
-            patients = new List<PatientProfileViewModel>() {
-            new PatientProfileViewModel() { Name="Samiur Rahman", age="21", BloodGroup="b+", Gender="Male" },
-            new PatientProfileViewModel() { Name = "Asif Rahman", age = "21", BloodGroup = "b+", Gender = "Male" },
-            new PatientProfileViewModel() { Name = "Jamy Ahmed", age = "21", BloodGroup = "b+", Gender = "Male" }
-            };
-
-            return View("PatientsList", model: patients);
+            return View("PatientsList", model: _patientProfileService.All());
         }
 
         [HttpGet]
-        public ActionResult PatientProfile(PatientProfileViewModel patientProfileViewModel)
+        public ActionResult PatientProfile(int patientId)
         {
-            patientProfileViewModel = new PatientProfileViewModel()
-            {
-                Name = "Sami",
-                Email = "sami@aiub.edu",
-                Birthday = "01-01-1994",
-                age = "24",
-                ContactNumber = "01521434331",
-                BloodGroup = "A-ve",
-                Area = "Dhaka",
-                District = "Dhaka",
-                Division = "Dhaka",
-                Gender = "Male",
-                Photo = "no url provied"
-            };
-
-            return View("PatientProfile", model: patientProfileViewModel);
+            return View("PatientProfile", model: _patientProfileService.Find(patientId));
         }
 
         [HttpGet]
