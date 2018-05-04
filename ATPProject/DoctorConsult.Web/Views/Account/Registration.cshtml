@@ -1,75 +1,55 @@
 ﻿@model DoctorConsult.Core.Entity.ViewModel.RegistrationViewModel
+
 @{
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Registration</h2>
-
-@*@Html.ValidationSummary()
-    <div class="well doc_search_form_container" style="margin-top:80px;">
-        <p class="text-center sp_font_family find_your_doctor">Reistration Form</p>
-        <form method="post" name="RegistrationForm">
-            @Html.Label("Id: ")</br>
-            @Html.TextBoxFor(model => model.UserId, new { @readonly = "readonly" })</br>
-            @Html.Label("First Name: ")<br />
-            @Html.TextBoxFor(model => model.FirstName)<br />
-            @Html.Label("Last Name: ")<br />
-            @Html.TextBoxFor(model => model.LastName)<br />
-            @Html.Label("Email: ")<br />
-            @Html.TextBoxFor(model => model.Email)<br />
-            @Html.Label("Password: ")<br />
-            @Html.TextBoxFor(model => model.Password)<br /><br />
-            <input type="submit" value="Submit">
-        </form></br>
-        <p>Already have an account? Go to </p> @Html.ActionLink("Login", "Login") <p> page</p>
-    </div>*@
-
-
 <div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+                <h2 class="glyphicon glyphicon-pencil">Registration</h2>
+                <br />
+                <br />
                 <div class="form-wrap">
 
                     @using (Html.BeginForm(FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-group">
-                <label for="First Name" class="sr-only">Name: </label>
-                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="First Name" class="sr-only">Name: </label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
 
-            <div class="form-group">
-                <label for="Email" class="sr-only">Email: </label>
-                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-            <div class="form-group">
-                <label for="Radio" class="sr-only">Register As: </label>
-                @Html.RadioButtonFor(m => m.Type, "Patient", false) @Html.Label("Patient")
-                @Html.RadioButtonFor(m => m.Type, "Doctor", false)  @Html.Label("Doctor")
-            </div>
-            <div class="form-group">
-                <label for="Password" class="sr-only">Password: </label>
-                @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-            </div>
+                        <div class="form-group">
+                            <label for="Email" class="sr-only">Email: </label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label for="Radio" class="sr-only">Register As: </label>
+                            @Html.RadioButtonFor(m => m.Type, "Patient", false) @Html.Label("Patient")
+                            @Html.RadioButtonFor(m => m.Type, "Doctor", false)  @Html.Label("Doctor")
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="sr-only">Password: </label>
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
 
-            <div class="form-group">
-                <label for="Password" class="sr-only">Confirm Password: </label>
-                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
-                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
-            </div>
-            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
-}
+                        <div class="form-group">
+                            <label for="Password" class="sr-only">Confirm Password: </label>
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
+                    }
 
                 </div>
                 @Html.ActionLink("Already have an account ?", "Login", "Account", new { @class = "forget" })
-            </div> <!-- /.col-xs-12 -->
-        </div> <!-- /.row -->
+            </div>
+        </div>
     </div>
 </div>
-
-

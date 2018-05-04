@@ -10,21 +10,36 @@ namespace DoctorConsult.Core.Entity.Model
 {
     public class PatientProfileModel : BaseModel
     {
+        [Required]
         public string Name { get; set; }
+
         public string Age { get; set; }
+
+        [Required]
         public string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
+
         public string Birthday { get; set; }
+
         [Required]
         public string BloodGroup { get; set; }
+
         [Required]
         public string Gender { get; set; }
+
         public string Area { get; set; }
+
         [Required]
         public string District { get; set; }
+
         public string Division { get; set; }
+
         [Phone]
         [Display(Name = "Contact Number:")]
         public string ContactNumber { get; set; }
+
         public string Photo { get; set; }
     }
 }

@@ -1,12 +1,16 @@
 ﻿@model DoctorConsult.Core.Entity.ViewModel.LoginViewModel
 
-
-<h2>Login</h2>
+@{
+    ViewBag.Title = "Login";
+}
 
 <div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+                <h2 class="glyphicon glyphicon-log-in">Login</h2>
+                <br />
+                <br />
                 <div class="form-wrap">
 
                     @using (Html.BeginForm("Login", "Account", FormMethod.Post))
@@ -36,8 +40,4 @@
             </div> <!-- /.col-xs-12 -->
         </div> <!-- /.row -->
     </div>
-
 </div>
-
-
-
