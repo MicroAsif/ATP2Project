@@ -120,22 +120,15 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult DoctorListByPatient(List<DoctorProfileModel> doctors)
+        public ActionResult DoctorListByPatient()
         {
-            doctors = new List<DoctorProfileModel>()
-            {
-                new DoctorProfileModel(){ FullName = "Annable", Email="annable@aiub.edu", Image = "", Specialist="Pain management", NewFee = 800, OldFee = 500 },
-                new DoctorProfileModel(){ FullName = "Selena", Email="selena@aiub.edu", Image = "", Specialist="Medicine", NewFee = 100, OldFee = 600 }
-
-            };
-
-            return View(model: doctors);
+            return View(model: _doctorProfileService.All());
         }
 
         [HttpGet]
-        public ActionResult DoctorProfile(string id)
+        public ActionResult DoctorProfile(int doctorId)
         {
-            return View(model: new DoctorProfileModel() { FullName = "Annable", Email = "annable@aiub.edu", Image = "", Specialist = "Pain management", NewFee = 800, OldFee = 500 });
+            return View(model: _doctorProfileService.Find(doctorId));
         }
     }
 }
