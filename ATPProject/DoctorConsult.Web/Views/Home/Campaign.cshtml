@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.ViewModel.CreateCampViewModel>
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.CampaignModel>
 
 @{
     ViewBag.Title = "Campaign";
@@ -32,7 +32,7 @@
             @Html.DisplayFor(model => item.CampaignRent)
         </td>
         <td>
-            @Html.ActionLink("Details", "CampaignDetails", new { id = item.id })
+            @Html.ActionLink("Details", "CampaignDetails", new { id = item.Id })
         </td>
     </tr>
     }

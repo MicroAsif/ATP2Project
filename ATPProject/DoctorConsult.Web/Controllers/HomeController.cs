@@ -13,12 +13,14 @@ namespace DoctorConsult.Web.Controllers
         private readonly ILocationService _locationService;
         private readonly ISpecialityService _specialityService;
         private readonly IDoctorProfileService _doctorService;
+        private readonly ICampaignService _campaignService;
 
-        public HomeController(ILocationService locationService, ISpecialityService specialityService, IDoctorProfileService doctorService)
+        public HomeController(ILocationService locationService, ISpecialityService specialityService, IDoctorProfileService doctorService, ICampaignService campaignService)
         {
             _locationService = locationService;
             _specialityService = specialityService;
             _doctorService = doctorService;
+            _campaignService = campaignService;
         }
 
 
@@ -86,14 +88,8 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult Campaign()
         {
-            List<CreateCampViewModel> createCampViewModel = new List<CreateCampViewModel>()
-            {
-                new CreateCampViewModel(){CampaignDuration="3 days", CampaignDate=Convert.ToDateTime("04-04-2018"), CampaignLocation="Banani model town", CampaignRent=50000 },
 
-                new CreateCampViewModel(){CampaignDuration="4 days", CampaignDate=Convert.ToDateTime("01-01-2018"), CampaignLocation="Uttara", CampaignRent=900000 }
-            };
-
-            return View(createCampViewModel);
+            return View(model: _campaignService.All());
         }
 
 
