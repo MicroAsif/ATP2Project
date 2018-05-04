@@ -1,47 +1,37 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.ViewModel.DoctorViewModel>
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.DoctorProfileModel>
 
 @{
-    ViewBag.Title = "SearchResult";
+    ViewBag.Title = "Search Result";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
 <h2>Honarable Dr.</h2>
 
-
-
 <section class="team">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-0">
-                @* 1 *@
                 <div class="col-lg-12">
-                    @*<h6 class="description">Doctor List</h6>*@
                     <div class="row pt-md">
-                        @{
-                            int i = 0;
-                        }
 
                         @foreach (var item in Model)
                         {
-                            i++;
-
-                            string link = "http://nabeel.co.in/files/bootsnipp/team/" + @i + ".jpg";
-
                             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
                                 <div class="img-box">
-                                    <img alt="profile-photo" src=@link class="img-responsive">
-                                    
+                                    <img alt="profile-photo" src=@item.Image class="img-responsive">
+
                                 </div>
 
-                                <h3>@item.FirstName @item.LastName</h3>
-                                <p>@item.Email</p>
+                                <h3>@item.FullName</h3>
                                 <p>@item.Specialist</p>
-                                @*<p>@item.Location</p>*@
+                                <p>@item.Email</p>
 
-                                @Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })
+                                @*@Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })*@
+                                <a href="@Url.Action("DoctorProfile", "Home", new { doctorId = item.Id })" class="btn btn-primary btn-sm btn-block">Details</a>
                                 <br />
                             </div>
                         }
+
                     </div>
                 </div>
             </div>

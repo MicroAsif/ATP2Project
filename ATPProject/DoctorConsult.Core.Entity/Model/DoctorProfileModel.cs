@@ -17,7 +17,7 @@ namespace DoctorConsult.Core.Entity.Model
         [EmailAddress]
         public string Email { get; set; }
 
-        public string BloogGroup { get; set; }
+        public string BloodGroup { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]

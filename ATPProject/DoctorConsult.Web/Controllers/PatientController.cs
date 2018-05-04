@@ -11,58 +11,58 @@ namespace DoctorConsult.Web.Controllers
 {
     public class PatientController : Controller
     {
-
         private readonly ISpecialityService _specialityService;
+        private readonly IDoctorProfileService _doctorProfileService;
 
-
-        public PatientController(ISpecialityService specialityService)
+        public PatientController(ISpecialityService specialityService, IDoctorProfileService doctorProfileService)
         {
             _specialityService = specialityService;
+            _doctorProfileService = doctorProfileService;
         }
 
-        // patient dashboard
         [HttpGet]
         public ActionResult Index()
         {
             ViewBag.speciality = _specialityService.SpecialityForDropdown();
             return View();
         }
+
         [HttpPost]
         [ActionName("Index")]
-        public ActionResult IndexPost()
+        public ActionResult IndexPost(SearchViewModel searchViewModel)
         {
-            if (ModelState.IsValid)
+            if (searchViewModel.CityName != null && searchViewModel.SpecialityName != null)
             {
-                return RedirectToAction("SearchResult", "Patient");
+                var doctors = _doctorProfileService.SearchDoctors(searchViewModel.CityName, searchViewModel.SpecialityName);
+                return View("SearchResult", model: doctors);
             }
-            else
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
+
         [HttpGet]
-        public ActionResult Profile()
+        public new ActionResult Profile()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult EditProfile(PatientProfileViewModel model)
         {
             return View(model: model);
         }
+
         [HttpGet]
         public ActionResult EditProfile()
         {
             return View();
         }
 
-
-
         [HttpGet]
         public ActionResult ChangePassword()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult ChangePassword(PatientChangePasswordViewModel model)
         {
@@ -76,12 +76,12 @@ namespace DoctorConsult.Web.Controllers
             }
         }
 
-        //Consult
         [HttpGet]
         public ActionResult PatientsConsult()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult PatientsConsult(PatientsConsult model)
         {
@@ -94,26 +94,11 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult SearchResult(List<DoctorViewModel> doctors)
+        public ActionResult SearchResult(List<DoctorProfileModel> doctors)
         {
-            doctors = new List<DoctorViewModel>()
-            {
-                new DoctorViewModel(){ Id = 1, FirstName="Annabelle", LastName="Ava", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Babeli", LastName="At.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 1, FirstName="Ashley", LastName="Ash", Email="john@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1994"), BloodGroup= "A+", Gender="Male", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-                new DoctorViewModel(){ Id = 2, FirstName="Mike", LastName="Kude.", Email="babeli@aiub.edu", Password = "1234", Bithdate = Convert.ToDateTime("01-01-1989"), BloodGroup= "B+", Gender="Female", Specialist="Pain management", Location="Kuril, Kuratoli", ContactNumber="015XXXXXXXX", Image="no image" },
-
-               
-            };
-
             return View(model: doctors);
         }
 
-
-        //Invoice
         [HttpGet]
         public ActionResult Invoice()
         {
