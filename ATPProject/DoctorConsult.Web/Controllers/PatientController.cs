@@ -42,9 +42,9 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public new ActionResult Profile()
+        public new ActionResult Profile(PatientProfileModel model)
         {
-            return View();
+            return View(model: _patientProfileService.Find(1));
         }
 
         [HttpPost]

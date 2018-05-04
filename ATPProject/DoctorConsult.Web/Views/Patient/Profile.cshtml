@@ -1,4 +1,4 @@
-﻿@model DoctorConsult.Core.Entity.ViewModel.PatientProfileViewModel
+﻿@model DoctorConsult.Core.Entity.Model.PatientProfileModel
 @{
     ViewBag.Title = "Profile";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -66,7 +66,7 @@
                 <div class="form-group">
                     <label for="Age">Age: </label>
 
-                    @Html.DisplayFor(model => model.age, new { @class = "form-control" })
+                    @Html.DisplayFor(model => model.Age, new { @class = "form-control" })
                    
                 </div>
 
