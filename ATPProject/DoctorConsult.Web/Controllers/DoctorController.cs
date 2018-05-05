@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using DoctorConsult.Web.ViewModel;
 
 namespace DoctorConsult.Web.Controllers
 {
@@ -23,9 +24,12 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.NumberOfPatients = _patientProfileService.All().Count();
-            ViewBag.NumberOfPrescribtions = _prescriptionService.All().Count();
-            return View();
+            var vm = new DoctorDashboardViewModel
+            {
+               AcceptedPatients =  _patientProfileService.All().Count(), 
+               Prescription = _prescriptionService.All().Count()
+            };
+            return View(vm);
         }
 
         public ActionResult ChangePassword()

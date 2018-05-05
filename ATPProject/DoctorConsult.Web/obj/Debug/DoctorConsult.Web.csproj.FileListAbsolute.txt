@@ -46,7 +46,6 @@ C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\DoctorConsult.Ins.pdb
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.SqlServer.dll
 C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\EntityFramework.SqlServer.xml
-C:\dev\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\balchal\ATP2Project\ATPProject\DoctorConsult.Web\bin\ApplicationInsights.config
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\balchal\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\csc.exe
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\balchal\ATP2Project\ATPProject\DoctorConsult.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll

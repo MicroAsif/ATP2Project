@@ -1,4 +1,4 @@
-﻿
+﻿@model DoctorConsult.Web.ViewModel.DoctorDashboardViewModel
 @{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
@@ -24,12 +24,7 @@
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>
-                        @{ 
-                            if(ViewBag !=null)
-                            {
-                                @ViewBag.NumberOfPatients
-                            }
-                        }
+                       @Model.AcceptedPatients
                     </h3>
                     <p>patient</p>
                 </div>
@@ -44,12 +39,7 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
-                        @{ 
-                            if(ViewBag !=null)
-                            {
-                                @ViewBag.NumberOfPrescribtions
-                            }
-                        }
+                        @Model.Prescription
                     </h3>
                     <p>Prescription </p>
                 </div>
@@ -64,12 +54,7 @@
             <div class="small-box bg-blue-active">
                 <div class="inner">
                     <h3>
-                        @{ 
-                            if(ViewBag !=null)
-                            {
-                                @ViewBag.NumberOfPrescribtions
-                            }
-                        }
+                        @Model.AcceptedPatients
                     </h3>
                     <p>Accepted list of Patients </p>
                 </div>
