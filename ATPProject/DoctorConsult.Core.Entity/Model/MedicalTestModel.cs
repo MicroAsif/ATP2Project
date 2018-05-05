@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using DoctorConsult.Core.Entity.Model.Base;
 
 namespace DoctorConsult.Core.Entity.Model
@@ -7,5 +9,10 @@ namespace DoctorConsult.Core.Entity.Model
     {
         [Required]
         public string TestName { get; set; }
+
+        
+        [DisplayName("Prescription")]
+        public int? PrescriptionId { get; set; }
+      
     }
 }

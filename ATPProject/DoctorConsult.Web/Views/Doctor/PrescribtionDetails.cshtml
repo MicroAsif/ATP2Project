@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PrescriptionModel>
+﻿@model DoctorConsult.Core.Entity.Model.PrescriptionModel
 
 @{
     ViewBag.Title = "Prescribtion Details";
@@ -14,17 +14,14 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-5">
-                    <h4>Patient Name : <strong>@Model.SingleOrDefault().Patient.Name </strong> </h4>
+                    <h4>Patient Name : <strong>@Model.Patient.Name </strong> </h4>
                 </div>
                 <div class="col-md-5">
                     <p> Cause : <strong>
                         @{ 
                             if (Model != null)
                             {
-                                foreach (var item in Model)
-                                {
-                                    @item.Cause
-                                }
+                                    @Model.Cause
                             }
                         }
                         </strong>
@@ -38,18 +35,18 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="col-md-4">
                     <label asp-for="PrescribtionNo">Prescribtion No : </label>
-                    <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" readonly value="@Model.SingleOrDefault().Id" id="PrescribtionNo" />
+                    <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" readonly value="@Model.Id" id="PrescribtionNo" />
                     @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
                 </div>
                 <div class="col-xs-4">
                     <label asp-for="PrescribtionDate">Prescribed Date : </label>
                     <br />
-                    @Model.SingleOrDefault().CreatedDate.ToShortDateString()
+                    @Model.CreatedDate.ToShortDateString()
                 </div>
                 <div class="col-xs-4">
                     <label asp-for="PrescribtionDate">Next Visit Date</label>
                     <br />
-                    @Html.TextBox("StartDate", Model.SingleOrDefault().PrescribtionDate, new { @class = "datepicker", @type = "date" })
+                    @Html.TextBox("StartDate", Model.PrescribtionDate, new { @class = "datepicker", @type = "date" })
                     @*@Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })*@
                     @*@Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })*@
                 </div>
@@ -75,12 +72,16 @@
                         </tr>
                     </thead>
                     <tbody id="Items">
+                    @foreach (var item in Model.Medicines)
+                    {
                         <tr>
-                            <td>Napa </td>                         
-                            <td>10</td>
-                            <td>0-1-1</td>
+                            <td>@item.MedicineModel.Name </td>
+                            <td>@item.Quantity</td>
+                            <td>@item.DailyTimes</td>
                             <td><a href=""><i class="fa fa-trash"></i></a></td>
                         </tr>
+                    }
+                    
                     </tbody>
                 </table>
             </div>
@@ -103,19 +104,13 @@
                         </tr>
                     </thead>
                     <tbody id="Items">
+                    @foreach (var item in Model.MedicalTests)
+                    {
                         <tr>
-                            @{
-                                if (Model.SingleOrDefault().MedicalTests != null)
-                                {
-                                    foreach (var item in Model)
-                                    {
-                                        <td>@item.MedicalTests.SingleOrDefault().TestName</td>
-                                        <td><a href="@Url.Action()"><i class="fa fa-trash"></i></a></td>
-                                    }
-                                }
-                            }
-                            
+                            <td>@item.TestName</td>
                         </tr>
+                    }
+                  
                     </tbody>
                 </table>
             </div>

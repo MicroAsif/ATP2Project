@@ -27,5 +27,24 @@ namespace DoctorConsult.Data.DoctorConsultContext
         public DbSet<PatientsProblemPageForDoctorModel> PatientsConsults { get; set; }
         public DbSet<PrescriptionModel> Prescriptions { get; set; }
 
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<PrescriptionModel>()
+                .HasOptional(s => s.Medicines)
+                .WithRequired().WillCascadeOnDelete(false);
+
+
+           
+
+          
+
+
+            //modelBuilder.Entity<MedicineForPrescription>().HasOptional(x=>x.PrescriptionModel);
+        }
     }
+
+   
 }

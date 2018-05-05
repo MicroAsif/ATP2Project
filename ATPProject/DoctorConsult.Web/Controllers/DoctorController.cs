@@ -14,11 +14,16 @@ namespace DoctorConsult.Web.Controllers
     {
         private readonly IPatientProfileService _patientProfileService;
         private readonly IPrescriptionService _prescriptionService;
+        private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
+        private readonly IMedicalTestService _medicalTestService;
 
-        public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService)
+        public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService, 
+            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService)
         {
             _patientProfileService = patientProfileService;
             _prescriptionService = prescriptionService;
+            _medicineForPrescriptionService = medicineForPrescriptionService;
+            _medicalTestService = medicalTestService;
         }
 
         [HttpGet]
@@ -68,7 +73,16 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult PrescribtionDetails(int patientId)
         {
-            return View(model: _prescriptionService.GetPrescribtionByPatientId(patientId));
+           var prescriptions = _prescriptionService.GetPrescribtionByPatientId(patientId);
+            prescriptions.Medicines = _medicineForPrescriptionService.All().Include(x=>x.MedicineModel)
+                                                                     .Where(x => x.PrescriptionId == prescriptions.Id).ToList();
+
+            prescriptions.MedicalTests = _medicalTestService.All()
+                                                            .Where(x => x.PrescriptionId == prescriptions.Id).ToList();
+
+
+            return View(prescriptions);
+
         }
 
         [HttpGet]

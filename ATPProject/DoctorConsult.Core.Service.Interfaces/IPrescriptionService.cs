@@ -6,7 +6,7 @@ namespace DoctorConsult.Core.Service.Interfaces
 {
     public interface IPrescriptionService : IBaseService<PrescriptionModel>
     {
-        IEnumerable<PrescriptionModel> GetPrescribtionByPatientId(int patiendId);
+        PrescriptionModel GetPrescribtionByPatientId(int patiendId);
         IEnumerable<PrescriptionModel> GetPresctions();
     }
 }

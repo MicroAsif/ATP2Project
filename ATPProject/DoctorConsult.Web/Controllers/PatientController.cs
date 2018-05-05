@@ -3,6 +3,7 @@ using DoctorConsult.Core.Entity.ViewModel;
 using DoctorConsult.Core.Service.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,12 +15,15 @@ namespace DoctorConsult.Web.Controllers
         private readonly ISpecialityService _specialityService;
         private readonly IPatientProfileService _patientProfileService;
         private readonly IDoctorProfileService _doctorProfileService;
+        private readonly IPatientsConsultService _consultService;
 
-        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, IDoctorProfileService doctorProfileService)
+        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, 
+            IDoctorProfileService doctorProfileService, IPatientsConsultService consultService)
         {
             _specialityService = specialityService;
             _patientProfileService = patientProfileService;
             _doctorProfileService = doctorProfileService;
+            _consultService = consultService;
         }
 
         [HttpGet]
@@ -92,7 +96,7 @@ namespace DoctorConsult.Web.Controllers
 
         public ActionResult ConsultList()
         {
-            return View("ConsultList");
+            return View(_consultService.All().Include(x => x.DoctorProfileModel).ToList());
         }
 
         [HttpGet]
