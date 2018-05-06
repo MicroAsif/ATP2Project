@@ -1,6 +1,7 @@
 ﻿using DoctorConsult.Core.Entity.Model.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,12 @@ namespace DoctorConsult.Core.Entity.Model
         public DateTime CampaignDate { set; get; }
 
         public double CampaignRent { set; get; }
+        public string Organizer { get; set; }
+        public ICollection<DoctorProfileModel> doctors { set; get; }
+
+        public CampaignModel()
+        {
+            doctors = new Collection<DoctorProfileModel>();
+        }
     }
 }

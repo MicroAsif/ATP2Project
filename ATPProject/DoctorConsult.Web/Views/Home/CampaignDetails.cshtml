@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.CampaignModel>
+
+@{
     ViewBag.Title = "CampaignDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -23,7 +25,6 @@
                         string link2 = "http://nabeel.co.in/files/bootsnipp/team/" + 3 + ".jpg";
                         }
 
-
                         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-10 profile">
                             <div class="img-box">
                                 <img alt="profile-photo" src=@link class="img-responsive">
@@ -35,7 +36,7 @@
                             <p>Child Specialist</p>
 
 
-                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            @Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })
                             <br />
                         </div>
 
@@ -53,7 +54,7 @@
                             <p>Dentist</p>
 
 
-                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            @Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })
                             <br />
                         </div>
 
@@ -73,7 +74,7 @@
                             <p>physiotherapist</p>
 
 
-                            @Html.ActionLink("Details", "DoctorProfile", "Home","", new { @class = "btn btn-primary btn-sm btn-block" })
+                            @Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })
                             <br />
                         </div>
 
@@ -84,10 +85,14 @@
 
 
         </div>
-        <h3>Duration: </h3><p>December 3 to Decenber 9</p>
-        <h3>Location: </h3><p>Harun Mollah Fiend, Mirpur 12</p>
-        <h3>Organizer: </h3><p>Ministry Of Health</p>
-        <h3>Fee: </h3><p>Free</p>
+        @foreach (var item in Model)
+    {
+        <h3>Duration: </h3><p>@item.CampaignDuration Days</p>
+        <h3>Location: </h3><p>@item.CampaignLocation</p>
+        <h3>Organizer: </h3><p>@item.Organizer</p>
+        <h3>Fee: </h3><p>@item.CampaignRent</p>
+}
+
     </div>
-    
+
 </section>

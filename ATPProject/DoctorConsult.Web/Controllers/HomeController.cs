@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DoctorConsult.Core.Service.Interfaces;
+using System.Data.Entity;
 
 namespace DoctorConsult.Web.Controllers
 {
@@ -94,9 +95,9 @@ namespace DoctorConsult.Web.Controllers
 
 
         [HttpGet]
-        public ActionResult CampaignDetails()
+        public ActionResult CampaignDetails(int id)
         {
-            return View();
+            return View(model: _campaignService.All().Where(x => x.Id == id));
         }
     }
 }
