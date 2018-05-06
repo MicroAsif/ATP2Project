@@ -11,5 +11,9 @@ namespace DoctorConsult.Infrustracture.Service
 {
     public class PatientService : BaseService<PatientProfileModel>, IPatientProfileService
     {
+        public PatientProfileModel FindByAuth(string email, string password)
+        {
+            return All().SingleOrDefault(p => p.Email == email && p.Password == password);
+        }
     }
 }

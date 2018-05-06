@@ -11,5 +11,6 @@ namespace DoctorConsult.Core.Service.Interfaces
     public interface IDoctorProfileService : IBaseService<DoctorProfileModel>
     {
         IEnumerable<DoctorProfileModel> SearchDoctors(string location, string speciality);
+        DoctorProfileModel FindByAuth(string email, string password);
     }
 }

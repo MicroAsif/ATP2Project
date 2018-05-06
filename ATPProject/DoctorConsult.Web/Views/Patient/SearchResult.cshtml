@@ -27,7 +27,7 @@
                                 <p>@item.Email</p>
 
                                 @*@Html.ActionLink("Details", "DoctorProfile", "Home", "", new { @class = "btn btn-primary btn-sm btn-block" })*@
-                                <a href="@Url.Action("DoctorProfile", "Home", new { doctorId = item.Id })" class="btn btn-primary btn-sm btn-block">Details</a>
+                                <a href="@Url.Action("DoctorProfile", "Patient", new { doctorId = item.Id })" class="btn btn-primary btn-sm btn-block">Details</a>
                                 <br />
                             </div>
                         }

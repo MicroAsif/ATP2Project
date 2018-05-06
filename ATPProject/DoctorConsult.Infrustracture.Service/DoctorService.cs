@@ -12,6 +12,11 @@ namespace DoctorConsult.Infrustracture.Service
 {
     public class DoctorService : BaseService<DoctorProfileModel>, IDoctorProfileService
     {
+        public DoctorProfileModel FindByAuth(string email, string password)
+        {
+            return All().SingleOrDefault(d => d.Email == email && d.Password == password);
+        }
+
         public IEnumerable<DoctorProfileModel> SearchDoctors(string location, string speciality)
         {
             return  All().Where(x=>x.Location.ToLower() == location.ToLower() 

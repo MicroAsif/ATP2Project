@@ -5,5 +5,6 @@ namespace DoctorConsult.Core.Service.Interfaces
 {
     public interface IPatientProfileService : IBaseService<PatientProfileModel>
     {
+        PatientProfileModel FindByAuth(string email, string password);
     }
 }

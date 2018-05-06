@@ -26,12 +26,23 @@ namespace DoctorConsult.Web.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            if (ModelState.IsValid == true)
+            if (ModelState.IsValid && model.Email != null && model.Password != null)
             {
-                return RedirectToAction("Index","Patient");
+                if(_patientProfileService.FindByAuth(model.Email,model.Password)!=null)
+                {
+                    return RedirectToAction("Index", "Patient");
+                }
+                else if (_doctorProfileService.FindByAuth(model.Email, model.Password) != null)
+                {
+                    return RedirectToAction("Index", "Doctor");
+                }else
+                {
+                    return RedirectToAction("Login", "Account");
+                }
             }
             else
             {
