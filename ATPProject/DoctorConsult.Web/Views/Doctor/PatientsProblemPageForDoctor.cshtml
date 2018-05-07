@@ -1,4 +1,4 @@
-﻿@model DoctorConsult.Core.Entity.Model.PatientsConsultModel
+﻿@model DoctorConsult.Core.Entity.Model.PatientsProblemPageForDoctorModel
 
 @{
     ViewBag.Title = "PatientsProblemPageForDoctor";
@@ -27,18 +27,18 @@
                             </textarea>
                             @*@Html.TextAreaFor(model => model.ProblemSummary, new { @class = "form-control", @readonly = "readonly", placeholder = (Model != null) ? @Model.ProblemSummary : "Patient problem summary is here", @style = "resize: none;" })*@
                         </div>
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(model => model.PreviousProblemFile)<br>
                             <button type="button" class="btn btn-primary" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Download
                             </button>
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.PreviousProblemReportFile)<br>
-                            <button type="button" class="btn btn-primary" style="margin-right: 5px;">
-                                <i class="fa fa-download"></i> Download
-                            </button>
+                            <a  href="" class="btn btn-primary" style="margin-right: 5px;">
+                                <i class="fa fa-download"> </i> Download
+                            </a>
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.ProblemDetails)
@@ -54,11 +54,15 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.FilePath)<br>
-                            <button type="button" class="btn btn-primary" style="margin-right: 5px;">
+                            <a hre class="btn btn-primary" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Download
-                            </button>
+                            </a>
                         </div>
-                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Prescribe" onclick="@("window.location.href='" + @Url.Action("PatientsProblemPageForDoctor", "Doctor") + "'")" ;>
+
+                        <a href="@if (Model != null)
+                                 {
+                                     @Url.Action("Prescribe", "Doctor", new {patientId = Model.PatintId})
+                                 }" class="btn btn-primary btn-lg btn-block" >Prescribe</a>
 
                     }
 

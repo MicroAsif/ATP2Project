@@ -18,9 +18,12 @@ namespace DoctorConsult.Web.Controllers
         private readonly IMedicalTestService _medicalTestService;
         private readonly IPatientsConsultService _patientsConsultService;
         private readonly IPatientConsultSingleService _patientConsultSingleService;
+        private readonly IPatientsProblemPageForDoctorService _patientProblemService;
 
         public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService, 
-            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, IPatientsConsultService patientsConsultService, IPatientConsultSingleService patientConsultSingleService)
+            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, 
+            IPatientsConsultService patientsConsultService, IPatientConsultSingleService patientConsultSingleService, 
+            IPatientsProblemPageForDoctorService patientProblemService)
         {
             _patientProfileService = patientProfileService;
             _prescriptionService = prescriptionService;
@@ -28,6 +31,7 @@ namespace DoctorConsult.Web.Controllers
             _medicalTestService = medicalTestService;
             _patientsConsultService = patientsConsultService;
             _patientConsultSingleService = patientConsultSingleService;
+            _patientProblemService = patientProblemService;
         }
 
         [HttpGet]
@@ -95,7 +99,7 @@ namespace DoctorConsult.Web.Controllers
         public ActionResult PatientsProblemPageForDoctor(int patientId)
         {
             ViewBag.patientId = patientId;
-            return View(_patientConsultSingleService.FindLast(patientId));
+            return View(_patientProblemService.All().FirstOrDefault(x=>x.PatintId == patientId));
         }
 
         [HttpPost]

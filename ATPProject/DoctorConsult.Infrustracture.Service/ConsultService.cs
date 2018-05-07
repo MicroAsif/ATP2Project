@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoctorConsult.Infrustracture.Service
 {
-    public class ConsultService : BaseService<PatientsConsultModel>, IPatientsConsultService
+    public class PatientsConsultService : BaseService<PatientsConsultModel>, IPatientsConsultService
     {
     }
 }

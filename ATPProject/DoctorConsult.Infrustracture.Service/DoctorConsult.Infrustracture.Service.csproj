@@ -62,7 +62,7 @@
     <Compile Include="MedicineForPrescriptionService.cs" />
     <Compile Include="MedicineService.cs" />
     <Compile Include="PatientConsultSingleService.cs" />
-    <Compile Include="PatientsConsultService.cs" />
+    <Compile Include="PatientsProblemService.cs" />
     <Compile Include="PatientService.cs" />
     <Compile Include="PrescriptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

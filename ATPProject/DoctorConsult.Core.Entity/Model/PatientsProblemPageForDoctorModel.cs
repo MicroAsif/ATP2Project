@@ -1,5 +1,6 @@
 ﻿using DoctorConsult.Core.Entity.Model.Base;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web;
 
 namespace DoctorConsult.Core.Entity.Model
@@ -12,5 +13,14 @@ namespace DoctorConsult.Core.Entity.Model
         public string ProblemDetails { get; set; }
         public string FilePath { get; set; }
         public string PreviousProblemReportFile { get; set; }
+
+
+
+        [ForeignKey("PatientProfile")]
+        public int PatintId { get; set; }
+        public PatientProfileModel PatientProfile { get; set; }
+        
+
+
     }
 }
