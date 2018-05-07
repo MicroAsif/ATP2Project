@@ -15,6 +15,7 @@ namespace DoctorConsult.Core.Entity.Model
         public string PreviousProblemReportFile { get; set; }
         public string Status { get; set; }
 
+        public int PatientId { get; set; }
         [ForeignKey("DoctorProfileModel")]
         public int DoctorId { get; set; }
         public DoctorProfileModel DoctorProfileModel { get; set; }

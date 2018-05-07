@@ -7,7 +7,6 @@
 
 <h2>Problem Consult</h2>
 
-
 <div>
     <div class="container">
         <div class="row">
@@ -15,49 +14,45 @@
                 <div class="form-wrap">
 
                     @using (Html.BeginForm(FormMethod.Post))
-    {
-                @Html.AntiForgeryToken()
+                    {
+                        @Html.AntiForgeryToken()
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ProblemSummary)
-                    @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
-                    @Html.TextAreaFor(model => model.ProblemSummary, new { @class = "form-control", placeholder = "Write Short Discription Of Your Problem", @style = "resize: none;" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PreviousProblemFile)
-                    @*<input id="exampleInputFile" type="file">*@
-                    @Html.TextBoxFor(model => model.PreviousProblemFile, new { type = "file" })
-                    @Html.ValidationMessageFor(model => model.PreviousProblemFile)
-                </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProblemSummary)
+                            @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
+                            @Html.TextAreaFor(model => model.ProblemSummary, new { @class = "form-control", placeholder = "Write Short Discription Of Your Problem", @style = "resize: none;" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PreviousProblemFile)
+                            @*<input id="exampleInputFile" type="file">*@
+                            @Html.TextBoxFor(model => model.PreviousProblemFile, new { type = "file" })
+                            @Html.ValidationMessageFor(model => model.PreviousProblemFile)
+                        </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PreviousProblemReportFile)
-                    @*<input id="exampleInputFile" type="file">*@
-                    @Html.TextBoxFor(model => model.PreviousProblemReportFile, new { type = "file" })
-                    @Html.ValidationMessageFor(model => model.PreviousProblemReportFile)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ProblemDetails)
-                    @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
-                    @Html.TextAreaFor(model => model.ProblemDetails, new { @class = "form-control", placeholder = "Write Details Of Your Problem", @style = "resize: none;overflow-y: scroll;" })
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.filePath)
-                    @*<input id="exampleInputFile" type="file">*@
-                    @Html.TextBoxFor(model => model.filePath, new { type = "file" })
-                    @Html.ValidationMessageFor(model => model.filePath)
-                </div>
-                <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Submit">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PreviousProblemReportFile)
+                            @*<input id="exampleInputFile" type="file">*@
+                            @Html.TextBoxFor(model => model.PreviousProblemReportFile, new { type = "file" })
+                            @Html.ValidationMessageFor(model => model.PreviousProblemReportFile)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProblemDetails)
+                            @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
+                            @Html.TextAreaFor(model => model.ProblemDetails, new { @class = "form-control", placeholder = "Write Details Of Your Problem", @style = "resize: none;overflow-y: scroll;" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.filePath)
+                            @*<input id="exampleInputFile" type="file">*@
+                            @Html.TextBoxFor(model => model.filePath, new { type = "file" })
+                            @Html.ValidationMessageFor(model => model.filePath)
+                        </div>
+                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Submit">
 
-}
+                    }
 
                     <hr />
                 </div>
-            </div> <!-- /.col-xs-12 -->
-        </div> <!-- /.row -->
+            </div>
+        </div>
     </div>
-
 </div>
-
-
-

@@ -16,14 +16,15 @@ namespace DoctorConsult.Web.Controllers
         private readonly IPatientProfileService _patientProfileService;
         private readonly IDoctorProfileService _doctorProfileService;
         private readonly IPatientsConsultService _consultService;
+        private readonly IPatientsConsultService _patientsConsultService;
 
-        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, 
-            IDoctorProfileService doctorProfileService, IPatientsConsultService consultService)
+        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, IDoctorProfileService doctorProfileService, IPatientsConsultService consultService, IPatientsConsultService patientsConsultService)
         {
             _specialityService = specialityService;
             _patientProfileService = patientProfileService;
             _doctorProfileService = doctorProfileService;
             _consultService = consultService;
+            _patientsConsultService = patientsConsultService;
         }
 
         [HttpGet]
@@ -89,11 +90,20 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult PatientsConsult(PatientsConsult model)
+        public ActionResult PatientsConsult(PatientsConsultModel model)
         {
+            if (model != null)
+            {
+                model.PatientId = 1;
+                model.DoctorId = 3;
+                model.Status = "pending";
+                _patientsConsultService.Insert(model);
+                return RedirectToAction("PatientsConsult", "Patient");
+            }
             return View(model: model);
         }
 
+        [HttpGet]
         public ActionResult ConsultList()
         {
             return View(_consultService.All().Include(x => x.DoctorProfileModel).ToList());

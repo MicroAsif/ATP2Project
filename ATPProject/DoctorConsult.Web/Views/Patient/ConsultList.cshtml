@@ -4,8 +4,6 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-@*<h2>Consult List</h2>*@
-
 <div class="row">
     <div class="col-xs-12">
         <div class="box">
@@ -14,13 +12,13 @@
                 <div class="form-group">
                     <br />
                     @Html.DropDownList("SortedBy", new List<SelectListItem>
-                        {
-                            new SelectListItem() {Text = "Date (Ascending order)", Value="date"},
-                            new SelectListItem() {Text = "Date (Descending order)", Value="painSpecaility"},
-                            new SelectListItem() {Text = "Accepted", Value="accepted"},
-                            new SelectListItem() {Text = "Rejected", Value="rejected"},
-                            new SelectListItem() {Text = "Pending", Value="pending"},
-                        }, "Sort by", new { @class = "form-control" })
+                                                {
+                                                    new SelectListItem() {Text = "Date (Ascending order)", Value="date"},
+                                                    new SelectListItem() {Text = "Date (Descending order)", Value="painSpecaility"},
+                                                    new SelectListItem() {Text = "Accepted", Value="accepted"},
+                                                    new SelectListItem() {Text = "Rejected", Value="rejected"},
+                                                    new SelectListItem() {Text = "Pending", Value="pending"},
+                                                }, "Sort by", new { @class = "form-control" })
 
                 </div>
             </div>
@@ -39,73 +37,41 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
 
-                            <td>
-                                abc
-                            </td>
-                            <td>internal medicine</td>
-                            <td> 1/1/2002</td>
-                            <td>dubai</td>
-                            <td>Black Fever</td>
-                            <td> <p class="label label-warning">pending</p></td>
-                            <td>
-                                <a href="@Url.Action("Invoice", "Patient")"> details</a>
-                            </td>
-                        </tr>
-                        <tr>
+                        @{
+                            if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.DoctorProfileModel.FullName</td>
+                                        <td>@item.DoctorProfileModel.Specialist</td>
+                                        <td>@item.CreatedDate</td>
+                                        <td>@item.DoctorProfileModel.Location</td>
+                                        <td>@item.ProblemSummary</td>
+                                        <td>
+                                            @{ if (item.Status == "pending")
+                                                {
+                                                    <p class="label label-warning">@item.Status</p>
+                                                }
+                                                else if (item.Status == "accepted")
+                                                {
+                                                    <p class="label label-success">@item.Status</p>
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("Invoice", "Patient", new { patientId = item.PatientId })"> details</a>
+                                        </td>
+                                    </tr>
 
-                            <td>
-                                abcxxx
-                            </td>
-                            <td>Cardiologist</td>
-                            <td> 1/1/2003</td>
-                            <td>dubai</td>
-                            <td>Leg broken</td>
-                            <td> <p class="label label-warning">pending</p></td>
-                            <td>
-                                <a href="@Url.Action("Invoice", "Patient")"> details</a>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td>
-                                abcaaass
-                            </td>
-                            <td>ENT</td>
-                            <td> 1/1/2002</td>
-                            <td>Sydney</td>
-                            <td>sinusitis</td>
-                            <td> <p class="label label-success">Accepted</p></td>
-                            <td>
-                                <a href=""> details</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                abc
-                            </td>
-                            <td>Allergist (immunologist)</td>
-                            <td> 1/1/2002</td>
-                            <td>dubai</td>
-                            <td>Sickness</td>
-                            <td> <p class="label label-danger">Rejected</p></td>
-                            <td>
-                                <a href="@Url.Action("Invoice", "Patient")"> details</a>
-                            </td>
-                        </tr>
+                                }
+                            }
+                        }
                     </tbody>
 
                 </table>
             </div>
-            <!-- /.box-body -->
         </div>
     </div>
-    <!-- /.col -->
 </div>
-
-
-
-
-
-

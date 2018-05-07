@@ -4,180 +4,30 @@
     ViewBag.Title = "Profile";
 }
 
-@*<div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-2">
-                            <img src=@Model.Image alt="" class="img-rounded img-responsive" />
-                        </div>
-                        <div class="col-sm-6 col-md-8">
-                            <h4>
-                                @Html.DisplayFor(model => model.FullName)
-                            </h4>
-
-                            <br />
-                            <br />
-                            <p>
-                                <i class="glyphicon glyphicon-envelope"></i> @Html.DisplayFor(model => model.Email)
-                                <br />
-                                <i class="glyphicon glyphicon-globe"></i> <a href="http://www.doctorconsult.com">www.doctorconsult.com</a>
-                                <br />
-                            </p>
-                            <i class="fa">&#xf22c;</i>
-                            @Html.DisplayFor(model => model.Gender)
-                            <br />
-                            <br />
-                            <p>
-                                <i class="glyphicon glyphicon-btc"></i>
-                                @Html.DisplayFor(model => model.BloogGroup)
-                            </p>
-                            <small>
-                                <cite>
-                                    @Html.DisplayFor(model => model.Location) <i class="glyphicon glyphicon-map-marker">
-                                    </i>
-                                </cite>
-                            </small>
-                            <hr />
-                            <!-- Split button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary">
-                                    Speciality
-                                </button>
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span><span class="sr-only">Social</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Pain Management</a></li>
-                                </ul>
-                                <br />
-                                <br />
-                            </div>
-                            <hr />
-                            <div class="col-sm-1 col-xs-4 col-md-12">
-                                <i @Html.Display("fa fa-home")><a href="@Url.Action("","Patient")">Consult</a></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
-
-@*<h2>Profile</h2>
-
-    <div>
-        <h4>Doctor</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayName("Full name")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FirstName)
-                @Html.DisplayFor(model => model.LastName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-            <dt>
-                @Html.DisplayNameFor(model => model.Bithdate)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Bithdate)
-            </dd>
-
-            <dt>
-                @Html.DisplayName("Blood group")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.BloodGroup)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Gender)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Gender)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Specialist)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Specialist)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Location)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Location)
-            </dd>
-
-            <dt>
-                @Html.DisplayName("Contact number")
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ContactNumber)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Image)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "DoctorList", "Home")
-    </p>*@
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="callout callout-info">
+            <div class="callout callout-info">
 
-                        <div class="container-fluid profile_big_banner text-center">
-                            <img src=@Model.Image class="img-circle profile_page_doctor_image" alt="profile pic" height="15%;" width="15%;">
-                            <p class="profile_page_doctor_name">@Model.FullName</p>
-                            <p class="profile_page_doctor_designation">Associate Professor, Dept of Dermatology, Northern Int. Medical College Hospital</p>
-                            <p class="profile_page_doctor_sp">@Model.Specialist</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-sm-1">
-                        <div class="profile_page_info_block text-center">
-                            <p class="block_heading custom_para"><i class="fa fa-stethoscope" aria-hidden="true"></i> Specialist in</p>
-                            <p class="block_heading custom_para"><i class="fa fa-heart fa-2x" aria-hidden="true"></i></p>
-                            <p class="custom_para">@Model.Specialist</p><hr class="custom_para custom_hr_profile">
-                            <p class="profile_degree_portion">MBBS, FCPS (Skin &amp; Allergy), MCPS (Skin &amp; Allergy), CCD (Diabetes)</p>
-                            <hr class="custom_para custom_hr_profile"><p class="profile_description_portion">Sex Specialist, Skin, Allergy, Diabetes Specialist. </p>
-                        </div>
-                    </div>
-
-                    @*<button type="button" class="btn btn-default btn-lg" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse">
-                        <a href="@Url.Action("PatientsConsult","Patient")">Consult</a>
-                    </button>*@
-                    <input type="button" value="Consult" class="btn btn-info" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse" onclick="@("window.location.href='" + @Url.Action("PatientsConsult", "Patient") + "'");" />
-
+                <div class="container-fluid profile_big_banner text-center">
+                    <img src=@Model.Image class="img-circle profile_page_doctor_image" alt="profile pic" height="15%;" width="15%;">
+                    <p class="profile_page_doctor_name">@Model.FullName</p>
+                    <p class="profile_page_doctor_designation">Associate Professor, Dept of Dermatology, Northern Int. Medical College Hospital</p>
+                    <p class="profile_page_doctor_sp">@Model.Specialist</p>
                 </div>
             </div>
+
+            <div class="col-lg-6 col-sm-1">
+                <div class="profile_page_info_block text-center">
+                    <p class="block_heading custom_para"><i class="fa fa-stethoscope" aria-hidden="true"></i> Specialist in</p>
+                    <p class="block_heading custom_para"><i class="fa fa-heart fa-2x" aria-hidden="true"></i></p>
+                    <p class="custom_para">@Model.Specialist</p><hr class="custom_para custom_hr_profile">
+                    <p class="profile_degree_portion">MBBS, FCPS (Skin &amp; Allergy), MCPS (Skin &amp; Allergy), CCD (Diabetes)</p>
+                    <hr class="custom_para custom_hr_profile"><p class="profile_description_portion">Sex Specialist, Skin, Allergy, Diabetes Specialist. </p>
+                </div>
+            </div>
+
+            <input type="button" value="Consult" class="btn btn-info" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapse" onclick="@("window.location.href='" + @Url.Action("PatientsConsult", "Patient", new { doctorId = Model.Id }) + "'");" />
         </div>
+    </div>
+</div>

@@ -16,14 +16,16 @@ namespace DoctorConsult.Web.Controllers
         private readonly IPrescriptionService _prescriptionService;
         private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
         private readonly IMedicalTestService _medicalTestService;
+        private readonly IPatientsConsultService _patientsConsultService;
 
         public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService, 
-            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService)
+            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, IPatientsConsultService patientsConsultService)
         {
             _patientProfileService = patientProfileService;
             _prescriptionService = prescriptionService;
             _medicineForPrescriptionService = medicineForPrescriptionService;
             _medicalTestService = medicalTestService;
+            _patientsConsultService = patientsConsultService;
         }
 
         [HttpGet]
@@ -53,9 +55,10 @@ namespace DoctorConsult.Web.Controllers
             return View(model: _patientProfileService.All());
         }
 
+        [HttpGet]
         public ActionResult ConsultRequestList()
         {
-            return View("ConsultRequest");
+            return View("ConsultRequest", _patientsConsultService.All().Include(x => x.DoctorProfileModel).ToList());
         }
 
         public ActionResult Prescribe()
