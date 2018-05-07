@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PatientsConsultModel>
+
 @{
     ViewBag.Title = "ConsultRequest";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
@@ -29,70 +30,34 @@
 
                             </div>
 
-                            @*<input type="submit" class="btn btn-success" value="Search" /><br><br>*@
+                            @{
+                                if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
+                                            <div class="img-box">
+                                                <img alt="profile-photo" src=@item.PatientProfileModel.Photo class="img-responsive">
+                                            </div>
 
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                                <div class="img-box">
-                                    <img alt="profile-photo" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" class="img-responsive">
-                                </div>
+                                            <h3>@item.PatientProfileModel.Name</h3>
+                                            <p><i class="glyphicon glyphicon-envelope"></i> @item.PatientProfileModel.Email</p>
+                                            <p><strong>@Html.DisplayName("Age: ")</strong> @Html.DisplayName(item.PatientProfileModel.Age)</p>
 
-                                <h3>Sunlimetech</h3>
-                                <p><i class="glyphicon glyphicon-envelope"></i> sunlimetech@aiub.edu</p>
-                                <p><strong>@Html.DisplayName("Age: ")</strong> @Html.DisplayName("24")</p>
+                                            <a href="@Url.Action("ConsultRequestList", "Doctor")" title="reject" onclick="return confirm('Are you sure you want to reject this  ?');" class="btn btn-danger btn-sm">
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </a>
+                                            <a href="@Url.Action("PatientList")" title="accept" class="btn btn-success btn-sm">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </a>
 
-                                <a href="@Url.Action("#")" title="reject" onclick="return confirm('Are you sure you want to reject this  ?');" class="btn btn-danger btn-sm">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </a>
-                                <a href="@Url.Action("PatientList")" title="accept" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </a>
-
-                                <a href="@Url.Action("PatientsProblemPageForDoctor")" title="details" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-info-sign"></span>
-                                </a>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                                <div class="img-box">
-                                    <img alt="profile-photo" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" class="img-responsive">
-                                </div>
-
-                                <h3>Sunlimetech</h3>
-                                <p><i class="glyphicon glyphicon-envelope"></i> sunlimetech@aiub.edu</p>
-                                <p><strong>@Html.DisplayName("Age: ")</strong> @Html.DisplayName("24")</p>
-
-                                <a href="@Url.Action("#")" title="reject" onclick="return confirm('Are you sure you want to reject this  ?');" class="btn btn-danger btn-sm">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </a>
-                                <a href="@Url.Action("PatientList")" title="accept" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </a>
-
-                                <a href="@Url.Action("PatientsProblemPageForDoctor")" title="details" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-info-sign"></span>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 profile">
-                                <div class="img-box">
-                                    <img alt="profile-photo" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_02.png" class="img-responsive">
-                                </div>
-
-                                <h3>Sunlimetech</h3>
-                                <p><i class="glyphicon glyphicon-envelope"></i> sunlimetech@aiub.edu</p>
-                                <p><strong>@Html.DisplayName("Age: ")</strong> @Html.DisplayName("24")</p>
-
-                                <a href="@Url.Action("#")" title="reject" onclick="return confirm('Are you sure you want to reject this  ?');" class="btn btn-danger btn-sm">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                </a>
-                                <a href="@Url.Action("PatientList")" title="accept" class="btn btn-success btn-sm">
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                </a>
-
-                                <a href="@Url.Action("PatientsProblemPageForDoctor")" title="details" class="btn btn-default btn-sm">
-                                    <span class="glyphicon glyphicon-info-sign"></span>
-                                </a>
-                            </div>
-
+                                            <a href="@Url.Action("PatientsProblemPageForDoctor", new { patientId = item.PatientProfileModel.Id })" title="details" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            }
                         </div>
                         <br />
                     </div>

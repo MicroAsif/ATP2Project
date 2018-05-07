@@ -58,7 +58,7 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult ConsultRequestList()
         {
-            return View("ConsultRequest", _patientsConsultService.All().Include(x => x.DoctorProfileModel).ToList());
+            return View("ConsultRequest", _patientsConsultService.All().Include(x => x.DoctorProfileModel).Include(p => p.PatientProfileModel).ToList());
         }
 
         public ActionResult Prescribe()
