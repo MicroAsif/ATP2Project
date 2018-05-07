@@ -61,6 +61,8 @@ namespace DoctorConsult.Web
             container.RegisterType<IPatientsConsultService, ConsultService>();
             container.RegisterType<IPatientProfileService, PatientService>();
             container.RegisterType<IPrescriptionService, PrescriptionService>();
+
+            container.RegisterType<IPatientConsultSingleService, PatientConsultSingleService>();
         }
     }
 }

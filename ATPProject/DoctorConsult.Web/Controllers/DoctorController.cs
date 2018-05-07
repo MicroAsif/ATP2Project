@@ -17,15 +17,17 @@ namespace DoctorConsult.Web.Controllers
         private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
         private readonly IMedicalTestService _medicalTestService;
         private readonly IPatientsConsultService _patientsConsultService;
+        private readonly IPatientConsultSingleService _patientConsultSingleService;
 
         public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService, 
-            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, IPatientsConsultService patientsConsultService)
+            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, IPatientsConsultService patientsConsultService, IPatientConsultSingleService patientConsultSingleService)
         {
             _patientProfileService = patientProfileService;
             _prescriptionService = prescriptionService;
             _medicineForPrescriptionService = medicineForPrescriptionService;
             _medicalTestService = medicalTestService;
             _patientsConsultService = patientsConsultService;
+            _patientConsultSingleService = patientConsultSingleService;
         }
 
         [HttpGet]
@@ -61,6 +63,7 @@ namespace DoctorConsult.Web.Controllers
             return View("ConsultRequest", _patientsConsultService.All().Include(x => x.DoctorProfileModel).Include(p => p.PatientProfileModel).ToList());
         }
 
+        [HttpGet]
         public ActionResult Prescribe()
         {
             return View();
@@ -89,8 +92,21 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult PatientsProblemPageForDoctor()
+        public ActionResult PatientsProblemPageForDoctor(int patientId)
         {
+            ViewBag.patientId = patientId;
+            return View(_patientConsultSingleService.FindLast(patientId));
+        }
+
+        [HttpPost]
+        [ActionName("PatientsProblemPageForDoctor")]
+        public ActionResult TakeToThePrescribePage(int? patientId)
+        {
+            if (patientId != 0)
+            {
+                ViewBag.patientId = patientId;
+                return RedirectToAction("Prescribe", "Doctor");
+            }
             return View();
         }
     }

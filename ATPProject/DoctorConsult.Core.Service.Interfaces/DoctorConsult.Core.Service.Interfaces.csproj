@@ -52,6 +52,7 @@
     <Compile Include="IMedicalTestService.cs" />
     <Compile Include="IMedicineForPrescriptionService.cs" />
     <Compile Include="IMedicineService.cs" />
+    <Compile Include="IPatientConsultSingleService.cs" />
     <Compile Include="IPatientProfileService.cs" />
     <Compile Include="IPatientsConsultService.cs" />
     <Compile Include="IPatientsProblemPageForDoctorService.cs" />

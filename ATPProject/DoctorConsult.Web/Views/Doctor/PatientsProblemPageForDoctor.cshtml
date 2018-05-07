@@ -1,10 +1,9 @@
-﻿@model DoctorConsult.Core.Entity.ViewModel.PatientsProblemPageForDoctor
+﻿@model DoctorConsult.Core.Entity.Model.PatientsConsultModel
 
 @{
     ViewBag.Title = "PatientsProblemPageForDoctor";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
-
 
 <div>
     <div class="container">
@@ -18,8 +17,15 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.ProblemSummary)
-                            @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
-                            @Html.TextAreaFor(model => model.ProblemSummary, new { @class = "form-control", @readonly = "readonly", placeholder = "Write Short Discription Of Your Problem", @style = "resize: none;" })
+                            <textarea readonly class="form-control" rows="3" placeholder="Enter ...">
+                                @{ 
+                                    if(Model!=null)
+                                    {
+                                        @Model.ProblemSummary
+                                    }
+                                }
+                            </textarea>
+                            @*@Html.TextAreaFor(model => model.ProblemSummary, new { @class = "form-control", @readonly = "readonly", placeholder = (Model != null) ? @Model.ProblemSummary : "Patient problem summary is here", @style = "resize: none;" })*@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.PreviousProblemFile)<br>
@@ -36,25 +42,29 @@
                         </div>
                         <div class="form-group">
                             @Html.LabelFor(model => model.ProblemDetails)
-                            @*<textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>*@
-                            @Html.TextAreaFor(model => model.ProblemDetails, new { @class = "form-control", @readonly = "readonly", placeholder = "Write Details Of Your Problem", @style = "resize: none;overflow-y: scroll;" })
+                            <textarea readonly class="form-control" rows="3" placeholder="Enter ...">
+                                @{ 
+                                    if(Model!=null)
+                                    {
+                                        @Model.ProblemDetails
+                                    }
+                                }
+                            </textarea>
+                            @*@Html.TextAreaFor(model => model.ProblemDetails, new { @class = "form-control", @readonly = "readonly", placeholder = "Write Details Of Your Problem", @style = "resize: none;overflow-y: scroll;" })*@
                         </div>
                         <div class="form-group">
-                            @Html.LabelFor(model => model.filePath)<br>
+                            @Html.LabelFor(model => model.FilePath)<br>
                             <button type="button" class="btn btn-primary" style="margin-right: 5px;">
                                 <i class="fa fa-download"></i> Download
                             </button>
                         </div>
-                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Prescribe" onclick="@("window.location.href='" + @Url.Action("Prescribe", "Doctor") + "'")";>
+                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Prescribe" onclick="@("window.location.href='" + @Url.Action("PatientsProblemPageForDoctor", "Doctor") + "'")" ;>
 
                     }
 
                     <hr />
                 </div>
-            </div> <!-- /.col-xs-12 -->
-
-        </div> <!-- /.row -->
+            </div>
+        </div>
     </div>
-
 </div>
-

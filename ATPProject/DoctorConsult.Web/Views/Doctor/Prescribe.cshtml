@@ -1,4 +1,5 @@
 ﻿@model DoctorConsult.Core.Entity.ViewModel.PrescriptionViewModel
+
 @{
     ViewBag.Title = "Prescribe";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
@@ -9,83 +10,6 @@
 
 
 <form>
-
-    @*<div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                    <div class="col-md-4">
-                        <label asp-for="PrescribtionNo">Prescribtion No</label>
-                        <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" id="PrescribtionNo" />
-                        @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col-xs-4">
-                        <label asp-for="PrescribtionDate">Prescribtion Date</label>
-                        @Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })
-                        @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="col-xs-4">
-                        <label asp-for="Cause"> Cause</label>
-                        @Html.EditorFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status" } })
-                        @Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <br />
-                    <div class="col-md-4">
-                        <label asp-for="">Patient</label>
-                        @Html.DropDownList("PatientId", new SelectList(string.Empty, "Value", "Text"), "select Patient", new { @class = "form-control", id = "Patient" })
-                        @Html.ValidationMessageFor(model => model.PatientId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="col-md-4 ">
-                        <br />
-                        <input type="button" value="Add Medicine" data-toggle="modal" data-target="#loginModal" class="button primary" />
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <br />
-                    <br />
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <td>Medicine Name</td>
-                                <td>Price </td>
-                                <td>Quantity</td>
-                                <td>Amount</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody id="Items"></tbody>
-                    </table>
-                </div>
-
-
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="col-md-4 ">
-                        <br />
-                        <input type="button" value="Add Medical Test" data-toggle="modal" data-target="#loginModal" class="button primary" />
-                    </div>
-                </div>
-
-                <div class="col-md-10 col-md-offset-1">
-                    <br />
-                    <br />
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <td>Medicine Test</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody id="Items"></tbody>
-                    </table>
-                </div>
-
-        </div>*@
-
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">create prescription</h3>

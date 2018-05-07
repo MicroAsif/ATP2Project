@@ -150,4 +150,3 @@ C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Deb
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.CopyComplete
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
-C:\Users\Arwin\Documents\GitHub\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml

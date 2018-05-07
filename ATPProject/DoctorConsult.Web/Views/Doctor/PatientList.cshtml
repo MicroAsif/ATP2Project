@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-0">
-                @* 1 *@
+
                 <div class="col-lg-12">
                     <label class="btn btn-reddit">
                         Total Number of patients: @{
@@ -55,7 +55,7 @@
                                 <p><strong><i class="glyphicon glyphicon-tint"></i> Blood Group: </strong>@item.BloodGroup</p>
                                 <p><strong><i class="fa fa-intersex"></i> Gender: </strong>@item.Gender</p>
 
-                                <a href="@Url.Action("PatientsProblemPageForDoctor")" class="btn btn-warning btn-sm">
+                                <a href="@Url.Action("PatientsProblemPageForDoctor", new { patientId = item.Id })" class="btn btn-warning btn-sm">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </a>
 
