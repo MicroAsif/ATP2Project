@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using DoctorConsult.Core.Entity.Model;
 using DoctorConsult.Web.ViewModel;
 
 namespace DoctorConsult.Web.Controllers
@@ -68,9 +70,74 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Prescribe()
+        public ActionResult Prescribe(int patientId)
         {
-            return View();
+            var Prescription = new PrescriptionModel {PatientId = patientId };
+            return View(Prescription);
+        }
+
+        [HttpPost]
+        public ActionResult Prescribtion(PrescriptionModel model)
+        {
+            try
+            {
+                var prescription = new PrescriptionModel
+                {
+                    PatientId = model.PatientId,
+                    Cause = model.Cause,
+                    Comment = model.Comment,
+                    ReferDiagonstics = model.ReferDiagonstics,
+                    ReferDoctor = model.ReferDoctor,
+                    PrescribtionDate = model.PrescribtionDate,
+                    NextVisitDate = model.NextVisitDate
+                };
+                _prescriptionService.Insert(prescription);
+                if (model.MedicalTests.Any())
+                {
+                    foreach (var test in model.MedicalTests)
+                    {
+                        _medicalTestService.Insert(new MedicalTestModel
+                        {
+                            TestName = test.TestName,
+                            PrescriptionId = prescription.Id,
+                            CreatedDate = DateTime.UtcNow,
+                            UpdatedDate = DateTime.UtcNow
+                        });
+                    }
+                }
+                if (model.Medicines.Any())
+                {
+                    foreach (var medicine in model.Medicines)
+                    {
+                        _medicineForPrescriptionService.Insert(new MedicineForPrescription
+                        {
+                            DailyTimes = medicine.DailyTimes,
+                            Name = medicine.Name,
+                            Quantity = medicine.Quantity,
+                            Days = medicine.Days,
+                            PrescriptionId = prescription.Id,
+                            CreatedDate = DateTime.UtcNow,
+                            UpdatedDate = DateTime.UtcNow
+                        });
+                    }
+                }
+                return Json(new { error = false, message = "Data saved successfully" });
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw;
+            }
+
         }
 
         [HttpGet]
@@ -84,7 +151,7 @@ namespace DoctorConsult.Web.Controllers
         public ActionResult PrescribtionDetails(int patientId)
         {
            var prescriptions = _prescriptionService.GetPrescribtionByPatientId(patientId);
-            prescriptions.Medicines = _medicineForPrescriptionService.All().Include(x=>x.MedicineModel)
+            prescriptions.Medicines = _medicineForPrescriptionService.All()
                                                                      .Where(x => x.PrescriptionId == prescriptions.Id).ToList();
 
             prescriptions.MedicalTests = _medicalTestService.All()

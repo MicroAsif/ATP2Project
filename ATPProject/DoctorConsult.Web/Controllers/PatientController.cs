@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoctorConsult.Web.ViewModel;
 
 namespace DoctorConsult.Web.Controllers
 {
@@ -17,14 +18,23 @@ namespace DoctorConsult.Web.Controllers
         private readonly IDoctorProfileService _doctorProfileService;
         private readonly IPatientsConsultService _consultService;
         private readonly IPatientsConsultService _patientsConsultService;
+        private readonly IPrescriptionService _prescriptionService;
+        private readonly IMedicalTestService _testService;
+        private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
 
-        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, IDoctorProfileService doctorProfileService, IPatientsConsultService consultService, IPatientsConsultService patientsConsultService)
+        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService,
+            IDoctorProfileService doctorProfileService, IPatientsConsultService consultService,
+            IPatientsConsultService patientsConsultService, IPrescriptionService prescriptionService,IMedicalTestService testService,
+            IMedicineForPrescriptionService medicineForPrescriptionService)
         {
             _specialityService = specialityService;
             _patientProfileService = patientProfileService;
             _doctorProfileService = doctorProfileService;
             _consultService = consultService;
             _patientsConsultService = patientsConsultService;
+            _prescriptionService = prescriptionService;
+            _testService = testService;
+            _medicineForPrescriptionService = medicineForPrescriptionService;
         }
 
         [HttpGet]
@@ -116,9 +126,21 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Invoice()
+        public ActionResult Invoice(int prescribtionId)
         {
-            return View();
+            var prescribtion = _prescriptionService.All().Include(x => x.Patient).SingleOrDefault(x => x.Id == prescribtionId);
+            if (prescribtion != null)
+            {
+                prescribtion.MedicalTests = _testService.All().Where(x => x.PrescriptionId == prescribtion.Id).ToList();
+                prescribtion.Medicines =
+                    _medicineForPrescriptionService.All().Where(x => x.PrescriptionId == prescribtion.Id).ToList();
+            }
+            var invoice = new InvoiceViewModel
+            {
+                Prescribtion = prescribtion, 
+                Doctor = _doctorProfileService.All().FirstOrDefault()
+            };
+            return View(invoice);
         }
 
         [HttpGet]
