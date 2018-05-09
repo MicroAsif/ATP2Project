@@ -1,4 +1,5 @@
-﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PatientsConsultModel>
+﻿@model IEnumerable<DoctorConsult.Core.Entity.Model.PatientsProblemPageForDoctorModel>
+
 @{
     ViewBag.Title = "ConsultList";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -41,6 +42,7 @@
                         @{
                             if (Model != null)
                             {
+                                int i=5;
                                 foreach (var item in Model)
                                 {
                                     <tr>
@@ -61,10 +63,10 @@
                                             }
                                         </td>
                                         <td>
-                                            <a href="@Url.Action("Invoice", "Patient", new { patientId = item.PatientId })"> details</a>
+                                            <a href="@Url.Action("Invoice", "Patient", new { prescribtionId = i })"> details</a>
                                         </td>
                                     </tr>
-
+                                    i++;
                                 }
                             }
                         }

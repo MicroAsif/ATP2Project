@@ -21,11 +21,12 @@ namespace DoctorConsult.Web.Controllers
         private readonly IPrescriptionService _prescriptionService;
         private readonly IMedicalTestService _testService;
         private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
+        private readonly IPatientsProblemPageForDoctorService _patientsProblemPageForDoctorService;
 
         public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService,
             IDoctorProfileService doctorProfileService, IPatientsConsultService consultService,
             IPatientsConsultService patientsConsultService, IPrescriptionService prescriptionService,IMedicalTestService testService,
-            IMedicineForPrescriptionService medicineForPrescriptionService)
+            IMedicineForPrescriptionService medicineForPrescriptionService, IPatientsProblemPageForDoctorService patientsProblemPageForDoctorService)
         {
             _specialityService = specialityService;
             _patientProfileService = patientProfileService;
@@ -35,6 +36,7 @@ namespace DoctorConsult.Web.Controllers
             _prescriptionService = prescriptionService;
             _testService = testService;
             _medicineForPrescriptionService = medicineForPrescriptionService;
+            _patientsProblemPageForDoctorService = patientsProblemPageForDoctorService;
         }
 
         [HttpGet]
@@ -100,14 +102,14 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult PatientsConsult(PatientsConsultModel model)
+        public ActionResult PatientsConsult(PatientsProblemPageForDoctorModel model)
         {
             if (model != null)
             {
-                model.PatientId = 1;
+                model.PatintId = 1;
                 model.DoctorId = 3;
                 model.Status = "pending";
-                _patientsConsultService.Insert(model);
+                _patientsProblemPageForDoctorService.Insert(model);
                 return RedirectToAction("PatientsConsult", "Patient");
             }
             return View(model: model);
@@ -116,7 +118,7 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult ConsultList()
         {
-            return View(_consultService.All().Include(x => x.DoctorProfileModel).ToList());
+            return View(_patientsProblemPageForDoctorService.All().Include(x => x.DoctorProfileModel).ToList());
         }
 
         [HttpGet]

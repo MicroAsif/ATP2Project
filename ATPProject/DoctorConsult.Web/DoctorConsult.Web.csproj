@@ -220,6 +220,7 @@
     <Compile Include="ViewModel\DoctorProfileViewModel.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
     <Compile Include="ViewModel\ForgetPasswordViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PatientChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\PatientProfileViewModel.cs" />
