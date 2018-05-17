@@ -1,4 +1,4 @@
-﻿@model DoctorConsult.Core.Entity.ViewModel.PatientProfileViewModel
+﻿@model DoctorConsult.Core.Entity.Model.PatientProfileModel
 @{
     ViewBag.Title = "Edit Profile";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
@@ -53,21 +53,29 @@
                             <label for="Name">Name</label>
 
                             @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @*@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })*@
                         </div>
 
                         <div class="form-group">
                             <label for="Email">Email</label>
 
-                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+                            @*@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
                         </div>
+
+                        <div class="form-group">
+                            <label for="Email">Password</label>
+
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", @readonly = "readonly" })
+                            @*@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                        </div>
+
 
                         <div class="form-group">
                             <label for="Age">Age</label>
 
-                            @Html.TextBoxFor(model => model.age, new { @class = "form-control", placeholder = "Age" })
-                            @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(model => model.Age, new { @class = "form-control", placeholder = "Age" })
+                            @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group">
@@ -79,32 +87,32 @@
                             <label for="Birthday">Blood Group: </label><br>
                             @Html.DropDownListFor(model => model.BloodGroup, new SelectList(
              new List<Object>{
-                                          new {value = 0, text = "A+"},
-                                          new {value = 1, text = "B+"},
-                                          new {value = 2, text = "AB+"},
-                                          new {value = 3, text = "O+"},
+                                          new {value = "A+", text = "A+"},
+                                          new {value = "B+", text = "B+"},
+                                          new {value = "AB+", text = "AB+"},
+                                          new {value = "O+", text = "O+"},
 
-                                          new {value = 5, text = "O-"}
+                                          new {value = "O-", text = "O-"}
              }, "value", "text", 0), new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group">
                             <label for="Radio">Gender: </label><br>
                             <div class="radio-inline">
-                                @Html.RadioButtonFor(m => m.Gender, "Patient", false) @Html.Label("Male")
+                                @Html.RadioButtonFor(m => m.Gender, "Male", false) @Html.Label("Male")
                             </div>
                             <div class="radio-inline">
-                                @Html.RadioButtonFor(m => m.Gender, "Doctor", false)  @Html.Label("Female")
+                                @Html.RadioButtonFor(m => m.Gender, "Female", false)  @Html.Label("Female")
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="dropdown">Division: </label><br>
                             @Html.DropDownListFor(model => model.Division, new SelectList(
              new List<Object>{
-                          new {value = 0, text = "Dhaka"},
-                          new {value = 1, text = "Chittagoan"},
-                          new {value = 2, text = "Khulna"},
-                          new {value = 3, text = "Rajshahi"}
+                          new {value ="Dhaka", text = "Dhaka"},
+                          new {value = "Chittagoan", text = "Chittagoan"},
+                          new {value = "Khulna", text = "Khulna"},
+                          new {value = "Rajshahi", text = "Rajshahi"}
              }, "value", "text", 0), new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Division, "", new { @class = "text-danger" })
                         </div>
@@ -112,12 +120,12 @@
                             <label for="dropdown">District: </label><br>
                             @Html.DropDownListFor(model => model.District, new SelectList(
              new List<Object>{
-                          new {value = 0, text = "Dhaka"},
-                          new {value = 1, text = "Tangail"},
-                          new {value = 2, text = "Jessore"},
-                          new {value = 3, text = "Magura"}
+                          new {value = "Dhaka", text = "Dhaka"},
+                          new {value = "Tangail", text = "Tangail"},
+                          new {value = "Jessore", text = "Jessore"},
+                          new {value = "Magura", text = "Magura"}
              }, "value", "text", 0), new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+                            @*@Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })*@
                         </div>
 
                         <div class="form-group">

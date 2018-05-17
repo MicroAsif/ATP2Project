@@ -23,6 +23,7 @@ namespace DoctorConsult.Web.Controllers
         private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
         private readonly IPatientsProblemPageForDoctorService _patientsProblemPageForDoctorService;
 
+
         public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService,
             IDoctorProfileService doctorProfileService, IPatientsConsultService consultService,
             IPatientsConsultService patientsConsultService, IPrescriptionService prescriptionService,IMedicalTestService testService,
@@ -65,15 +66,44 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditProfile(PatientProfileViewModel model)
+        public ActionResult EditProfile(PatientProfileModel model)
         {
-            return View(model: model);
+            //if (model != null)
+            //{
+
+            //    _patientProfileService.Update(model);
+            //    return RedirectToAction("Profile", "Patient");
+            //}
+            if (model != null)
+            {
+                model = new PatientProfileModel()
+                {
+                    Id = 1,
+                    Name = model.Name,
+                    Password = model.Password,
+                    Age = model.Age,
+                    Email = model.Email,
+                    Birthday = model.Birthday,
+                    BloodGroup = model.BloodGroup,
+                    Gender = model.Gender,
+                    District = model.District,
+                    Division = model.Division,
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow
+
+                };
+                _patientProfileService.Update(model);
+                return RedirectToAction("Profile", "Patient");
+            }
+            return View();
         }
 
         [HttpGet]
-        public ActionResult EditProfile()
+        [ActionName("EditProfile")]
+        public ActionResult EditProfileView(PatientProfileModel model)
         {
-            return View();
+
+            return View(model: _patientProfileService.Find(1));
         }
 
         [HttpGet]

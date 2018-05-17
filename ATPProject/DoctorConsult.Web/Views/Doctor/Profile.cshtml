@@ -1,4 +1,4 @@
-﻿@model DoctorConsult.Core.Entity.ViewModel.DoctorProfileViewModel
+﻿@model DoctorConsult.Core.Entity.Model.DoctorProfileModel
 @{
     ViewBag.Title = "User Profile";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
@@ -22,7 +22,7 @@
 }
 
 
-@using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <br />
@@ -39,22 +39,30 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
-                            <div class="col-md-5">
-                                <img src="@Model.Image" alt="img" id="UploadFile" class="img-thumbnail" style="height: 150px" width="150px" /> <br />
-                                <input type="file" name="logoPostedFileBase" accept="image/x-png, image/gif, image/jpeg" id="FileUpload" onchange="PreviewImage()" />
+                    @*<div class="col-md-12">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Image, new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    <img src="@Model.Image" alt="img" id="UploadFile" class="img-thumbnail" style="height: 150px" width="150px" /> <br />
+                                    <input type="file" name="logoPostedFileBase" accept="image/x-png, image/gif, image/jpeg" id="FileUpload" onchange="PreviewImage()" />
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>*@
 
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
-                            <p class="form-control"><strong>@Model.Email</strong></p>
+                            @*<p class="form-control"><strong>@Model.Email</strong></p>*@
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @*<p class="form-control"><strong>@Model.Email</strong></p>*@
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                         </div>
                     </div>
                     <div class="form-group">
@@ -80,6 +88,14 @@
                             @Html.ValidationMessageFor(model => model.OldFee, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your name" } })
+                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.Specialist, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
@@ -89,10 +105,10 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.BloogGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.BloodGroup, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.BloogGroup, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your name" } })
-                            @Html.ValidationMessageFor(model => model.BloogGroup, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your name" } })
+                            @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -116,10 +132,10 @@
                         @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-8">
                             @Html.DropDownListFor(x => x.Gender, new List<SelectListItem>
-                    {
-                        new SelectListItem() {Text = "Male", Value="Male"},
-                        new SelectListItem() {Text = "Female", Value="Female"},
-                    }, "Select Gender", new { @class = "form-control" })
+                                                {
+                                                    new SelectListItem() {Text = "Male", Value="Male"},
+                                                    new SelectListItem() {Text = "Female", Value="Female"},
+                                                }, "Select Gender", new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -153,7 +169,7 @@
     $(document).ready(function () {
 
 
-});
+    });
 
     function PreviewImage() {
         var oFReader = new FileReader();

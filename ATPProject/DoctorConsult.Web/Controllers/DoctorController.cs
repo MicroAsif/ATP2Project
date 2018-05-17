@@ -21,11 +21,12 @@ namespace DoctorConsult.Web.Controllers
         private readonly IPatientsConsultService _patientsConsultService;
         private readonly IPatientConsultSingleService _patientConsultSingleService;
         private readonly IPatientsProblemPageForDoctorService _patientProblemService;
+        private readonly IDoctorProfileService _doctorProfileService;
 
         public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService, 
             IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, 
             IPatientsConsultService patientsConsultService, IPatientConsultSingleService patientConsultSingleService, 
-            IPatientsProblemPageForDoctorService patientProblemService)
+            IPatientsProblemPageForDoctorService patientProblemService, IDoctorProfileService doctorProblemService)
         {
             _patientProfileService = patientProfileService;
             _prescriptionService = prescriptionService;
@@ -34,6 +35,7 @@ namespace DoctorConsult.Web.Controllers
             _patientsConsultService = patientsConsultService;
             _patientConsultSingleService = patientConsultSingleService;
             _patientProblemService = patientProblemService;
+            _doctorProfileService = doctorProblemService;
         }
 
         [HttpGet]
@@ -52,10 +54,45 @@ namespace DoctorConsult.Web.Controllers
             return View();
         }
 
+        [HttpGet]
         public new ActionResult Profile()
         {
-            return View(new DoctorProfileViewModel());
+            return View(model: _doctorProfileService.Find(1));
         }
+        [HttpPost]
+        [ActionName("Profile")]
+        public new ActionResult ProfileEdit(DoctorProfileModel model)
+        {
+
+            if (model != null)
+            {
+                model = new DoctorProfileModel()
+                {
+                    Id = 1,
+                    FullName = model.FullName,
+                    Address = model.Address,
+                    Age = model.Age,
+                    BloodGroup = model.BloodGroup,
+                    Email = model.Email,
+                    Gender = model.Gender,
+                    Phone = model.Phone,
+                    Specialist = model.Specialist,
+                    Location = model.Location,
+                    OldFee = model.OldFee,
+                    NewFee = model.NewFee,
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow,
+
+                    Password = model.Password
+
+
+                };
+                _doctorProfileService.Update(model);
+                return RedirectToAction("Index", "Doctor");
+            }
+            return View();
+        }
+
 
         [HttpGet]
         public ActionResult PatientList()
