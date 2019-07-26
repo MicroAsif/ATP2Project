@@ -46,6 +46,12 @@
                             @Html.TextBoxFor(model => model.filePath, new { type = "file" })
                             @Html.ValidationMessageFor(model => model.filePath)
                         </div>
+
+                        <div class="hidden">
+                            <input type="hidden" name="DoctorId" value="@ViewBag.doctorId"/>
+                            <input type="hidden" name="PatintId" value="@ViewBag.PatintId" />
+                        </div>
+
                         <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Submit">
 
                     }

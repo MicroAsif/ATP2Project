@@ -23,9 +23,9 @@ namespace DoctorConsult.Web.Controllers
         private readonly IPatientsProblemPageForDoctorService _patientProblemService;
         private readonly IDoctorProfileService _doctorProfileService;
 
-        public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService, 
-            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService, 
-            IPatientsConsultService patientsConsultService, IPatientConsultSingleService patientConsultSingleService, 
+        public DoctorController(IPatientProfileService patientProfileService, IPrescriptionService prescriptionService,
+            IMedicineForPrescriptionService medicineForPrescriptionService, IMedicalTestService medicalTestService,
+            IPatientsConsultService patientsConsultService, IPatientConsultSingleService patientConsultSingleService,
             IPatientsProblemPageForDoctorService patientProblemService, IDoctorProfileService doctorProblemService)
         {
             _patientProfileService = patientProfileService;
@@ -43,8 +43,8 @@ namespace DoctorConsult.Web.Controllers
         {
             var vm = new DoctorDashboardViewModel
             {
-               AcceptedPatients =  _patientProfileService.All().Count(), 
-               Prescription = _prescriptionService.All().Count()
+                AcceptedPatients = _patientProfileService.All().Count(),
+                Prescription = _prescriptionService.All().Count()
             };
             return View(vm);
         }
@@ -100,6 +100,12 @@ namespace DoctorConsult.Web.Controllers
             return View(model: _patientProfileService.All());
         }
 
+        //[HttpPost]
+        //public ActionResult PatientList()
+        //{
+        //    return View(model: _patientProfileService.All());
+        //}
+
         [HttpGet]
         public ActionResult ConsultRequestList()
         {
@@ -109,7 +115,7 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult Prescribe(int patientId)
         {
-            var Prescription = new PrescriptionModel {PatientId = patientId };
+            var Prescription = new PrescriptionModel { PatientId = patientId };
             return View(Prescription);
         }
 
@@ -187,7 +193,7 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult PrescribtionDetails(int patientId)
         {
-           var prescriptions = _prescriptionService.GetPrescribtionByPatientId(patientId);
+            var prescriptions = _prescriptionService.GetPrescribtionByPatientId(patientId);
             prescriptions.Medicines = _medicineForPrescriptionService.All()
                                                                      .Where(x => x.PrescriptionId == prescriptions.Id).ToList();
 
@@ -203,7 +209,7 @@ namespace DoctorConsult.Web.Controllers
         public ActionResult PatientsProblemPageForDoctor(int patientId)
         {
             ViewBag.patientId = patientId;
-            return View(_patientProblemService.All().FirstOrDefault(x=>x.PatintId == patientId));
+            return View(_patientProblemService.All().FirstOrDefault(x => x.PatintId == patientId));
         }
 
         [HttpPost]

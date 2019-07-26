@@ -26,7 +26,7 @@ namespace DoctorConsult.Web.Controllers
 
         public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService,
             IDoctorProfileService doctorProfileService, IPatientsConsultService consultService,
-            IPatientsConsultService patientsConsultService, IPrescriptionService prescriptionService,IMedicalTestService testService,
+            IPatientsConsultService patientsConsultService, IPrescriptionService prescriptionService, IMedicalTestService testService,
             IMedicineForPrescriptionService medicineForPrescriptionService, IPatientsProblemPageForDoctorService patientsProblemPageForDoctorService)
         {
             _specialityService = specialityService;
@@ -126,8 +126,10 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult PatientsConsult()
+        public ActionResult PatientsConsult(int? doctorId)
         {
+            ViewBag.doctorId = doctorId ?? 0;
+            ViewBag.PatintId = 4;
             return View();
         }
 
@@ -136,8 +138,8 @@ namespace DoctorConsult.Web.Controllers
         {
             if (model != null)
             {
-                model.PatintId = 1;
-                model.DoctorId = 3;
+                //model.PatintId = 1;
+                //model.DoctorId = 3;
                 model.Status = "pending";
                 _patientsProblemPageForDoctorService.Insert(model);
                 return RedirectToAction("PatientsConsult", "Patient");
@@ -148,7 +150,11 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult ConsultList()
         {
-            return View(_patientsProblemPageForDoctorService.All().Include(x => x.DoctorProfileModel).ToList());
+            var a = _patientsProblemPageForDoctorService.All()
+                .Include(x => x.PatientProfile)
+                .Include(x => x.DoctorProfileModel);
+
+            return View(a);
         }
 
         [HttpGet]
@@ -169,7 +175,7 @@ namespace DoctorConsult.Web.Controllers
             }
             var invoice = new InvoiceViewModel
             {
-                Prescribtion = prescribtion, 
+                Prescribtion = prescribtion,
                 Doctor = _doctorProfileService.All().FirstOrDefault()
             };
             return View(invoice);
