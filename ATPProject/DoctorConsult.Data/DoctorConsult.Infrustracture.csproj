@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoctorConsultContext\DoctorDbContext.cs" />
+    <Compile Include="Migrations\202009221918201_authentication-tables.cs" />
+    <Compile Include="Migrations\202009221918201_authentication-tables.Designer.cs">
+      <DependentUpon>202009221918201_authentication-tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +66,11 @@
       <Project>{240c6115-dca4-4c20-b2d9-d6126a6c1059}</Project>
       <Name>DoctorConsult.Core.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009221918201_authentication-tables.resx">
+      <DependentUpon>202009221918201_authentication-tables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

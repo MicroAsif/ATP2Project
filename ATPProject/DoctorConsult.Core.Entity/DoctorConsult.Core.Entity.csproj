@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\AdminProfileModel.cs" />
+    <Compile Include="Model\AuthenticationModels\Role.cs" />
+    <Compile Include="Model\AuthenticationModels\User.cs" />
     <Compile Include="Model\Base\BaseModel.cs" />
     <Compile Include="Model\CampaignModel.cs" />
     <Compile Include="Model\DoctorProfileModel.cs" />

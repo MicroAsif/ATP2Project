@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DoctorConsult.Core.Entity.Model;
+using DoctorConsult.Core.Entity.Model.AuthenticationModels;
 
 namespace DoctorConsult.Data.DoctorConsultContext
 {
@@ -26,6 +27,8 @@ namespace DoctorConsult.Data.DoctorConsultContext
         public DbSet<PatientsConsultModel> Consults { get; set; }
         public DbSet<PatientsProblemPageForDoctorModel> PatientsConsults { get; set; }
         public DbSet<PrescriptionModel> Prescriptions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
