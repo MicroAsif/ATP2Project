@@ -9,9 +9,6 @@ namespace DoctorConsult.Core.Service.Interfaces
 {
     public interface IUserService
     {
-        bool IsAuthenticUser(string username,string password);
-        User GetUser(string username);
-        string GetUserNameByEmail(string email);
-        List<string> GetRolesByUsername(string username);
+        
     }
 }
