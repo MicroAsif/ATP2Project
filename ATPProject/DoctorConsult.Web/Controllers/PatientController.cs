@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace DoctorConsult.Web.Controllers
 {
+    [Authorize(Roles ="Patient")]
     public class PatientController : Controller
     {
         private readonly ISpecialityService _specialityService;

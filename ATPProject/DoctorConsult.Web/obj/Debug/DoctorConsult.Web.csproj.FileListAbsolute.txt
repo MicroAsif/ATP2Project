@@ -204,3 +204,5 @@ D:\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.csproj.C
 D:\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.dll
 D:\ATP2Project\ATPProject\DoctorConsult.Web\obj\Debug\DoctorConsult.Web.pdb
 D:\ATP2Project\ATPProject\DoctorConsult.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\ATP2Project\ATPProject\DoctorConsult.Web\bin\Dapper.dll
+D:\ATP2Project\ATPProject\DoctorConsult.Web\bin\Dapper.xml

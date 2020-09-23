@@ -58,6 +58,7 @@
     <Compile Include="IPatientsProblemPageForDoctorService.cs" />
     <Compile Include="IPrescriptionService.cs" />
     <Compile Include="ISpecialityService.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

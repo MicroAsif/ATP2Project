@@ -7,9 +7,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using DoctorConsult.Web.ViewModel;
+using  DoctorConsult.Web.Enums;
 
 namespace DoctorConsult.Web.Controllers
 {
+    [Authorize(Roles = "Doctor")]
     public class DoctorController : Controller
     {
         private readonly IPatientProfileService _patientProfileService;

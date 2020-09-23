@@ -8,6 +8,10 @@ namespace DoctorConsult.Core.Entity.Model.AuthenticationModels
 {
     public class User
     {
+        public User()
+        {
+            Roles = new List<Role>();
+        }
         public int UserId { get; set; }
         public string Username { get; set; }
         public string FirstName { get; set; }

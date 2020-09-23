@@ -204,6 +204,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedicineController.cs" />
     <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="CustomAuthentication\CustomAuthorizeAttribute.cs" />
+    <Compile Include="CustomAuthentication\CustomMembership.cs" />
+    <Compile Include="CustomAuthentication\CustomMembershipUser.cs" />
+    <Compile Include="CustomAuthentication\CustomPrincipal.cs" />
+    <Compile Include="CustomAuthentication\CustomRole.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +226,7 @@
     <Compile Include="ViewModel\DoctorProfileViewModel.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
     <Compile Include="ViewModel\ForgetPasswordViewModel.cs" />
+    <Compile Include="ViewModel\LoginView.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PatientChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\PatientProfileViewModel.cs" />
