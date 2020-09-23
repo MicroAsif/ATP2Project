@@ -7,6 +7,10 @@ namespace DoctorConsult.Core.Entity.Model
 {
     public class MedicineForPrescription : BaseModel
     {
+        public MedicineForPrescription()
+        {
+           
+        }
         public string Name { get; set; }
         [Required]
         public int Quantity { get; set; }
@@ -15,16 +19,8 @@ namespace DoctorConsult.Core.Entity.Model
         [Required]
         public string DailyTimes { get; set; }
 
-        [ForeignKey("MedicineModel")]
-        [DisplayName("Medicine")]
-        public int? MedicineId { get; set; }
-        public MedicineModel MedicineModel { get; set; }
-
-
-
-       
-        [DisplayName("Prescription")]
-        public int? PrescriptionId { get; set; }
+        //[ForeignKey("PrescriptionModel")]
+        //public int PrescriptionId { get; set; }
         public PrescriptionModel PrescriptionModel { get; set; }
     }
 }

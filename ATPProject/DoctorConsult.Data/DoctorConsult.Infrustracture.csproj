@@ -62,6 +62,10 @@
     <Compile Include="Migrations\202009231534204_doctor and patient profile required removed.Designer.cs">
       <DependentUpon>202009231534204_doctor and patient profile required removed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009231654397_PrescriptionModel added.cs" />
+    <Compile Include="Migrations\202009231654397_PrescriptionModel added.Designer.cs">
+      <DependentUpon>202009231654397_PrescriptionModel added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009231534204_doctor and patient profile required removed.resx">
       <DependentUpon>202009231534204_doctor and patient profile required removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231654397_PrescriptionModel added.resx">
+      <DependentUpon>202009231654397_PrescriptionModel added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

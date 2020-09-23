@@ -21,32 +21,17 @@ namespace DoctorConsult.Data.DoctorConsultContext
         public DbSet<AdminProfileModel> Admins { get; set; }
         public DbSet<CampaignModel> Campaigns { get; set; }
         public DbSet<DoctorProfileModel> Doctors { get; set; }
-        public DbSet<MedicalTestModel> MedicalTests { get; set; }
-        public DbSet<MedicineForPrescription> MedicineForPrescriptions { get; set; }
+        
         public DbSet<PatientProfileModel> Patients { get; set; }
         public DbSet<PatientsConsultModel> Consults { get; set; }
         public DbSet<PatientsProblemPageForDoctorModel> PatientsConsults { get; set; }
         public DbSet<PrescriptionModel> Prescriptions { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<MedicalTestModel> MedicalTests { get; set; }
+        public DbSet<MedicineForPrescription> MedicineForPrescriptions { get; set; }
 
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<PrescriptionModel>()
-                .HasOptional(s => s.Medicines)
-                .WithRequired().WillCascadeOnDelete(false);
-
-
-           
-
-          
-
-
-            //modelBuilder.Entity<MedicineForPrescription>().HasOptional(x=>x.PrescriptionModel);
-        }
     }
 
    

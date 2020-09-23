@@ -227,7 +227,11 @@
     <Compile Include="ViewModel\DoctorProfileViewModel.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
     <Compile Include="ViewModel\ForgetPasswordViewModel.cs" />
+
     <Compile Include="ViewModel\LoginView.cs" />
+
+    <Compile Include="ViewModel\InvoiceViewModel.cs" />
+
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\PatientChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\PatientProfileViewModel.cs" />
@@ -1217,6 +1221,7 @@
     <Content Include="Images\Search icon.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1279,6 +1284,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\prescribe.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />

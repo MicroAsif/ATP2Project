@@ -57,10 +57,10 @@
                 <div class="col-xs-10">
                     <label asp-for="PrescribtionDate">Old Advice: </label>
                     <br />
-                    @if(Model.Advice!=null)
+                    @*@if(Model.Advice!=null)
                     {
                         @Model.Advice
-                    }
+                    }*@
                 </div>
                 <div class="col-md-4 ">
                     <br />
@@ -84,7 +84,7 @@
                     @foreach (var item in Model.Medicines)
                     {
                         <tr>
-                            <td>@item.MedicineModel.Name </td>
+                            @*<td>@item.MedicineModel.Name </td>*@
                             <td>@item.Quantity</td>
                             <td>@item.DailyTimes</td>
                             <td><a href=""><i class="fa fa-trash"></i></a></td>

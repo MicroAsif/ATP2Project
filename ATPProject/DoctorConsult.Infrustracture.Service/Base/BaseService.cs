@@ -57,5 +57,10 @@ namespace DoctorConsult.Infrustracture.Service.Base
         {
             _dbContext.SaveChanges();
         }
+        public void Dispose()
+        {
+            _innerDbSet = null;
+            _dbContext.Dispose();
+        }
     }
 }

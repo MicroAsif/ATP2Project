@@ -1,14 +1,31 @@
-﻿@model DoctorConsult.Core.Entity.ViewModel.PrescriptionViewModel
+﻿@model DoctorConsult.Core.Entity.Model.PrescriptionModel
 
 @{
     ViewBag.Title = "Prescribe";
     Layout = "~/Views/Shared/_doctorDashboard.cshtml";
 }
 
+<style type="text/css">
+    .bg_1 {
+        background-color: green;
+    }
+
+    .bg_2 {
+        background-color: gray;
+    }
 
 
+    .error_msg {
+        color: #f00;
+        display: none;
+    }
 
-
+    .table {
+        /* width: 100%; */
+        /* max-width: 100%; */
+        margin-bottom: 0px;
+    }
+</style>
 <form>
     <div class="box box-primary">
         <div class="box-header with-border">
@@ -16,45 +33,39 @@
         </div>
         <br />
         <div class="row">
-
-            
-
             <div class="col-md-8 col-md-offset-1">
                 <div class="col-md-4">
                     <label asp-for="ReferToAnotherDr">Refer another Dr.</label>
-                    <input type="text" asp-for="ReferToAnotherDr" class="form-control" placeholder="Type another dr. name" id="ReferToAnotherDr" />
-                    @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
+                    <input type="text" asp-for="ReferToAnotherDr" class="form-control" placeholder="Type another dr. name" id="ReferToAnotherDr" name="ReferToAnotherDr" />
                 </div>
                 <div class="col-md-4">
                     <label asp-for="ReferDiagnostic">Refer Diagnostic</label>
-                    <input type="text" asp-for="ReferDiagnostic" class="form-control" placeholder="Diagnostic name" id="ReferDiagnostic" />
-                    @*@Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })*@
+                    <input type="text" asp-for="ReferDiagnostic" class="form-control" placeholder="Diagnostic name" id="ReferDiagnostic" name="ReferDiagnostic" />
                 </div>
                 <div class="col-md-4">
-                    <label asp-for="PrescribtionNo">Prescribtion No</label>
-                    <input type="text" asp-for="PrescribtionNo" class="form-control" placeholder="Prescribtion Number" id="PrescribtionNo" />
-                    @Html.ValidationMessageFor(model => model.PrescribtionNo, "", new { @class = "text-danger" })
-                </div>
-                <div class="col-xs-4">
                     <label asp-for="PrescribtionDate">Prescribtion Date</label>
-                    @Html.Editor("PrescribtionDate", new { htmlAttributes = new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate" } })
-                    @Html.ValidationMessageFor(model => model.PrescribtionDate, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(x => x.PrescribtionDate, DateTime.UtcNow.ToShortDateString(), new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "PrescribtionDate", onkeyup = "blankme(this.id)" })
+                    <small id="error_PrescribtionDate" class="form-text error_msg">Date can't be empty</small>
                 </div>
                 <div class="col-xs-4">
-                    <label asp-for="Cause">Cause given by</label>
-                    @Html.TextAreaFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Status", @rows = 10, @cols = 400 } })
-                    @Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })
+                    <label asp-for="PrescribtionDate">Next Visit Date</label>
+                    @Html.TextBox("NextVisitDate", DateTime.UtcNow.ToShortDateString(), new { @class = "form-control mydatepicker", @placeholder = "Prescribtion date", id = "NextVisitDate" })
+                    @Html.ValidationMessageFor(model => model.NextVisitDate, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-xs-4">
-                    <label asp-for="Comment">Dr. comment</label>
-                    @Html.TextArea("Comment", new { htmlAttributes = new { @class = "form-control", @row=4, @placeholder = "Write conment", id = "Status", @rows = 10, @cols = 400 } })
-                    @*@Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })*@
+                    <label asp-for="Cause">Cause Given </label>
+                    @Html.TextAreaFor(model => model.Cause, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write Casue", id = "Cause", onkeyup="blankme(this.id)" } })
+                    <small id="error_Cause" class="form-text error_msg">Cause can't be empty</small>
+                   
                 </div>
                 <div class="col-xs-4">
-                    <label asp-for="GeneralInformation">Patient general information</label>
-                    @Html.Editor("GeneralInformation", new { htmlAttributes = new { @class = "form-control", @placeholder = "Like: Allergy, Diabetics", id = "Status", @rows = 10, @cols = 400 } })
-                    @*@Html.ValidationMessageFor(model => model.Cause, "", new { @class = "text-danger" })*@
+                    <label asp-for="Comment" > Dr. comment</label>
+                    @Html.TextArea("Comment", new { htmlAttributes = new { @class = "form-control", @row = 4, @placeholder = "Write conment", id = "Comment", @rows = 10, @cols = 400,
+                    onkeyup="blankme(this.id)"}})
+                    <small id="error_Comment" class="form-text error_msg">Comment can't be empty</small>
                 </div>
+
+
             </div>
             <div class="col-md-3 col-sm-4">
                 <div class="info-box bg-red">
@@ -72,7 +83,7 @@
                     <!-- /.info-box-content -->
                 </div>
             </div>
-         
+
             <div class="col-md-3 col-sm-4">
                 <div class="info-box bg-red">
                     <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
@@ -90,9 +101,9 @@
                 </div>
             </div>
 
-           
+
             <!-- /.description-block -->
-           
+
             <div class="col-md-8 col-md-offset-1">
                 <div class="col-md-4 ">
                     <br />
@@ -100,12 +111,12 @@
                 </div>
             </div>
 
-            
+
 
             <div class="col-md-8 col-md-offset-1">
                 <br />
                 <br />
-                <table class="table table-bordered">
+                <table id="MedicineTable" class="table table-bordered">
                     <thead>
                         <tr>
                             <td>Medicine Name</td>
@@ -115,12 +126,12 @@
                             <td></td>
                         </tr>
                     </thead>
-                    <tbody id="Items"></tbody>
+                    <tbody id="MedicineItems"></tbody>
                 </table>
             </div>
 
 
-            
+
 
             <div class="col-md-8 col-md-offset-1">
                 <div class="col-md-4 ">
@@ -131,22 +142,22 @@
             <div class="col-md-8 col-md-offset-1">
                 <br />
                 <br />
-                <table class="table table-bordered">
+                <table id="TestTable" class="table table-bordered">
                     <thead>
                         <tr>
                             <td>Medicine Test Name</td>
                             <td>Action</td>
                         </tr>
                     </thead>
-                    <tbody id="Items"></tbody>
+                    <tbody id="TestItems"></tbody>
                 </table>
             </div>
 
-            
+
             <div class="col-md-8 col-md-offset-1">
                 <div class="col-md-4 ">
                     <br />
-                    <input type="submit" value="Save Prescription" class="btn btn-success" id="btnSubmit" />
+                    <input data-patient-id="@Model.PatientId" type="submit" value="Save Prescription" class="btn btn-success" id="btnSubmit" />
                 </div>
             </div>
 
@@ -170,89 +181,43 @@
                         <div class="container">
                             <div class="col-md-12">
                                 <label class="control-label">Medicine Name</label>
-                                @Html.Editor("Medicine Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medicine Name", id = "name" } })
+                                @Html.Editor("Medicine Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medicine Name", id = "name", onkeyup = "blankme(this.id)" } })
+                                <small id="error_name" class="form-text error_msg  ">Medicine name can't the empty</small>
                             </div>
                             @*<div class="col-md-6">
-                                <label class="control-label">Quantity</label>
-                                @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control", id = "Description" } })
+                                    <label class="control-label">Quantity</label>
+                                    @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control", id = "Description" } })
 
-                            </div>*@
+                                </div>*@
                             <div class="col-md-6">
                                 <label class="control-label">Days</label>
-                                @Html.Editor("Days", new { htmlAttributes = new { @class = "form-control", id = "Price" } })
+                                @Html.Editor("Days", new { htmlAttributes = new {type="number", @class = "form-control", id = "days", onkeyup = "blankme(this.id)" } })
+                                <small id="error_days" class="form-text error_msg">days can't the empty</small>
                             </div>
 
                             <div class="col-md-6">
                                 <label class="control-label">Daytime</label>
-                                @Html.Editor("Daytime", new { htmlAttributes = new { @class = "form-control", id = "Price" } })
-
-                                @{
-                                    List<SelectListItem> listItems = new List<SelectListItem>();
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "0-0-1",
-                                        Value = "1",
-                                        Selected = true
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "0-1-0",
-                                        Value = "2"
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "1-0-0",
-                                        Value = "3"
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "1-1-0",
-                                        Value = "4"
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "1-0-1",
-                                        Value = "5"
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "0-1-1",
-                                        Value = "6"
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "1-1-0",
-                                        Value = "7"
-                                    });
-
-                                    listItems.Add(new SelectListItem
-                                    {
-                                        Text = "1-1-1",
-                                        Value = "8"
-                                    });
-
-                                }
-
-                                @Html.DropDownList("DayTime", listItems)
-
-
-
+                                @Html.DropDownList("DayTime", new List<SelectListItem>
+                                {
+                                    new SelectListItem() {Text = "0-0-1", Value="1"},
+                                    new SelectListItem() {Text = "0-1-0", Value="1"},
+                                    new SelectListItem() {Text = "1-0-0", Value="1"},
+                                    new SelectListItem() {Text = "1-1-0", Value="2"},
+                                    new SelectListItem() {Text = "1-0-1", Value="2"},
+                                    new SelectListItem() {Text = "0-1-1", Value="2"},
+                                    new SelectListItem() {Text = "1-1-1", Value="3"},
+                                },  new { @class = "form-control", id="DayTime", onkeyup = "blankme(this.id)" })
+                                <small id="error_DayTime" class="form-text error_msg ">Daytime can't the empty</small>
                             </div>
 
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <a id="btnAdd" class="btn btn-primary">
+                        <a id="btnAddMedicine" class="btn btn-primary">
                             <span class="glyphicon glyphicon-plus"></span> Add
                         </a>
-                        <a id="BtnClose" class="btn btn-danger" data-dismiss="modal">
+                        <a id="BtnCloseMedicine" class="btn btn-danger" data-dismiss="modal">
                             <span class="glyphicon glyphicon-off"></span> Close
                         </a>
                     </div>
@@ -274,16 +239,17 @@
                         <div class="container">
                             <div class="col-md-6">
                                 <label class="control-label">Medical Test Name</label>
-                                @Html.Editor("Medicine Test Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medical Test Name", id = "name" } })
+                                @Html.Editor("Medicine Test Name", new { htmlAttributes = new { @class = "form-control", @placeholder = "Write medical Test Name", id = "Testname" } })
+                                <small id="error_Testname" class="form-text error_msg">Medicale test  can't the empty</small>
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-footer">
-                        <a id="btnAdd" class="btn btn-primary">
+                        <a id="btnAddTest" class="btn btn-primary">
                             <span class="glyphicon glyphicon-plus"></span> Add
                         </a>
-                        <a id="BtnClose" class="btn btn-danger" data-dismiss="modal">
+                        <a id="BtnCloseTest" class="btn btn-danger" data-dismiss="modal">
                             <span class="glyphicon glyphicon-off"></span> Close
                         </a>
                     </div>
@@ -293,7 +259,7 @@
     </div>
 </div>
 
-@section scripts { 
-
+@section scripts {
+    <script src="~/Scripts/prescribe.js"></script>
 
 }

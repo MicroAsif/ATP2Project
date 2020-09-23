@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DoctorConsult.Web.ViewModel;
 
 namespace DoctorConsult.Web.Controllers
 {
@@ -18,14 +19,26 @@ namespace DoctorConsult.Web.Controllers
         private readonly IDoctorProfileService _doctorProfileService;
         private readonly IPatientsConsultService _consultService;
         private readonly IPatientsConsultService _patientsConsultService;
+        private readonly IPrescriptionService _prescriptionService;
+        private readonly IMedicalTestService _testService;
+        private readonly IMedicineForPrescriptionService _medicineForPrescriptionService;
+        private readonly IPatientsProblemPageForDoctorService _patientsProblemPageForDoctorService;
 
-        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService, IDoctorProfileService doctorProfileService, IPatientsConsultService consultService, IPatientsConsultService patientsConsultService)
+
+        public PatientController(ISpecialityService specialityService, IPatientProfileService patientProfileService,
+            IDoctorProfileService doctorProfileService, IPatientsConsultService consultService,
+            IPatientsConsultService patientsConsultService, IPrescriptionService prescriptionService, IMedicalTestService testService,
+            IMedicineForPrescriptionService medicineForPrescriptionService, IPatientsProblemPageForDoctorService patientsProblemPageForDoctorService)
         {
             _specialityService = specialityService;
             _patientProfileService = patientProfileService;
             _doctorProfileService = doctorProfileService;
             _consultService = consultService;
             _patientsConsultService = patientsConsultService;
+            _prescriptionService = prescriptionService;
+            _testService = testService;
+            _medicineForPrescriptionService = medicineForPrescriptionService;
+            _patientsProblemPageForDoctorService = patientsProblemPageForDoctorService;
         }
 
         [HttpGet]
@@ -54,15 +67,44 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditProfile(PatientProfileViewModel model)
+        public ActionResult EditProfile(PatientProfileModel model)
         {
-            return View(model: model);
+            //if (model != null)
+            //{
+
+            //    _patientProfileService.Update(model);
+            //    return RedirectToAction("Profile", "Patient");
+            //}
+            if (model != null)
+            {
+                model = new PatientProfileModel()
+                {
+                    Id = 1,
+                    Name = model.Name,
+                    Password = model.Password,
+                    Age = model.Age,
+                    Email = model.Email,
+                    Birthday = model.Birthday,
+                    BloodGroup = model.BloodGroup,
+                    Gender = model.Gender,
+                    District = model.District,
+                    Division = model.Division,
+                    CreatedDate = DateTime.UtcNow,
+                    UpdatedDate = DateTime.UtcNow
+
+                };
+                _patientProfileService.Update(model);
+                return RedirectToAction("Profile", "Patient");
+            }
+            return View();
         }
 
         [HttpGet]
-        public ActionResult EditProfile()
+        [ActionName("EditProfile")]
+        public ActionResult EditProfileView(PatientProfileModel model)
         {
-            return View();
+
+            return View(model: _patientProfileService.Find(1));
         }
 
         [HttpGet]
@@ -85,20 +127,22 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult PatientsConsult()
+        public ActionResult PatientsConsult(int? doctorId)
         {
+            ViewBag.doctorId = doctorId ?? 0;
+            ViewBag.PatintId = 4;
             return View();
         }
 
         [HttpPost]
-        public ActionResult PatientsConsult(PatientsConsultModel model)
+        public ActionResult PatientsConsult(PatientsProblemPageForDoctorModel model)
         {
             if (model != null)
             {
-                model.PatientId = 1;
-                model.DoctorId = 3;
+                //model.PatintId = 1;
+                //model.DoctorId = 3;
                 model.Status = "pending";
-                _patientsConsultService.Insert(model);
+                _patientsProblemPageForDoctorService.Insert(model);
                 return RedirectToAction("PatientsConsult", "Patient");
             }
             return View(model: model);
@@ -107,7 +151,11 @@ namespace DoctorConsult.Web.Controllers
         [HttpGet]
         public ActionResult ConsultList()
         {
-            return View(_consultService.All().Include(x => x.DoctorProfileModel).ToList());
+            var a = _patientsProblemPageForDoctorService.All()
+                .Include(x => x.PatientProfile)
+                .Include(x => x.DoctorProfileModel);
+
+            return View(a);
         }
 
         [HttpGet]
@@ -117,9 +165,22 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Invoice()
+        public ActionResult Invoice(int prescribtionId)
         {
-            return View();
+            var prescribtion = _prescriptionService.All().Include(x => x.Patient).SingleOrDefault(x => x.Id == prescribtionId);
+            if (prescribtion != null)
+            {
+                prescribtion.MedicalTests = _testService.All().Where(x => x.PrescriptionId == prescribtion.Id).ToList();
+                prescribtion.Medicines = null;
+                //conflict
+                    //_medicineForPrescriptionService.All().Where(x => x.PrescriptionModel == prescribtion).ToList();
+            }
+            var invoice = new InvoiceViewModel
+            {
+                Prescribtion = prescribtion,
+                Doctor = _doctorProfileService.All().FirstOrDefault()
+            };
+            return View(invoice);
         }
 
         [HttpGet]
