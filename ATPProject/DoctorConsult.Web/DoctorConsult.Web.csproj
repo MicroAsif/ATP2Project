@@ -92,6 +92,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -367,6 +368,7 @@
     <Content Include="Content\AdminLTE\Content\custom.css" />
     <Content Include="Content\AdminLTE\Content\datepicker\datepicker\css\datepicker.css" />
     <Content Include="Content\AdminLTE\Content\datepicker\datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="Content\AdminLTE\Content\Images\doc.jpg" />
     <Content Include="Content\AdminLTE\Content\Images\User\65Adefault.png" />
     <Content Include="Content\AdminLTE\Content\Images\User\946default.png" />
     <Content Include="Content\AdminLTE\Content\Images\User\default.png" />
@@ -1202,6 +1204,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\LoginRegister.css" />
     <Content Include="Content\magic-check.css" />
     <Content Include="favicon.ico" />

@@ -18,20 +18,20 @@ namespace DoctorConsult.Core.Entity.Model
         [Required]
         public string Email { get; set; }
 
-        [Required]
+    
         public string Password { get; set; }
 
         public string Birthday { get; set; }
 
-        [Required]
+  
         public string BloodGroup { get; set; }
 
-        [Required]
+
         public string Gender { get; set; }
 
         public string Area { get; set; }
 
-        [Required]
+
         public string District { get; set; }
 
         public string Division { get; set; }

@@ -11,6 +11,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DoctorConsult.Web.Enums;
+using DoctorConsult.Core.Entity.Model.AuthenticationModels;
+using DoctorConsult.Infrustracture.Service.Helper;
+using System.Transactions;
 
 namespace DoctorConsult.Web.Controllers
 {
@@ -18,11 +21,13 @@ namespace DoctorConsult.Web.Controllers
     {
         private readonly IPatientProfileService _patientProfileService;
         private readonly IDoctorProfileService _doctorProfileService;
+        private Helper _helper;
 
         public AccountController(IPatientProfileService patientProfileService, IDoctorProfileService doctorProfileService)
         {
             _patientProfileService = patientProfileService;
             _doctorProfileService = doctorProfileService;
+            _helper = new Helper();
         }
 
         [HttpGet]
@@ -37,27 +42,6 @@ namespace DoctorConsult.Web.Controllers
         }
 
         [HttpPost]
-        //public ActionResult Login(LoginView model)
-        //{
-        //    if (ModelState.IsValid && model.UserName != null && model.Password != null)
-        //    {
-        //        if(_patientProfileService.FindByAuth(model.Email,model.Password)!=null)
-        //        {
-        //            return RedirectToAction("Index", "Patient");
-        //        }
-        //        else if (_doctorProfileService.FindByAuth(model.Email, model.Password) != null)
-        //        {
-        //            return RedirectToAction("Index", "Doctor");
-        //        }else
-        //        {
-        //            return RedirectToAction("Login", "Account");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        return View(model: model);
-        //    }
-        //}
         public ActionResult Login(LoginView loginView, string ReturnUrl = "")
         {
             if (ModelState.IsValid)
@@ -67,7 +51,7 @@ namespace DoctorConsult.Web.Controllers
                     var user = (CustomMembershipUser)Membership.GetUser(loginView.UserName, false);
                     CustomSerializeModel userModel = new CustomSerializeModel();
                     if (user != null)
-                    {                       
+                    {
                         userModel.UserId = user.UserId;
                         userModel.FirstName = user.FirstName;
                         userModel.LastName = user.LastName;
@@ -118,42 +102,91 @@ namespace DoctorConsult.Web.Controllers
         [HttpPost]
         public ActionResult Registration(RegistrationViewModel model)
         {
+            bool statusRegistration = false;
+            string messageRegistration = string.Empty;
+
             if (ModelState.IsValid)
             {
-                if (model.Type == "Doctor")
+                // Email Verification  
+                string userName = Membership.GetUserNameByEmail(model.Email);
+                if (!string.IsNullOrEmpty(userName))
                 {
-                    DoctorProfileModel doctor = new DoctorProfileModel();
-                    doctor.FullName = model.Name;
-                    doctor.Email = model.Email;
-                    doctor.Password = model.Password;
-                    doctor.Gender = "Female";
-                    doctor.Specialist = "Dentist";
-                    doctor.Location = "Rajshahi";
-                    doctor.Phone = "017XXXXXXXX";
-                    doctor.NewFee = 1000;
-                    doctor.OldFee = 750;
-                    _doctorProfileService.Insert(doctor);
-                    return RedirectToAction("Login", "Account");
+                    ModelState.AddModelError("Warning Email", "Sorry: Email already Exists");
+                    return View(model);
                 }
-                else if (model.Type == "Patient")
-                {
-                    PatientProfileModel patient = new PatientProfileModel();
-                    patient.Name = model.Name;
-                    patient.Email = model.Email;
-                    patient.Password = model.Password;
-                    patient.Gender = "Female";
-                    patient.BloodGroup = "B+";
-                    patient.District = "Dhaka";
-                    _patientProfileService.Insert(patient);
 
-                    return RedirectToAction("Login", "Account");
+                //Save User Data   
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    try
+                    {
+                        var user = new User()
+                        {
+                            Username = model.Name,
+                            Email = model.Email,
+                            Password = model.Password,
+                            ActivationCode = Guid.NewGuid(),
+                            IsActive = true
+                        };
+                        int UserId = _helper.CreateUser(user);
+                        int RoleId = _helper.GetRoleIdByRoleName(model.Type);
+                        _helper.CreateRole(UserId, RoleId);
+                        if (model.Type == "Doctor")
+                        {
+                            DoctorProfileModel doctor = new DoctorProfileModel();
+                            doctor.FullName = model.Name;
+                            doctor.Email = model.Email;
+                            doctor.Password = model.Password;
+                            //doctor.Gender = "Female";
+                            //doctor.Specialist = "Dentist";
+                            //doctor.Location = "Rajshahi";
+                            //doctor.Phone = "017XXXXXXXX";
+                            //doctor.NewFee = 1000;
+                            //doctor.OldFee = 750;
+                            _doctorProfileService.Insert(doctor);                          
+                            scope.Complete();
+                            return RedirectToAction("Login", "Account");
+                        }
+                        else if (model.Type == "Patient")
+                        {
+                            PatientProfileModel patient = new PatientProfileModel();
+                            patient.Name = model.Name;
+                            patient.Email = model.Email;
+                            patient.Password = model.Password;
+                            //patient.Gender = "Female";
+                            //patient.BloodGroup = "B+";
+                            //patient.District = "Dhaka";
+                            _patientProfileService.Insert(patient);
+                            scope.Complete();
+                            return RedirectToAction("Login", "Account");
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log error    
+                        scope.Dispose();
+                        throw ex;
+                    }
+
+
                 }
-                return RedirectToAction("Login", "Account");
+
+
+                ////Verification Email  
+                //messageRegistration = "Your account has been created successfully. ^_^";
+                //statusRegistration = true;
             }
             else
             {
-                return View(model: model);
+                messageRegistration = "Something Wrong!";
+                return View(model);
             }
+            ViewBag.Message = messageRegistration;
+            ViewBag.Status = statusRegistration;
         }
 
         [HttpGet]

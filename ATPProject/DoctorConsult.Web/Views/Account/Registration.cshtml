@@ -4,52 +4,65 @@
     ViewBag.Title = "Registration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link href="~/Content/login.css" rel="stylesheet" />
 <div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="glyphicon glyphicon-pencil">Registration</h2>
-                <br />
-                <br />
-                <div class="form-wrap">
-
-                    @using (Html.BeginForm(FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            <label for="First Name" class="sr-only">Name: </label>
-                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Name" })
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Email" class="sr-only">Email: </label>
-                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Email" })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
+    <!--
+    Author: Colorlib
+    Author URL: https://colorlib.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+    -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Creative Colorlib SignUp Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- Custom Theme files -->
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- //Custom Theme files -->
+        <!-- web font -->
+        <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+        <!-- //web font -->
+    </head>
+    <body>
+        <!-- main -->
+        <div class="main-w3layouts wrapper">
+            <h1>Doctor Consult's SignUp Form</h1>
+            <div class="main-agileinfo">
+                <div class="agileits-top">
+                    <form action="#" method="post">
+                        <input class="text" type="text" name="Name" placeholder="Username" required="">
+                        <input class="text email" type="Email" name="Email" placeholder="Email" required="">
+                        <input class="text" type="Password" name="Password" placeholder="Password" required="">
+                        <input class="text w3lpass" type="password" name="ConfirmPassword" placeholder="Confirm Password" required="">
+                        <div class="wthree-text">
                             <label for="Radio" class="sr-only">Register As: </label>
                             @Html.RadioButtonFor(m => m.Type, "Patient", false) @Html.Label("Patient")
                             @Html.RadioButtonFor(m => m.Type, "Doctor", false)  @Html.Label("Doctor")
+                            <div class="clear"> </div>
                         </div>
-                        <div class="form-group">
-                            <label for="Password" class="sr-only">Password: </label>
-                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Password" class="sr-only">Confirm Password: </label>
-                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
-                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
-                        </div>
-                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Submit">
-                    }
-
+                        <input type="submit" value="SIGNUP">
+                    </form>
+                    <p>@Html.ActionLink("Already have an account ?", "Login", "Account", new { @class = "forget" })</p>
                 </div>
-                @Html.ActionLink("Already have an account ?", "Login", "Account", new { @class = "forget" })
             </div>
+
+            <ul class="colorlib-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
-    </div>
+        <!-- //main -->
+    </body>
+</html>
 </div>

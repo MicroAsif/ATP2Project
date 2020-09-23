@@ -14,6 +14,9 @@ namespace DoctorConsult.Infrustracture.Service
 {
     public class UserService : IUserService
     {
-        
+        public void Insert(User entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

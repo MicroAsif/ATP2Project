@@ -9,6 +9,6 @@ namespace DoctorConsult.Core.Service.Interfaces
 {
     public interface IUserService
     {
-        
+        void Insert(User entity);
     }
 }

@@ -18,7 +18,7 @@ namespace DoctorConsult.Core.Entity.Model.AuthenticationModels
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public bool IsActive { get; set; }
+        public bool? IsActive { get; set; }
         public Guid ActivationCode { get; set; }
         public virtual ICollection<Role> Roles { get; set; }
     }

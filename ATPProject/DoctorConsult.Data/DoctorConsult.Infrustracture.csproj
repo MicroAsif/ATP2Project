@@ -54,6 +54,14 @@
     <Compile Include="Migrations\202009221918201_authentication-tables.Designer.cs">
       <DependentUpon>202009221918201_authentication-tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009231525306_IsActive has been set to nullable.cs" />
+    <Compile Include="Migrations\202009231525306_IsActive has been set to nullable.Designer.cs">
+      <DependentUpon>202009231525306_IsActive has been set to nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009231534204_doctor and patient profile required removed.cs" />
+    <Compile Include="Migrations\202009231534204_doctor and patient profile required removed.Designer.cs">
+      <DependentUpon>202009231534204_doctor and patient profile required removed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +78,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009221918201_authentication-tables.resx">
       <DependentUpon>202009221918201_authentication-tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231525306_IsActive has been set to nullable.resx">
+      <DependentUpon>202009231525306_IsActive has been set to nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009231534204_doctor and patient profile required removed.resx">
+      <DependentUpon>202009231534204_doctor and patient profile required removed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

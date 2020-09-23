@@ -2,42 +2,67 @@
 
 @{
     ViewBag.Title = "Login";
+
 }
+<link href="~/Content/login.css" rel="stylesheet" />
 
-<div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="glyphicon glyphicon-log-in">Login</h2>
-                <br />
-                <br />
-                <div class="form-wrap">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creative Colorlib SignUp Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+</head>
+<body>
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        <div class="main-w3layouts wrapper">
+            <h1>Doctor Consultant</h1>
+            <div class="main-agileinfo">
+                <div class="agileits-top">
+                    <form action="#" method="post">
+                        <input class="text" type="text" name="UserName" placeholder="UserName" required><br />
+                        <input class="text" type="Password" name="Password" placeholder="Password" required>
 
-                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "somebody@example.com" })
-                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group">
-                            <label for="key" class="sr-only">Password</label>
-                            @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
-                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                        </div>
-                        @*<div class="checkbox">
-                                <span class="character-checkbox" onclick="showPassword()"></span>
-                                <span class="label">Show password</span>
-                            </div>*@
-                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
-                    }
-
-                    @Html.ActionLink("Forgot password ?", "ForgetPassword", "Account", new { @class = "forget" })</br>
-                    @Html.ActionLink("Create an account?", "Registration", "Home", new { @class = "forget" })
-                    <hr />
+                        <input type="submit" value="Login">
+                    </form>
+                    <p> <a>@Html.ActionLink("Don't have an Account? Register Now!", "Registration", "Home", new { @class = "forget" })</a></p>
                 </div>
-            </div> <!-- /.col-xs-12 -->
-        </div> <!-- /.row -->
+            </div>
+            <ul class="colorlib-bubbles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
-</div>
+    <!-- //main -->
+</body>
+</html>

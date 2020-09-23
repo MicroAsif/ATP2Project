@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace DoctorConsult.Web.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         [HttpGet]
