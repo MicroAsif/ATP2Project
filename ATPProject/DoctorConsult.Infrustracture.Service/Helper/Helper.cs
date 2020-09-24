@@ -94,7 +94,7 @@ namespace DoctorConsult.Infrustracture.Service.Helper
             List<string> list = new List<string>();
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DoctorConsultContext"].ConnectionString.ToString()))
             {
-                var sql = "EXEC GetRolesFromUsername @username";
+                var sql = "EXEC SPGetRolesFromUsername @username";
                 var values = new { username = uname };
                 var results = conn.Query(sql, values).ToList();
                 results.ForEach(r => list.Add($"{r.RoleName}"));

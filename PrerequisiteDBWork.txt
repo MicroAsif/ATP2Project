@@ -1,0 +1,15 @@
+Just run those sql to your db 
+---------------------------------------------------------------------
+
+insert into Roles ([RoleName]) VALUES ('Doctor');
+insert into Roles ([RoleName]) VALUES ('Patient');
+insert into Roles ([RoleName]) VALUES ('Admin');
+
+-----------------------------------------------------------------------
+
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SPGetRolesFromUsername] @username varchar(255)
+AS
+Select RoleName from Roles where RoleId in (select Role_RoleId from UserRoles where User_UserId in ( select UserId from Users where Username = @username))
