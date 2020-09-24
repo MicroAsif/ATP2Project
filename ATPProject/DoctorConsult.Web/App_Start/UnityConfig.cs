@@ -1,7 +1,7 @@
-using System;
-using DoctorConsult.Core.Entity.Model;
 using DoctorConsult.Core.Service.Interfaces;
 using DoctorConsult.Infrustracture.Service;
+using System;
+
 using Unity;
 
 namespace DoctorConsult.Web
@@ -45,12 +45,11 @@ namespace DoctorConsult.Web
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
 
-
             container.RegisterType<IMedicineService, MedicineService>();
             container.RegisterType<ILocationService, LocationService>();
             container.RegisterType<ISpecialityService, SpecialityService>();
 
-            container.RegisterType<IAdminProfileService,AdminService>();
+            container.RegisterType<IAdminProfileService, AdminService>();
             container.RegisterType<ICampaignService, CampaignService>();
             container.RegisterType<IDoctorProfileService, DoctorService>();
 
@@ -66,7 +65,6 @@ namespace DoctorConsult.Web
             container.RegisterType<IPatientsProblemPageForDoctorService, PatientsProblemService>();
 
             container.RegisterType<IUserService, UserService>();
-
 
         }
     }
